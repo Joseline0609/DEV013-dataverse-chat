@@ -1,6 +1,6 @@
 import { navigateTo } from "../router.js";
 import EmptyApiKey from "../components/EmptyApiKey.js";
-import NotValidApiKey from "../components/EmptyApiKey.js";
+import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export default function NotFound() {
   const viewNotFound = document.createElement("div");

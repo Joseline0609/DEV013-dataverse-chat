@@ -1,132 +1,253 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Header styles */
+
+header {
+  /* background-color: aquamarine; */
+  padding: 5px;
+  margin: auto;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+header img {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+header h1 {
+  margin: 10px;
+  font-family: "Marcellus", serif;
+  text-transform: uppercase;
+  font-size: 33px;
+  margin-top: 10px;
+}
+
+/* Search by name styles */
+
+aside.search-by-name.container {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-right: 810px;
+  margin-top: 37px;
+}
+
+.search-container input {
+  /* background-color: #AF4401; */
+  width: 150px;
+  border-radius: 5px;
+  border: #8a988c solid 0.5px;
+  box-shadow: 1px 1px 5px gray;
+  font-size: small;
+  font-weight: bold;
+  padding: 3px 5px;
+}
+
+/* Categories menu styles */
+
+.category-menu {
+  /* background-color: blue; */
+  padding: 5px;
+  width: 610px;
+  font-family: "Marcellus", serif;
+  position: relative;
+  margin: auto;
+  margin-top: -55px;
+  left: 27px;
+}
+
+.category-nav {
+  /* background-color: palevioletred; */
+  display: inline-flex;
+  padding: 5px;
+  width: 600px;
+}
+
+.item-aside {
+  /* background-color: antiquewhite; */
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-aside input[type="image"] {
+  /* background-color: black; */
+  width: 50px;
+  height: 50px;
+}
+
+/* Order by drop button styles */
+
+.order-by {
+  display: flex;
+  justify-content: center;
+  margin-left: 760px;
+  margin-top: -50px;
+}
+
+.order-by label {
+  background-color: #c4cbc5;
+  border-radius: 5px;
+  border: #8a988c solid 1px;
+  box-shadow: 1px 1px 5px gray;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  width: 100px;
+  height: 20px;
+}
+
+.order-by #item-order {
+  margin: 0 -90px;
+  width: 100px;
+}
+
+select {
+  width: 80px;
+  height: 20px;
+  border: #8a988c solid 1px;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
+}
+
+select#item-order {
+  opacity: 0;
+  margin: 5px 0 0 -140px;
+}
 
 #root {
-    /* background-color: #AF4401; */
-    width: 90%;
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    padding: 10px;  
+  /* background-color: #AF4401; */
+  width: 90%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding: 10px;
 }
 
 ul {
-    /* background-color: purple; */
-    list-style: none;
-    width: 90%;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
+  /* background-color: purple; */
+  list-style: none;
+  width: 90%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-
-  /* Card styles */
+/* Card styles */
 
 .card-container {
-    /* background-color: #EBD0BF; */
-    padding: 5px;
-    width: 276px;
-    border-radius: 10px;
-    height: 481px;
-    margin: 30px 40px;
-    box-shadow: 2px 2px 5px gray;
+  /* background-color: #EBD0BF; */
+  padding: 5px;
+  width: 276px;
+  border-radius: 10px;
+  height: 481px;
+  margin: 30px 40px;
+  box-shadow: 2px 2px 5px gray;
 }
 
 li.card-container.ornamental {
-    background-color: #C4CBC5;
+  background-color: #c4cbc5;
 }
 
 li.card-container.medicinal {
-    background-color: #D3DBC6;
+  background-color: #d3dbc6;
 }
 
 li.card-container.desertica {
-    background-color: #F3F2D3;
+  background-color: #f3f2d3;
 }
 
 li.card-container.arboles {
-    background-color: #F9EDD5;
+  background-color: #f9edd5;
 }
 
 li.card-container.aromatica {
-    background-color: #EBD0BF;
+  background-color: #ebd0bf;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 /* Front card styles */
 
 #front-card {
-    /* background-color: #EBD0BF; */
-    padding: 5px;
-    height: 458px;
-    margin: auto;
+  /* background-color: #EBD0BF; */
+  padding: 5px;
+  height: 458px;
+  margin: auto;
 }
 
 #front-card h2 {
-    /* background-color: aqua; */
-    text-align: center;
-    font-family: 'Marcellus', serif;
-    color: #AF4401;
-    padding: 10px;
+  /* background-color: aqua; */
+  text-align: center;
+  font-family: "Marcellus", serif;
+  color: #af4401;
+  padding: 10px;
 }
 
 #front-card .top-card {
-    /* background-color: black; */
-    display: flex;
-    margin: 5px 0 10px 1px;
+  /* background-color: black; */
+  display: flex;
+  margin: 5px 0 10px 1px;
 }
 
 #front-card img {
-    margin: 0;
-    /* background-color: #AF4401; */
+  margin: 0;
+  /* background-color: #AF4401; */
 }
 
 #front-card .top-card dl {
-    /* background-color: aqua; */
-    text-align: center;
-    margin: 10px 0 0 25px;
-    height: 234px;
+  /* background-color: aqua; */
+  text-align: center;
+  margin: 10px 0 0 25px;
+  height: 234px;
 }
 
 #front-card .top-card dt {
-    /* background-color: #AF4401; */
-    font-size: small;
-    margin: 10px 0 5px 0;
+  /* background-color: #AF4401; */
+  font-size: small;
+  margin: 10px 0 5px 0;
 }
 
 #front-card .top-card .amounts dd {
-    padding: 5px;
-    /* background-color: blue; */
-    border-radius: 5px;
-    border: #8A988C .5px solid;
-    box-shadow: 1px 1px 5px grey;
-    height: 40px;
+  padding: 5px;
+  /* background-color: blue; */
+  border-radius: 5px;
+  border: #8a988c 0.5px solid;
+  box-shadow: 1px 1px 5px grey;
+  height: 40px;
 }
 
 #front-card .top-card .amounts img {
-    /* background-color: white; */
-    width: 20px;
-    height: 20px;
-    margin: 4px 0;
+  /* background-color: white; */
+  width: 20px;
+  height: 20px;
+  margin: 4px 0;
 }
 
 #front-card .amounts img.inactiva {
-    opacity: .5;
+  opacity: 0.5;
 }
 
 #front-card p {
-    /* background-color: aliceblue; */
-    padding: 5px;
-    margin: 10px 0;
-    font-size: 15px;
-    height: 80px;
+  /* background-color: aliceblue; */
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 15px;
+  height: 80px;
 }
 
 #front-card .buttons-container {
@@ -160,4 +281,21 @@ li.card-container.aromatica {
     border: none;
     appearance: none;
     background-color: inherit;
+/* Footer styles */
+
+footer {
+  bottom: 0px;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  background-color: #d7a180;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+footer h3 {
+  font-family: "Marcellus", serif;
+  margin: 14px 0 7px 0;
 }

@@ -1,7 +1,7 @@
 export default function EmptyApiKey() {
   const viewEmptyModal = document.createElement("dialog");
   viewEmptyModal.innerHTML += `
-  <form>
+  <form id="epmty-apikey">
   <form method="dialog">
     <p>
       No has ingresado una llave <br />

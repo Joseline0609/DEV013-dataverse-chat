@@ -1,7 +1,7 @@
 export default function NotValidApiKey() {
   const viewValidModal = document.createElement("dialog");
   viewValidModal.innerHTML += `
-  <form>
+  <form id="not-valid">
     <form method="dialog">
       <p>
       Tu llave no abre esta zona del jardín. <br/>

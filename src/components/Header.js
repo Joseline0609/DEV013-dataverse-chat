@@ -1,5 +1,9 @@
-export default function creatingHeaderFromComponents() {
-  const header = document.createElement("h1");
-  header.innerHTML = "My Beauty Plants form components";
-  return header;
+export function Header() {
+  const viewHeader = document.createElement("header");
+  viewHeader.innerHTML += `
+  <img class="logo" src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Logo.png?raw=true" alt="Logo">
+  <h1 class="logo">My Beauty Plants</h1>
+  `;
+
+  return viewHeader;
 }
