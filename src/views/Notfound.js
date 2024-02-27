@@ -4,6 +4,7 @@ import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export default function NotFound() {
   const viewNotFound = document.createElement("div");
+  viewNotFound.className = "not-found";
 
   viewNotFound.innerHTML += `
     <h1>404</h1>
