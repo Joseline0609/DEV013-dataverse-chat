@@ -2,9 +2,10 @@ import { navigateTo } from "../router.js";
 
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
+  viewWelcome.className="welcome";
 
   viewWelcome.innerHTML = `
-    <div id="welcome-upper">
+    <div id="welcome-upper" class="welcome-upper">
       <section id="welcome-brand">
         <div class="brand-logo">
           <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Logo.png?raw=true"

@@ -4,6 +4,54 @@
   box-sizing: border-box;
 }
 
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+div#root {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* Welcome styles*/
+
+section.welcome {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: white;
+  border: 10px solid #bf8e72;
+}
+
+/* Crea un div interno con fondo blanco y esquinas redondeadas */
+div.welcome-upper {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* Usa la propiedad border-radius para redondear las esquinas del div */
+  border-radius: 10px;
+}
+
+/*section.welcome {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: white;
+  outline: 15px solid #bf8e72;
+  outline-offset: -10px;
+  border-radius: 20px;
+}
+
+.welcome-upper {
+    width: 100%;
+    height: 100%;
+    background-color: #BF8E72;
+}*/
+
 /* Header styles */
 
 header {
@@ -251,36 +299,40 @@ li.card-container.aromatica {
 }
 
 #front-card .buttons-container {
-    /* background-color: black; */
-    display: flex;
-    justify-content: center;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
 }
 
 #front-card .individual-chat-button {
-    background-color: #D7A180;
-    width: 137px;
-    height: 32px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 2px 2px 5px grey;
+  background-color: #d7a180;
+  width: 137px;
+  height: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 5px grey;
 }
 
 #front-card .buttons-container img {
-    /* background-color: white; */
-    width: 40px;
-    height: 40px;
-    margin: 4px 0;
+  /* background-color: white; */
+  width: 40px;
+  height: 40px;
+  margin: 4px 0;
 }
 
- .homeButton, .groupButton, .individual-chat, .statics-button{
-    border: none;
-    appearance: none;
-    background-color: inherit;
+.homeButton,
+.groupButton,
+.individual-chat,
+.statics-button {
+  border: none;
+  appearance: none;
+  background-color: inherit;
+}
 /* Footer styles */
 
 footer {
