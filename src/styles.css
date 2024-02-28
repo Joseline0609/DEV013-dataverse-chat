@@ -391,7 +391,7 @@ dialog.modal {
     background-repeat: no-repeat;
     position: absolute;
     padding: 100%;
-    left: 250px;
+    left: 280px;
     background-size: 25%;
   }
 }
@@ -436,10 +436,33 @@ dialog.modal a {
 dialog.modal img {
   height: 30px;
   width: 30px;
-  margin: -33px -233px 33px 233px;
+  margin: -37px -232px 35px 232px;
 }
 
 dialog.valid-key.modal {
+  background-color: #ebd0bf;
+  border: 6px solid #af4401;
+}
+
+dialog.valid-key.modal p {
+  font-weight: bold;
+  color: #000;
+}
+
+dialog.valid-key.modal input {
+  border: 4px solid #af4401;
+}
+
+dialog.valid-key.modal button {
   background-color: #af4401;
-  border: 6px solid #d3dbc6;
+  color: white;
+}
+
+dialog.valid-key.modal a {
+  color: #af4401;
+}
+
+dialog.valid-key.modal::before {
+  background-image: url(./Resources/DV\ Chat/apikey-background-red.png);
+  opacity: 0.25;
 }

@@ -42,6 +42,7 @@ export default function NotFound() {
   openModal2Button.addEventListener("click", () => {
     const viewModal2 = NotValidApiKey();
     openModal2Button.appendChild(viewModal2);
+    console.log("mostrando");
     viewModal2.showModal();
   });
 
