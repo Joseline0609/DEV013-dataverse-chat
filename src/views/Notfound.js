@@ -13,7 +13,7 @@ export default function NotFound() {
       Lamentamos que hayas<br />
       llegado al final del jardín
     </p>
-    <p>Para ver más plantas</p>
+    <p class="instruction">Para ver más plantas</p>
   `;
 
   const homeButton = document.createElement("button");

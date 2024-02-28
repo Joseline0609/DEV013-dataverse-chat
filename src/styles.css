@@ -8,6 +8,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
+  font-family: "Lato", sans-serif;
 }
 
 div#root {
@@ -325,19 +326,50 @@ div.not-found {
   height: 100%;
   margin-top: -10px;
   background-color: #f3f2d3;
-  background-image: url(./Resources/DV\ Chat/error-background.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: inherit;
-  background-size: contain;
-  max-width: 100%;
-  max-height: 100%;
-  /* width: 500px; */
-  /* height: 500px; */ */
-  /* margin: 0; */
+  padding: 8%;
+  &::before {
+    content: "";
+    background-image: url(./Resources/DV\ Chat/error-background.png);
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    position: absolute;
+    padding: 100%;
+    left: 200px;
+    top: 50px;
+  }
 }
 
 div.not-found h1 {
-  
-  color: #8A988C;
+  position: relative;
+  color: #8a988c;
+  font-family: "Marcellus", serif;
+  font-size: 70px;
+  margin: 0 0 30px 150px;
+}
+
+div.not-found p {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+div.not-found p.instruction {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+div.not-found button {
+  position: relative;
+  background-color: #8a988c;
+  color: white;
+  width: 250px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-size: 15px;
+  margin: 50px 0 50px 100px;
 }
