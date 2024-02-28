@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+div#root {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 /* Header styles */
 
 header {
@@ -251,36 +264,41 @@ li.card-container.aromatica {
 }
 
 #front-card .buttons-container {
-    /* background-color: black; */
-    display: flex;
-    justify-content: center;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
 }
 
 #front-card .individual-chat-button {
-    background-color: #D7A180;
-    width: 137px;
-    height: 32px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 2px 2px 5px grey;
+  background-color: #d7a180;
+  width: 137px;
+  height: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 5px grey;
 }
 
 #front-card .buttons-container img {
-    /* background-color: white; */
-    width: 40px;
-    height: 40px;
-    margin: 4px 0;
+  /* background-color: white; */
+  width: 40px;
+  height: 40px;
+  margin: 4px 0;
 }
 
- .homeButton, .groupButton, .individual-chat, .statics-button{
-    border: none;
-    appearance: none;
-    background-color: inherit;
+.homeButton,
+.groupButton,
+.individual-chat,
+.statics-button {
+  border: none;
+  appearance: none;
+  background-color: inherit;
+}
+
 /* Footer styles */
 
 footer {
@@ -298,4 +316,247 @@ footer {
 footer h3 {
   font-family: "Marcellus", serif;
   margin: 14px 0 7px 0;
+}
+
+/* 404 styles */
+
+div.not-found {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: -10px;
+  background-color: #f3f2d3;
+  padding: 8%;
+  &::before {
+    content: "";
+    background-image: url(./Resources/DV\ Chat/error-background.png);
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    position: absolute;
+    padding: 100%;
+    left: 200px;
+    top: 50px;
+  }
+}
+
+div.not-found h1 {
+  position: relative;
+  color: #8a988c;
+  font-family: "Marcellus", serif;
+  font-size: 70px;
+  margin: 0 0 30px 150px;
+}
+
+div.not-found p {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+div.not-found p.instruction {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+div.not-found button {
+  position: relative;
+  background-color: #8a988c;
+  color: white;
+  width: 250px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-size: 15px;
+  margin: 50px 0 50px 100px;
+}
+
+/* Apikay error modals styles */
+
+dialog.modal {
+  margin: auto;
+  background-color: #153119;
+  border: 6px solid #ebd0bf;
+  border-radius: 30px;
+  width: 550px;
+  height: 250px;
+  justify-content: center;
+  color: whitesmoke;
+  &::before {
+    content: "";
+    background-image: url(./Resources/DV\ Chat/apikey-background.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    padding: 100%;
+    left: 280px;
+    background-size: 25%;
+  }
+}
+
+dialog.modal p {
+  position: relative;
+  text-transform: none;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 15px 0 10px 0;
+}
+
+dialog.modal input {
+  position: relative;
+  outline-style: none;
+  height: 33px;
+  width: 250px;
+  padding: 5px;
+  border: 4px solid #ebd0bf;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+dialog.modal button {
+  background-color: #ebd0bf;
+  width: 100px;
+  margin: 32px 0 0px 0;
+  color: #153119;
+  font-weight: bold;
+}
+
+dialog.modal p.link {
+  font-size: 14px;
+}
+
+dialog.modal a {
+  font-weight: bolder;
+  color: #ebd0bf;
+  font-size: 16px;
+}
+
+dialog.modal img {
+  height: 30px;
+  width: 30px;
+  margin: -37px -232px 35px 232px;
+}
+
+dialog.valid-key.modal {
+  background-color: #ebd0bf;
+  border: 6px solid #af4401;
+}
+
+dialog.valid-key.modal p {
+  font-weight: bold;
+  color: #000;
+}
+
+dialog.valid-key.modal input {
+  border: 4px solid #af4401;
+}
+
+dialog.valid-key.modal button {
+  background-color: #af4401;
+  color: white;
+}
+
+dialog.valid-key.modal a {
+  color: #af4401;
+}
+
+dialog.valid-key.modal::before {
+  background-image: url(./Resources/DV\ Chat/apikey-background-red.png);
+  opacity: 0.25;
+}
+
+/* Individual chat view styles */
+
+div.chat-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: -10px;
+  background-color: #f9edd5;
+  padding: 70px;
+  &::before {
+    content: "";
+    background-image: url(./Resources/DV\ Chat/individual-background.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    padding: 100%;
+    left: 600px;
+    top: 100px;
+  }
+}
+
+div.chat-area {
+  position: relative;
+  background-color: white;
+  width: 400px;
+  height: 600px;
+  border-radius: 0 90px;
+  margin-top: 50px;
+  padding: 0 10px;
+}
+
+div.info-area {
+  height: 50px;
+  display: flex;
+  width: 390px;
+}
+
+div.info-area img {
+  margin: -60px 0 0 -20px;
+}
+
+div.info-area h1 {
+  font-family: "Marcellus", serif;
+  text-transform: uppercase;
+  margin-top: -55px;
+  font-size: 20px;
+  width: 280px;
+  color: #af4401;
+}
+
+div.info-area div.info-area p {
+  width: 280px;
+}
+
+div.chat-container {
+  height: 500px;
+}
+
+textarea.user-text {
+  margin: 15px 0 0 80px;
+  height: 50px;
+  width: 310px;
+}
+
+.plant-message p {
+  background-color: #c4cbc5;
+  max-width: 80%;
+  margin: 10px 0 0 15px;
+  padding: 5px 10px;
+  border-radius: 10px 10px 10px 0;
+}
+
+.plant-message img {
+  margin-top: -10;
+  margin-left: -10px;
+}
+
+.user-message {
+  background-color: #d3dbc6;
+  max-width: 80%;
+  margin: 0 0 10px 65px;
+  border-radius: 10px 10px 0 10px;
+  padding: 5px 10px;
+}
+
+button.send-button {
+  margin: 0 0 0 400px;
+  position: fixed;
+}
+
+.homeButton,
+.groupButton {
+  display: none;
 }
