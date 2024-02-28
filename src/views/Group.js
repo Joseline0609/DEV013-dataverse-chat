@@ -4,13 +4,16 @@ export const GroupChat = () =>  {
   const viewGroupChat = document.createElement("section");
   const main = document.createElement("main");
 
-  viewGroupChat.innerHTML = ` <section id="chat-area" class="chat-area">
-    <h1 id="title">Chat Grupal</h1>
+  viewGroupChat.innerHTML = `<div class="group-view">
+  <section id="chat-area" class="chat-area">
+    <div class="title">
+  <h1 id="title">Chat Grupal</h1>
+  </div>
     <div class="message-area">Zona de Mensajeria</div>
   </section>
 
   <section id="carrusel">
-    <img src="image.png" alt="fondo-chat-grupal"/>
+
     <h4>Puedes iniciar tu chat con estas tematicas</h4>
     <ul>
       <li>Familia Botanica</li>
@@ -20,6 +23,10 @@ export const GroupChat = () =>  {
       <li>Usos</li>
     </ul>
   </section>
+  <div class="group-background">
+    <img src="image.png" alt="fondo-chat-grupal"/>
+  </div>
+  </div>
   `;
 
   viewGroupChat.append(main, HomeIconButton());

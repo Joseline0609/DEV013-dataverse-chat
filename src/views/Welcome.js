@@ -5,8 +5,9 @@ export const Welcome = () => {
   viewWelcome.className="welcome";
 
   viewWelcome.innerHTML = `
+  <div class="welcome-principal">
     <div id="welcome-upper" class="welcome-upper">
-      <section id="welcome-brand">
+      <section id="welcome-brand" class="welcome-brand">
         <div class="brand-logo">
           <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Logo.png?raw=true"
             style="width:50px; heigth:50xp;" alt="Logo">
@@ -15,20 +16,28 @@ export const Welcome = () => {
           <h2>My Beauty Plants</h2>
         </div>
       </section>
-      <div id="greeting-container">
+      <div id="greeting-container" class="greeting-container">
         <h1 id="greeting">Bienvenida</h1>
-        <p>a nuestro jardín</p>
+        <p class="continue">a nuestro jardín</p>
       </div>
       <form action="">
+      <div name="name" class="name">
         <input class="input" type=text placeholder="Por favor ingresa tu nombre..." /><br/>
-        <label for="apikey">Para acceder a todas las funcionaliddes:<label><br/>
+      </div>
+      <div name="apikey" class="apikey">
+        <label for="apikey">Para acceder a todas las funcionalidades:<label><br/>
           <input class="input" type=text name="apikey" id="apikey" placeholder="Ingresa tu llave... (opcional)" /><br/>
-          <p>Si no tienes una apikey <br/>
-            solicitala haciendo click
-            <a href="https://platform.openai.com/docs/overview">aquí</a>
+          </div>
+          <p class="create-apikey">Si no tienes una apikey solicítala <br/>
+            haciendo click
+            <a href="https://platform.openai.com/docs/overview">Aquí</a>
           </p>
-          <button id="enter-button">Iniciar</button>
+          <button id="enter-button" class="enter-button">Iniciar</button>
       </form>
+  </div>
+      <div class="welcome-background">
+        <img alt="Background" src="../Resources/DV Chat/welcome-background.png"/>
+      </div>
     </div>
   `;
 
