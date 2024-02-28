@@ -1,5 +1,6 @@
 export default function NotValidApiKey() {
   const viewValidModal = document.createElement("dialog");
+  viewValidModal.className = "valid-key modal";
   viewValidModal.innerHTML += `
   <form id="not-valid">
     <form method="dialog">
@@ -13,6 +14,7 @@ export default function NotValidApiKey() {
       Si no tienes una llave solicítala <br />
       haciendo click <a href="https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt" target="_blank">aquí</a>
     </p>
+    <img class="close-icon" alt="Cerrar" src="Resources/DV Chat/Close.png">
     </form>
       `;
 
