@@ -4,15 +4,18 @@ import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export default function IndividualChat() {
   const viewIndividualChat = document.createElement("div");
+  viewIndividualChat.className = "chat-container";
 
   viewIndividualChat.innerHTML += `
-    <div id="chat-area">
-      <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true">
-      <h1>Plant Name</h1>
-      <p>Short description Lorem Ipsum es<br/>
-        simplemente el texto de relleno de<br/>
-        las imprentas y archivos de texto.
-      </p>
+    <div id="chat-area" class="chat-area">
+      <div id="info-area" class="info-area">
+        <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true">
+        <h1>Plant Name</h1>
+        <p>Short description Lorem Ipsum es<br/>
+          simplemente el texto de relleno de<br/>
+          las imprentas y archivos de texto.
+        </p>
+      </div>
       <div id="chat-container">
         <div class="plant-message">
           <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
@@ -25,8 +28,8 @@ export default function IndividualChat() {
           <p>Hi plant, I want to know how much water you need</p>
         </div>
       </div>
-      <textarea placeholder="..." id="user-text" required></textarea>
-<!--<button type="submit" id="send-button" class="send-button">Send</button>-->
+        <textarea placeholder="..." id="user-text" required></textarea>
+      </div>
     </div>
   `;
   viewIndividualChat.append(HomeIconButton(), GroupIconButton());
