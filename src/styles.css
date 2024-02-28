@@ -469,13 +469,13 @@ dialog.valid-key.modal::before {
 
 /* Individual chat view styles */
 
-div.chat-container {
+div.chat-wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
   margin-top: -10px;
   background-color: #f9edd5;
-  padding: 8%;
+  padding: 70px;
   &::before {
     content: "";
     background-image: url(./Resources/DV\ Chat/individual-background.png);
@@ -493,4 +493,70 @@ div.chat-area {
   width: 400px;
   height: 600px;
   border-radius: 0 90px;
+  margin-top: 50px;
+  padding: 0 10px;
+}
+
+div.info-area {
+  height: 50px;
+  display: flex;
+  width: 390px;
+}
+
+div.info-area img {
+  margin: -60px 0 0 -20px;
+}
+
+div.info-area h1 {
+  font-family: "Marcellus", serif;
+  text-transform: uppercase;
+  margin-top: -55px;
+  font-size: 20px;
+  width: 280px;
+  color: #af4401;
+}
+
+div.info-area div.info-area p {
+  width: 280px;
+}
+
+div.chat-container {
+  height: 500px;
+}
+
+textarea.user-text {
+  margin: 15px 0 0 80px;
+  height: 50px;
+  width: 310px;
+}
+
+.plant-message p {
+  background-color: #c4cbc5;
+  max-width: 80%;
+  margin: 10px 0 0 15px;
+  padding: 5px 10px;
+  border-radius: 10px 10px 10px 0;
+}
+
+.plant-message img {
+  margin-top: -10;
+  margin-left: -10px;
+}
+
+.user-message {
+  background-color: #d3dbc6;
+  max-width: 80%;
+  margin: 0 0 10px 65px;
+  border-radius: 10px 10px 0 10px;
+  padding: 5px 10px;
+}
+
+button.send-button {
+  margin: 0 0 0 400px;
+  position: fixed;
+}
+
+.homeButton,
+.groupButton {
+  display: none;
 }
