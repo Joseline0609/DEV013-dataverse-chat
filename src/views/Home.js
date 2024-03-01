@@ -5,7 +5,6 @@ import { Header } from "../components/Header.js";
 import { SearchByName } from "../components/SearchByNameInput.js";
 import { OrderBySelect } from "../components/OrderBySelect.js";
 import { FilterByMenu } from "../components/FilterByMenu.js";
-//import { navigateTo } from "../router.js";
 
 export const Home = () => {
   const viewHome = document.createElement("section");

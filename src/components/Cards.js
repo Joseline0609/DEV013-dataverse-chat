@@ -1,4 +1,3 @@
-//import { GroupIconButton } from "../components/GroupIconButton.js";
 import { data } from "../data/data.js";
 import { navigateTo } from "../router.js";
 
