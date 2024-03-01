@@ -34,8 +34,9 @@ export default function IndividualChat() {
       </div>
         <textarea placeholder="..." id="user-text" class="user-text" required></textarea>
     </div>
+        <div class="individual-view-buttons">
+        </div>
   `;
-  viewIndividualChat.append(HomeIconButton(), GroupIconButton());
 
   // const groupButton = document.createElement("button");
   // viewIndividualChat.appendChild(groupButton);
@@ -80,6 +81,15 @@ export default function IndividualChat() {
     newMessage.value = `...`;
     //darle funcion al enter
   });
+  // const buttons = viewIndividualChat.querySelector(
+  //   ".individual-view-buttons"
+  // );
+  const returnButtons= document.createElement("div");
+  returnButtons.className="return-buttons";
+  returnButtons.append(HomeIconButton(), GroupIconButton()); 
+
+  viewIndividualChat.appendChild(returnButtons);
+  //console.log(returnButtons);
 
   return viewIndividualChat;
 }

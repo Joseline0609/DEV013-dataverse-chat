@@ -36,7 +36,7 @@ export const data = [
     botanicalFamily: "Asphodelaceae",
     birthPlace: "Península Arábiga",
     maintenanceNeeds: "Riego escaso y exposición a pleno sol o sombra parcial.",
-    scientificName: "Aloe barbadensis miller",
+    scientificName: "Aloe Barbadensis Miller",
     applicationsPlant: "Productos medicinales y cosméticos, jardinería.",
     climaticData: "Resistente a la sequía, prefiere climas cálidos.",
     facts: {
@@ -84,7 +84,7 @@ export const data = [
     botanicalFamily: "Cactaceae",
     birthPlace: "Desierto de Sonora",
     maintenanceNeeds: "Mínimo riego, evitar temperaturas bajo cero.",
-    scientificName: "Carnegiea gigantea",
+    scientificName: "Carnegiea Gigantea",
     applicationsPlant: "Jardinería desértica, simbolismo cultural.",
     climaticData: "Resistente a la sequía, prefiere climas cálidos y secos.",
     facts: {
@@ -152,7 +152,7 @@ export const data = [
     botanicalFamily: "Asteraceae",
     birthPlace: "Europa y Asia occidental",
     maintenanceNeeds: "Necesita sol pleno y suelo bien drenado.",
-    scientificName: "Matricaria chamomilla",
+    scientificName: "Matricaria Chamomilla",
     applicationsPlant: "Infusiones, remedios naturales, cosmética.",
     climaticData: "Prefiere climas templados y suelo bien drenado.",
     facts: {
@@ -176,7 +176,7 @@ export const data = [
     birthPlace: "India, Asia Sudoriental",
     maintenanceNeeds:
       "Requiere sol pleno y riego regular, evitar exceso de humedad.",
-    scientificName: "Ocimum basilicum",
+    scientificName: "Ocimum Basilicum",
     applicationsPlant: "Cocina, jardinería ornamental, aceites esenciales.",
     climaticData: "Prefiere climas cálidos y suelo bien drenado.",
     facts: {
@@ -198,7 +198,7 @@ export const data = [
     botanicalFamily: "Fouquieriaceae",
     birthPlace: "Suroeste de Estados Unidos y México",
     maintenanceNeeds: "Requiere poca agua y suelo bien drenado.",
-    scientificName: "Fouquieria splendens",
+    scientificName: "Fouquieria Splendens",
     applicationsPlant: "Jardinería xerófila, ornamentación, cercas vivas.",
     climaticData:
       "Adaptable a condiciones áridas, prefiere suelo bien drenado.",
@@ -221,7 +221,7 @@ export const data = [
     botanicalFamily: "Salicaceae",
     birthPlace: "China",
     maintenanceNeeds: "Prefiere suelos húmedos y pleno sol.",
-    scientificName: "Salix babylonica",
+    scientificName: "Salix Babylonica",
     applicationsPlant: "Jardinería paisajista, estabilización de suelos.",
     climaticData: "Prefiere suelos húmedos, cercanos a cuerpos de agua.",
     facts: {
@@ -267,7 +267,7 @@ export const data = [
     birthPlace: "América del Norte",
     maintenanceNeeds:
       "Resistente a sequías, requiere poco cuidado una vez establecida.",
-    scientificName: "Echinacea purpurea",
+    scientificName: "Echinacea Purpurea",
     applicationsPlant: "Suplementos de salud, jardinería ornamental.",
     climaticData: "Resistente a climas variados, prefiere suelo bien drenado.",
     facts: {
@@ -290,7 +290,7 @@ export const data = [
     botanicalFamily: "Apiaceae",
     birthPlace: "Regiones mediterráneas, Europa del Sur",
     maintenanceNeeds: "Sembrar sucesivamente y evitar el exceso de calor.",
-    scientificName: "Coriandrum sativum",
+    scientificName: "Coriandrum Sativum",
     applicationsPlant: "Cocina, medicina natural, aromaterapia.",
     climaticData: "Prefiere climas templados y suelo bien drenado.",
     facts: {
@@ -312,7 +312,7 @@ export const data = [
     botanicalFamily: "Asparagaceae",
     birthPlace: "México",
     maintenanceNeeds: "Riego limitado, resistente a la sequía y al calor.",
-    scientificName: "Agave tequilana",
+    scientificName: "Agave Tequilana",
     applicationsPlant: "Producción de tequila, jardinería ornamental.",
     climaticData: "Prefiere climas secos y suelos bien drenados.",
     facts: {
@@ -336,7 +336,7 @@ export const data = [
     birthPlace: "Costa oeste de Estados Unidos",
     maintenanceNeeds:
       "Necesita mucho espacio para crecer, prefiere suelo húmedo.",
-    scientificName: "Sequoia sempervirens",
+    scientificName: "Sequoia Sempervirens",
     applicationsPlant: "Conservación de la naturaleza, atractivo turístico.",
     climaticData: "Prefiere climas húmedos y neblinosos.",
     facts: {
@@ -359,7 +359,7 @@ export const data = [
     botanicalFamily: "Amaryllidaceae",
     birthPlace: "Sudáfrica",
     maintenanceNeeds: "Limitar riego en invierno y proporcionar luz indirecta.",
-    scientificName: "Clivia miniata",
+    scientificName: "Clivia Miniata",
     applicationsPlant: "Decoración interior, jardinería de sombra.",
     climaticData: "Prefiere sombra parcial y suelo bien drenado.",
     facts: {
@@ -382,7 +382,7 @@ export const data = [
     botanicalFamily: "Valerianaceae",
     birthPlace: "Europa y Asia",
     maintenanceNeeds: "Prefiere sol o sombra parcial y suelo húmedo.",
-    scientificName: "Valeriana officinalis",
+    scientificName: "Valeriana Officinalis",
     applicationsPlant: "Tratamientos de insomnio, jardinería ornamental.",
     climaticData: "Prefiere suelos húmedos y lugares sombreados.",
     facts: {
@@ -406,7 +406,7 @@ export const data = [
     birthPlace: "Mediterráneo",
     maintenanceNeeds:
       "Prefiere clima cálido, suelo bien drenado y no requiere mucha agua.",
-    scientificName: "Rosmarinus officinalis",
+    scientificName: "Rosmarinus Officinalis",
     applicationsPlant: "Cocina, aceites esenciales, productos de higiene.",
     climaticData: "Prefiere climas cálidos y suelo bien drenado.",
     facts: {
@@ -497,7 +497,7 @@ export const data = [
     botanicalFamily: "Lamiaceae",
     birthPlace: "Europa occidental, Mediterráneo",
     maintenanceNeeds: "Cortar tallos para promover un crecimiento más tupido.",
-    scientificName: "Origanum vulgare",
+    scientificName: "Origanum Vulgare",
     applicationsPlant: "Cocina, jardinería ornamental, aceites esenciales.",
     climaticData: "Adaptable a varios climas, prefiere suelo bien drenado.",
     facts: {
