@@ -6,7 +6,7 @@ export const GroupIconButton = () => {
   buttonContainer.innerHTML = `<button id="groupButton" class="groupButton"><img src="../Resources/DV Chat/groupIcon1.png"/> </button>`;
 
   const goToGroupButton = buttonContainer.querySelector("#groupButton");
-  console.log(goToGroupButton);
+  //console.log(goToGroupButton);
 
   goToGroupButton.addEventListener("click", () =>
     navigateTo("/Group", { name: "group" })

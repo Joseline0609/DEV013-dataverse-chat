@@ -16,11 +16,13 @@ export const Cards = () => {
       <h2>${element.name}</h2>
       <h3>${element.scientificName}</h3>
       <h4>${element.categoryPlant}</h4>
+
       <div class="top-card">
         <img alt="Plant Name" src="${element.imageUrl}">
         <dl itemscope itemtype="https://schema.org" class="facts">
-          <div class="amounts">
-            <dt itemprop="water-amount" class="amount">Agua</dt>
+          
+        <div class="amounts">
+            <dt itemprop="water-amount" class="amount">Riego</dt>
               <dd>
                 <img alt="Gota" src="../Resources/DV Chat/Agua activa.png" >
                 <img alt="Gota" src="../Resources/DV Chat/Agua activa.png" >
@@ -51,7 +53,10 @@ export const Cards = () => {
           <button class="statics-button"> <img src="../Resources/DV Chat/statics.png" alt="Botón de estadísticas"/></button>
         </div>
         <div class="individual-chat-button">
-          <button id="individual-chat" class="individual-chat">CHATEAR <img src="../Resources/DV Chat/deserticas.png" alt="Chat Individual" /></button>
+          <button id="individual-chat" class="individual-chat">
+          <p class="text">CHATEAR </p>
+          </button>
+          <img src="../Resources/DV Chat/deserticaschat.png" alt="Chat Individual"/>
         </div>
       </div>
     </article>`;

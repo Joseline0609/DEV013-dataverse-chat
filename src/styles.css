@@ -1,4 +1,4 @@
-/* General Styles ------------------------------- */
+/* General Styles */
 
 * {
   margin: 0;
@@ -20,7 +20,7 @@ div#root {
   margin: 0;
 }
 
-/* Welcome styles ---------------------------------*/
+/* Welcome styles */
 
 /*  Seudo Header */
 section.welcome {
@@ -30,8 +30,6 @@ section.welcome {
 }
 
 div.welcome-principal {
-  /* display: flex; */
-  /* justify-content: space-between; */
   background-color: rgb(251, 251, 253);
   border-radius: 20px;
   width: 95%;
@@ -48,27 +46,27 @@ div.welcome-upper {
 }
 
 .welcome-brand {
-    /* background-color: green;  */
-    display: flex;
-    justify-content: flex-start;
-    font-family: 'Marcellus', serif;
-    text-transform: uppercase;
-    font-size: 23px;
-    margin-top: 15px;
-    margin-left: 110px; 
+  /* background-color: green;  */
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Marcellus", serif;
+  text-transform: uppercase;
+  font-size: 23px;
+  margin-top: 15px;
+  margin-left: 110px;
 }
- 
+
 .brand-logo img {
-    height: 50px;
-    width: 50px;
-    margin-right: 15px;
+  height: 50px;
+  width: 50px;
+  margin-right: 15px;
 }
 
 .brand-name h2 {
-    letter-spacing: 20px;
-    word-spacing: 10px;
-    font-weight: lighter;
-    margin: 10px;
+  letter-spacing: 20px;
+  word-spacing: 10px;
+  font-weight: lighter;
+  margin: 10px;
 }
 
 /* Greeting section*/
@@ -79,22 +77,21 @@ div.greeting-container {
   font-family: "Marcellus", serif;
 }
 
-h1#greeting{
-/* background-color: #bdda51; */
-color: #AF4401; 
-font-size: 1000%;
-margin-left: 10%;
-font-weight: normal;
-letter-spacing: 8px;
-
+h1#greeting {
+  /* background-color: #bdda51; */
+  color: #af4401;
+  font-size: 1000%;
+  margin-left: 10%;
+  font-weight: normal;
+  letter-spacing: 8px;
 }
-div.greeting-container .continue{
-/* background-color: #c4cbc5; */
-font-size: 200%;
-margin-left: 11%;
-letter-spacing: 10px;
-word-spacing: 15px;
-font-weight: lighter;
+div.greeting-container .continue {
+  /* background-color: #c4cbc5; */
+  font-size: 200%;
+  margin-left: 11%;
+  letter-spacing: 10px;
+  word-spacing: 15px;
+  font-weight: lighter;
 }
 
 /* Form */
@@ -105,34 +102,36 @@ div form {
   margin-top: 70px;
 }
 
-div form input{
+div form input {
   width: 400px;
   height: 50px;
   font-size: large;
   font-weight: normal;
-  color: #99A5A3;
+  color: #99a5a3;
   font-family: "Lato", sans-serif;
   border-radius: 10px;
-  border-color: #99A5A3;
+  border-color: #99a5a3;
   border-width: 4px;
   padding: 20px;
   margin-top: 10px;
 }
-div form label, .create-apikey{
+div form label,
+.create-apikey {
   /* background-color: #bdda51; */
   font-weight: normal;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 2px;
   word-spacing: 2px;
-  color: #4F6F1D;
+  color: #4f6f1d;
   margin-top: 10px;
 }
 
-div.apikey, .enter-button{
+div.apikey,
+.enter-button {
   margin-top: 40px;
 }
 
-div form button{
+div form button {
   margin-left: 90px;
   width: 150px;
   height: 45px;
@@ -140,9 +139,9 @@ div form button{
   font-weight: bold;
   font-size: xx-large;
   border-radius: 10px;
-  background-color:#D7A180;
+  background-color: #d7a180;
   color: white;
-  border:none;
+  border: none;
   padding: 5px;
 }
 
@@ -162,29 +161,30 @@ div.welcome-background img {
 
 /* Group Chat View ------------------------------------- */
 
-section.group-chat, .group-view {
-  background-color: #CBD2BE;
+section.group-chat,
+.group-view {
+  background-color: #cbd2be;
   width: 100%;
   height: 100%;
   margin: auto;
 }
 
-div.group-view{
+div.group-view {
   display: flex;
   flex-direction: row;
 }
 
-section.chat-area{
+section.chat-area {
   margin: 3% 5% 2% 5%;
 }
-h1#title{
-  color: #AD4301;
+h1#title {
+  color: #ad4301;
   font-family: "Marcellus", sans;
   font-weight: lighter;
   font-size: 50px;
 }
 
-div.message-area{
+div.message-area {
   background-color: white;
   width: 500px;
   height: 700px;
@@ -192,12 +192,12 @@ div.message-area{
   border-bottom-left-radius: 40px;
 }
 
-div.messages{
-  background-color: #153119 ;
+div.messages {
+  background-color: #153119;
 }
 
-div.first-user-message{
-  background-color: #E3D8C2;
+div.first-user-message {
+  background-color: #e3d8c2;
   width: 300px;
   height: 50px;
   margin: 5% 0% 5% 25%;
@@ -205,8 +205,8 @@ div.first-user-message{
   border-bottom-right-radius: 0px;
 }
 
-div.plant-answer{
-  background-color: #F2DBAA;
+div.plant-answer {
+  background-color: #f2dbaa;
   width: 300px;
   height: 50px;
   margin: 5% 25% 5% 0%;
@@ -214,34 +214,34 @@ div.plant-answer{
   border-bottom-left-radius: 0px;
 }
 
-div.group-background{
+div.group-background {
   /* background-color: #99A5A3; */
   margin: 5%;
 }
 
 div.other {
-background-color: #99A5A3;
-position: relative;
+  background-color: #99a5a3;
+  position: relative;
 }
 
-section#questions-ideas{
-background-color: #41a796;
-position: absolute;
-width: 400px;
-height: 500px;
+section#questions-ideas {
+  background-color: #41a796;
+  position: absolute;
+  width: 400px;
+  height: 500px;
 }
 
-div.questions-title{
-background-color: #266730;
+div.questions-title {
+  background-color: #266730;
 }
 
-div.question-topics{
-background-color: #da9368;
+div.question-topics {
+  background-color: #da9368;
 }
 
-div.group-background img{
-  /* padding: 5%; */
-}
+/* div.group-background img{
+  padding: 5%;
+} */
 
 /* Header styles -------------------------------- */
 
@@ -388,7 +388,7 @@ ul {
 /* Card styles */
 
 .card-container {
-  /* background-color: #EBD0BF; */
+  background-color: #ebd0bf;
   padding: 5px;
   width: 276px;
   border-radius: 10px;
@@ -417,10 +417,6 @@ li.card-container.aromatica {
   background-color: #ebd0bf;
 }
 
-.hide {
-  display: none;
-}
-
 /* Front card styles */
 
 #front-card {
@@ -430,18 +426,32 @@ li.card-container.aromatica {
   margin: auto;
 }
 
-#front-card h2 {
+#front-card h2,
+h3 {
   /* background-color: aqua; */
   text-align: center;
   font-family: "Marcellus", serif;
   color: #af4401;
-  padding: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+#front-card h3 {
+  font-weight: lighter;
+  margin-top: -5px;
+}
+
+#front-card h4 {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  color: #4f6f1d;
+  margin-top: 10px;
 }
 
 #front-card .top-card {
   /* background-color: black; */
   display: flex;
-  margin: 5px 0 10px 1px;
+  margin: 20px 0 10px 1px;
 }
 
 #front-card img {
@@ -493,12 +503,13 @@ li.card-container.aromatica {
 #front-card .buttons-container {
   /* background-color: black; */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
 #front-card .individual-chat-button {
   background-color: #d7a180;
-  width: 137px;
+  width: 150px;
   height: 32px;
   text-transform: uppercase;
   font-weight: bold;
@@ -507,14 +518,32 @@ li.card-container.aromatica {
   text-align: center;
   border-radius: 10px;
   border: none;
-  box-shadow: 2px 2px 5px grey;
+  /* box-shadow: 2px 2px 5px grey; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-#front-card .buttons-container img {
-  /* background-color: white; */
-  width: 40px;
-  height: 40px;
-  margin: 4px 0;
+#front-card .individual-chat-button p {
+  color: white;
+  margin: 0;
+  padding: 8px;
+  font-size: large;
+  font-weight: bold;
+}
+
+#front-card .statics-button img {
+  width: 45px;
+  height: 45px;
+}
+
+#front-card .individual-chat-button img {
+  margin-right: 5px;
+}
+
+#front-card .individual-chat-button {
+  margin-top: 5px;
+  border-radius: 50px;
 }
 
 .homeButton,
@@ -783,7 +812,14 @@ button.send-button {
   position: fixed;
 }
 
+.return-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 1200px;
+  position: fixed;
+}
+
 .homeButton,
 .groupButton {
-  display: none;
+  background-color: #266730;
 }
