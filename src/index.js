@@ -4,8 +4,6 @@ import { Home } from "./views/Home.js";
 import IndividualChat from "./views/Individual.js";
 import { GroupChat } from "./views/Group.js";
 import NotFound from "./views/Notfound.js";
-//import { HomeIconButton } from "./components/HomeIconButton.js";
-//import IndividualChat from "./views/Individual.js";
 
 //This is a dictionary *
 const routes = {

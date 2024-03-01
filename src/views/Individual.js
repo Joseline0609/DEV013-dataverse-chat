@@ -50,6 +50,8 @@ export default function IndividualChat() {
         <li>Usos</li>
       </ul>
     </div>
+        <div class="individual-view-buttons">
+        </div>
   `;
   const textBox = viewIndividualChat.querySelector(".text-box");
   const sendButton = document.createElement("button");
