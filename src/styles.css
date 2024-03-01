@@ -239,11 +239,7 @@ div.question-topics {
   background-color: #da9368;
 }
 
-/* div.group-background img{
-  padding: 5%;
-} */
-
-/* Header styles -------------------------------- */
+/* Header styles */
 
 header {
   /* background-color: aquamarine; */
@@ -372,8 +368,8 @@ select#item-order {
   display: flex;
   margin: auto;
   justify-content: center;
-  /*Preguntar si esto lo estaba usando
-  padding: 10px;*/
+  /*Preguntar si esto lo estaba usando*/
+  /* padding: 10px;  */
 }
 
 ul {
