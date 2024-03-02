@@ -6,8 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
-  position: fixed;
+html, body {
   width: 100%;
   height: 100%;
   font-family: "Lato", sans-serif;
@@ -52,14 +51,14 @@ div.welcome-container {
     top: 200px;
     /* div.welcome-background {
   padding: 5% 10% 20% 0%;
-  margin-left: 70%;
+  margin-left: 70%;*/
+  }
 }
+
 div.welcome-background img {
   width: 200%;
   height: 200%;
   margin-left: -220px;
-} */
-  }
 }
 
 .greeting-area {
@@ -87,7 +86,7 @@ div.welcome-background img {
   font-size: 100px;
   font-weight: bolder;
   font-family: "Marcellus", serif;
-  letter-spacing: 8px
+  letter-spacing: 8px */
   /* letter-spacing: 20px; */
   /* word-spacing: 10px; */
   /* 
@@ -146,7 +145,7 @@ p.create-apikey {
   font-weight: bold;
   font-size: 20px;
   border-radius: 20px;
-}
+} */
 
 /* -------------- Home view styles -------------- */
 
@@ -678,7 +677,7 @@ div.question-topics {
 
 /* -------------- 404 styles -------------- */
 
-div.not-found {
+/* div.not-found {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -730,11 +729,11 @@ div.not-found button {
   font-weight: bolder;
   font-size: 15px;
   margin: 50px 0 50px 100px;
-} 
+}  */
 
 /* Apikay error modals styles */
 
-dialog.modal {
+/* dialog.modal {
   margin: auto;
   background-color: #153119;
   border: 6px solid #ebd0bf;
@@ -823,4 +822,4 @@ dialog.valid-key.modal a {
 dialog.valid-key.modal::before {
   background-image: url(./Resources/DV\ Chat/apikey-background-red.png);
   opacity: 0.25;
-}
+} */

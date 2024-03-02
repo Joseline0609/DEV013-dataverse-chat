@@ -9,13 +9,13 @@ export default function EmptyApiKey() {
         No has ingresado una llave <br />
         para esta zona del jardín
       </p>
-      <input type="text" required placeholder="Ingresa una Api Key..." /><br />
+      <input type="text" class="foo" name="foo" id="foo" required placeholder="Ingresa una Api Key..." /><br />
       <button id="send-key-button1">Enviar</button>
       <p class="link">
         Si no tienes una llave solicítala <br />
         haciendo click <a href="https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt" target="_blank">aquí</a>
       </p>
-      <img id="close-icon1" class="close-icon1" alt="Cerrar" src="Resources/DV Chat/Close.png">
+      <button id="close-icon1" class="close-icon1" alt="Cerrar"><img src="Resources/DV Chat/Close.png"></button>
     </form>
   `;
 
