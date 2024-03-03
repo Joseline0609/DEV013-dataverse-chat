@@ -4,6 +4,7 @@ import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export default function NotFound() {
   const viewNotFound = document.createElement("div");
+  viewNotFound.className = "not-found";
 
   viewNotFound.innerHTML += `
     <h1>404</h1>
@@ -12,7 +13,7 @@ export default function NotFound() {
       Lamentamos que hayas<br />
       llegado al final del jardín
     </p>
-    <p>Para ver más plantas</p>
+    <p class="instruction">Para ver más plantas</p>
   `;
 
   const homeButton = document.createElement("button");
@@ -41,6 +42,7 @@ export default function NotFound() {
   openModal2Button.addEventListener("click", () => {
     const viewModal2 = NotValidApiKey();
     openModal2Button.appendChild(viewModal2);
+    console.log("mostrando");
     viewModal2.showModal();
   });
 
