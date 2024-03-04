@@ -13,7 +13,6 @@ html, body {
 }
 
 .root {
-  position: fixed;
   width: 100%;
   height: 100%;
   display: flex;
@@ -49,9 +48,6 @@ div.welcome-container {
     padding: 100%;
     left: 700px;
     top: 200px;
-    /* div.welcome-background {
-  padding: 5% 10% 20% 0%;
-  margin-left: 70%;*/
   }
 }
 
@@ -86,11 +82,9 @@ div.welcome-background img {
   font-size: 100px;
   font-weight: bolder;
   font-family: "Marcellus", serif;
-  letter-spacing: 8px */
+  letter-spacing: 8px
   /* letter-spacing: 20px; */
   /* word-spacing: 10px; */
-  /* 
-  margin: 10px; */
 }
 
 p.continue {
@@ -145,16 +139,13 @@ p.create-apikey {
   font-weight: bold;
   font-size: 20px;
   border-radius: 20px;
-} */
+}
 
 /* -------------- Home view styles -------------- */
 
 /* Header styles */
 
-/* header {
-  padding: 5px;
-  margin: auto;
-  max-width: 90%;
+header {
   display: flex;
   justify-content: center;
 }
@@ -162,7 +153,7 @@ p.create-apikey {
 header img {
   height: 40px;
   width: 40px;
-  margin: 10px;
+  margin: 25px 10px 30px 10px;
 }
 
 header h1 {
@@ -170,41 +161,37 @@ header h1 {
   font-family: "Marcellus", serif;
   text-transform: uppercase;
   font-size: 33px;
-  margin-top: 10px;
-} */
+  margin-top: 25px;
+}
 
 /* Search by name styles */
 
-/* aside.search-by-name.container {
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
+aside.search-by-name.container {
   display: flex;
   justify-content: center;
-  margin-right: 810px;
+  margin-right: 760px;
   margin-top: 37px;
 }
 
-.search-container input {
+.input-name {
+  outline-style: none;
   width: 150px;
   border-radius: 5px;
   border: #8a988c solid 0.5px;
   box-shadow: 1px 1px 5px gray;
-  font-size: small;
-  font-weight: bold;
   padding: 3px 5px;
-} */
+  font-weight: bold;
+  margin: -10px 100px 0 0;
+}
 
 /* Categories menu styles */
 
-/* .category-menu {
-  padding: 5px;
+.category-menu {
   width: 610px;
   font-family: "Marcellus", serif;
   position: relative;
   margin: auto;
   margin-top: -55px;
-  left: 27px;
 }
 
 .category-nav {
@@ -223,11 +210,11 @@ header h1 {
 .item-aside input[type="image"] {
   width: 50px;
   height: 50px;
-} */
+}
 
 /* Order by drop button styles */
 
-/* .order-by {
+.order-by {
   display: flex;
   justify-content: center;
   margin-left: 760px;
@@ -263,22 +250,22 @@ select {
 
 select#item-order {
   opacity: 0;
-  margin: 5px 0 0 -140px;
 }
 
-ul {
+/*  ---  Card styles  ---  */
 
+ul {
   list-style: none;
   width: 90%;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-} */
+  justify-content: center;
+  margin: auto;
+  margin-top: 50px;
+}
 
-/* Card styles */
-
-/* .card-container {
-  background-color: #ebd0bf;
+.card-container {
   padding: 5px;
   width: 276px;
   border-radius: 10px;
@@ -305,16 +292,16 @@ li.card-container.arboles {
 
 li.card-container.aromatica {
   background-color: #ebd0bf;
-} */
+}
 
-/* Front card styles */
+/*  ---  Front card styles  ---  */
 
-/* #front-card {
+#front-card {
   padding: 5px;
   height: 458px;
   margin: auto;
 }
-
+ 
 #front-card h2,
 h3 {
   text-align: center;
@@ -324,25 +311,20 @@ h3 {
   font-weight: bold;
 }
 
-#front-card h3 {
-  font-weight: lighter;
-  margin-top: -5px;
-}
-
 #front-card h4 {
   text-align: center;
   font-family: "Lato", sans-serif;
   color: #4f6f1d;
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+#front-card h4::first-letter {
+  text-transform: uppercase;
 }
 
 #front-card .top-card {
   display: flex;
-  margin: 20px 0 10px 1px;
-}
-
-#front-card img {
-  margin: 0;
+  margin-top: 30px;
 }
 
 #front-card .top-card dl {
@@ -374,57 +356,6 @@ h3 {
   opacity: 0.5;
 }
 
-#front-card p {
-  padding: 5px;
-  margin: 10px 0;
-  font-size: 15px;
-  height: 80px;
-}
-
-#front-card .buttons-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-#front-card .individual-chat-button {
-  background-color: #d7a180;
-  width: 150px;
-  height: 32px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-#front-card .individual-chat-button p {
-  color: white;
-  margin: 0;
-  padding: 8px;
-  font-size: large;
-  font-weight: bold;
-}
-
-#front-card .statics-button img {
-  width: 45px;
-  height: 45px;
-}
-
-#front-card .individual-chat-button img {
-  margin-right: 5px;
-}
-
-#front-card .individual-chat-button {
-  margin-top: 5px;
-  border-radius: 50px;
-}
-
 .homeButton,
 .groupButton,
 .individual-chat,
@@ -432,11 +363,46 @@ h3 {
   border: none;
   appearance: none;
   background-color: inherit;
-} */
+}
 
-/* Footer styles */
+#front-card .buttons-container {
+  width: 240px;
+  display: flex;
+  justify-content: space-between;
+  margin: 37px 0 0 8px;
+  align-items: center;
+}
 
-/* footer {
+.buttons-container img {
+  width: 45px;
+  height: 45px;
+}
+
+#front-card button.individual-chat {
+  background-color: #d7a180;
+  width: 150px;
+  height: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 19px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 4px 8px;
+  align-items: center;
+}
+
+#front-card .individual-chat-button img {
+  width: 25px;
+  height: 25px;
+}
+
+/* --- Footer styles --- */
+
+footer {
   bottom: 0px;
   position: fixed;
   height: 100px;
@@ -450,8 +416,10 @@ h3 {
 
 footer h3 {
   font-family: "Marcellus", serif;
-  margin: 14px 0 7px 0;
-} */
+  margin: 3px 0 7px 0;
+  color: white;
+  font-size: 20px;
+}
 
 /* Individual chat view styles */
 
