@@ -23,16 +23,15 @@ html, body {
 /* -------------- Welcome styles -------------- */
 
 .welcome {
-  position: relative;
   background-color: #bf8e72;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 }
 
-/*  Greeting Area */
+/* --- Greeting Area --- */
 
 div.welcome-container {
   background-color: rgb(251, 251, 253);
@@ -51,13 +50,14 @@ div.welcome-container {
   }
 }
 
-div.welcome-background img {
+/* div.welcome-background img {
   width: 200%;
   height: 200%;
   margin-left: -220px;
-}
+} */
 
 .greeting-area {
+
   display: flex;
   align-items: center;
   margin: 30px 0;
@@ -93,6 +93,8 @@ p.continue {
   letter-spacing: 7px;
   margin: -20px 0 30px 0;
 }
+
+/* --- Form Area --- */
 
 div.form-area {
   margin: 60px 0;
@@ -143,7 +145,7 @@ p.create-apikey {
 
 /* -------------- Home view styles -------------- */
 
-/* Header styles */
+/* --- Header styles --- */
 
 header {
   display: flex;
@@ -164,7 +166,7 @@ header h1 {
   margin-top: 25px;
 }
 
-/* Search by name styles */
+/* --- Search by name styles --- */
 
 aside.search-by-name.container {
   display: flex;
@@ -184,7 +186,7 @@ aside.search-by-name.container {
   margin: -10px 100px 0 0;
 }
 
-/* Categories menu styles */
+/* --- Categories menu styles--- */
 
 .category-menu {
   width: 610px;
@@ -212,7 +214,7 @@ aside.search-by-name.container {
   height: 50px;
 }
 
-/* Order by drop button styles */
+/* --- Order by drop button styles --- */
 
 .order-by {
   display: flex;
@@ -357,9 +359,10 @@ h3 {
 }
 
 .homeButton,
-.groupButton,
+.group-button,
 .individual-chat,
-.statics-button {
+.stats-button,
+.send-button {
   border: none;
   appearance: none;
   background-color: inherit;
@@ -421,13 +424,20 @@ footer h3 {
   font-size: 20px;
 }
 
-/* Individual chat view styles */
+.home .group-button {
+  display: flex;
+  bottom: 47px;
+  right: 40px;
+  position: fixed;
+}
 
-/* div.individual-chat-wrapper {
+/* -------------- Individual chat view styles -------------- */
+
+div.individual-chat-wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
-  margin-top: -10px;
+  /* margin-top: -10px; */
   background-color: #f9edd5;
   padding: 70px;
   display: flex;
@@ -442,10 +452,7 @@ footer h3 {
   }
 }
 
-div.info-area h1.title {
-  margin-top: -30px;
-  font-size: 40px;
-}
+/* --- Chat Area --- */
 
 div.chat-area {
   position: relative;
@@ -460,12 +467,17 @@ div.chat-area {
 div.info-area {
   height: 50px;
   display: flex;
-  width: 390px;
+  width: 400px;
 }
-
+ 
 div.info-area img {
   margin: -60px 0 0 -20px;
 }
+
+/* div.info-area h1.title {
+  margin-top: -30px;
+  font-size: 40px;
+} */
 
 div.info-area h1 {
   font-family: "Marcellus", serif;
@@ -476,22 +488,15 @@ div.info-area h1 {
   color: #af4401;
 }
 
-div.info-area div.info-area p {
+/* div.info-area div.info-area p {
   width: 280px;
-}
+  background-color: #AF4401;
+} */
 
 div.chat-container {
-  height: 485px;
-  background-color: white;
-  margin-top: 20px;
-}
-
-textarea.user-text {
-  margin: 25px 0 0 80px;
-  height: 35px;
-  width: 310px;
-  padding: 10px 5px 10px 10px;
-  font-family: "Lato", sans-serif;
+  height: 490px;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 p.name {
@@ -500,42 +505,73 @@ p.name {
   margin: 0 0 2px 0;
 }
 
-.plant-message {
+.plant-message, .plant-group-message {
   max-width: 80%;
   margin: 5px 0 0 5px;
   padding: 0px 10px;
 }
 
-.plant-message p.message {
-  background-color: #c4cbc5;
+.plant-message p.message, .plant-group-message p.message {
   height: 90%;
   padding: 5px 10px;
   border-radius: 10px 10px 10px 0;
 }
 
-.plant-message img {
-  margin: -5px 0 0 -22px;
+.plant-message p.message {
+  background-color: #C4CBC5;
 }
 
-.user-message {
+.plant-message img, .plant-group-message img {
+  margin: -5px 0 0 -25px;
+}
+
+.user-message, .user-group-message {
   max-width: 80%;
   margin: 0px 0 10px 65px;
   text-align: right;
 }
 
-.user-message p.message {
-  background-color: #d3dbc6;
+.user-message p.message, .user-group-message p.message {
   border-radius: 10px 10px 0 10px;
   padding: 5px 10px;
 }
 
+.user-message p.message {
+  background-color: #d3dbc6;
+}
+
+textarea.user-text {
+  margin: 45px 0 0 80px;
+  height: 35px;
+  width: 310px;
+  padding: 10px 5px 10px 10px;
+  font-family: "Lato", sans-serif;
+  border-radius: 10px 10px 0 10px;
+}
+
 button.send-button {
-  margin: -30px 0 0 351px;
+  margin: -39px 0 0 351px;
   position: fixed;
+}
+
+.send-button img {
+  height: 35px;
+  width: 35px;
 }
 
 div.question-ideas {
   margin: 0 0 0 100px;
+  height: 300px;
+}
+
+ul.question-topics {
+  display: block;
+  margin-top: 10px;
+}
+
+.question-topics li {
+  margin: 20px 0;
+  list-style-type: disc;
 }
 
 div.butons-area {
@@ -543,15 +579,14 @@ div.butons-area {
   bottom: 27px;
   right: 40px;
   position: fixed;
-} */
+}
 
 /* -------------- Group Chat View -------------- */
 
-/* div.group-chat-wrapper {
+div.group-chat-wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
-  margin-top: -10px;
   background-color: #d3dbc6;
   padding: 70px;
   display: flex;
@@ -566,43 +601,54 @@ div.butons-area {
   }
 }
 
-section.group-chat,
+/* section.group-chat,
 .group-view {
   background-color: #cbd2be;
   width: 100%;
   height: 100%;
   margin: auto;
-}
+} */
 
-div.group-view {
+/* div.group-view {
   display: flex;
   flex-direction: row;
-}
+} */
 
-section.chat-area {
+/* section.chat-area {
   margin: 3% 5% 2% 5%;
-}
+} */
+
 h1#title {
   color: #ad4301;
   font-family: "Marcellus", sans;
   font-weight: lighter;
   font-size: 50px;
+  width: 400px;
+  margin: -40px 0 0 -10px;
 }
 
-div.message-area {
+.plant-group-message p.message {
+  background-color: #F2DBAA;
+}
+
+.user-group-message p.message {
+  background-color: #F9EDD5;
+}
+
+/* div.message-area {
   background-color: white;
   width: 500px;
   height: 700px;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
-}
+} */
 
-div.messages {
+/* div.messages {
   background-color: #153119;
-}
+} */
 
-div.first-user-message {
-  background-color: #e3d8c2;
+/* .plant-group-message p.message {
+  background-color: green;
   width: 300px;
   height: 50px;
   margin: 5% 0% 5% 25%;
@@ -617,8 +663,8 @@ div.plant-answer {
   margin: 5% 25% 5% 0%;
   border-radius: 10px;
   border-bottom-left-radius: 0px;
-}
-
+} */
+/*
 div.group-background {
   margin: 5%;
 }

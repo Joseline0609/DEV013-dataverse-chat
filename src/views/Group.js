@@ -12,7 +12,7 @@ export const GroupChat = () => {
         </div>
       </div>
       <div id="chat-container" class="chat-container">
-        <div class="plant-message">
+        <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="first-plant">
             <p class="message">Hi 'user name'. How can we<br/>
@@ -22,11 +22,11 @@ export const GroupChat = () => {
               alt="Avatar" style="height:20px;width:20px";>
           </div>
         </div>
-        <div class="user-message">
+        <div class="user-group-message">
           <p class="name">User Name</p>
           <p class="message">Hello how are you? Could you tell me when you bloom?</p>
         </div>
-        <div class="plant-message">
+        <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="first-plant">
             <p class="message">Sure, I use to have flowers in January</p>
@@ -34,7 +34,7 @@ export const GroupChat = () => {
               alt="Avatar" style="height:20px;width:20px";>
           </div>
         </div>
-        <div class="plant-message">
+        <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="second-plant">
             <p class="message">Hello, 'user name'!!! I don't have flowers, but I have beautiful leafs</p>
@@ -42,7 +42,7 @@ export const GroupChat = () => {
               alt="Avatar" style="height:20px;width:20px";>
           </div>
         </div>
-        <div class="plant-message">
+        <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="third-plant">
             <p class="message">In my case I boom in Autumn</p>
@@ -72,21 +72,25 @@ export const GroupChat = () => {
   const textBox = viewGroupChat.querySelector(".text-box");
   const sendButton = document.createElement("button");
   textBox.appendChild(sendButton);
-
   sendButton.id = "send-button";
   sendButton.className = "send-button";
-  const sendText = document.createTextNode("send");
-  sendButton.appendChild(sendText);
+  const sendIcon = document.createElement("img");
+  sendButton.appendChild(sendIcon);
+  sendIcon.src = "Resources/DV Chat/enviar.png";
 
+/**
+ * This function adds the event to the submit button
+ * creates the elements, adding all their properties
+ * and then adds the text entered by the user to the DOM
+ * and reset the textbox to be able to enter new text
+ */
   sendButton.addEventListener("click", () => {
-    //Obtener el texto del text area
     const newMessage = document.getElementById("user-text");
-    //crear el contenedor
     const chatContainer = document.getElementById("chat-container");
     const newMessageContainer = document.createElement("div");
-    newMessageContainer.className = "user-message";
+    newMessageContainer.className = "user-group-message";
     chatContainer.appendChild(newMessageContainer);
-    //crear un elemento p
+
     const userName = document.createElement("p");
     newMessageContainer.appendChild(userName);
     userName.className = "name";
@@ -94,12 +98,10 @@ export const GroupChat = () => {
     const viewNewMessage = document.createElement("p");
     newMessageContainer.appendChild(viewNewMessage);
     viewNewMessage.className = "message";
-    //agregarle todas sus propiedades incluido el contenido
-    //agregarlo a la colección de mensajes hacienco click
+
     viewNewMessage.innerHTML = newMessage.value;
-    //resetear text area
+
     newMessage.value = ``;
-    //darle funcion al enter
   });
 
   const butonsContainer = document.createElement("div");

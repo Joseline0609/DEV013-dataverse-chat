@@ -42,7 +42,7 @@ export const Cards = () => {
             </dl>
           </div>
           <div class="buttons-container">
-            <button class="statics-button"><img src="../Resources/DV Chat/statics.png" alt="Botón de estadísticas"/></button>
+            <button class="stats-button"><img src="../Resources/DV Chat/stats.png" alt="Botón de estadísticas"/></button>
             <div class="individual-chat-button">
               <button id="individual-chat" class="individual-chat">
                 Chatear

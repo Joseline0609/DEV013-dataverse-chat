@@ -8,6 +8,7 @@ import { FilterByMenu } from "../components/FilterByMenu.js";
 
 export const Home = () => {
   const viewHome = document.createElement("section");
+  viewHome.className = "home"
 
   viewHome.append(
     Header(),
@@ -15,8 +16,8 @@ export const Home = () => {
     FilterByMenu(),
     OrderBySelect(),
     Cards(),
-    GroupIconButton(),
-    Footer()
+    Footer(),
+    GroupIconButton()
   );
 
   return viewHome;
