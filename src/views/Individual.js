@@ -53,24 +53,29 @@ export default function IndividualChat() {
         <div class="individual-view-buttons">
         </div>
   `;
+
   const textBox = viewIndividualChat.querySelector(".text-box");
   const sendButton = document.createElement("button");
   textBox.appendChild(sendButton);
-  // viewIndividualChat.appendChild(sendButton);
   sendButton.id = "send-button";
   sendButton.className = "send-button";
-  const sendText = document.createTextNode("send");
-  sendButton.appendChild(sendText);
+  const sendIcon = document.createElement("img");
+  sendButton.appendChild(sendIcon);
+  sendIcon.src = "Resources/DV Chat/enviar.png";
 
+/**
+ * This function adds the event to the submit button
+ * creates the elements, adding all their properties
+ * and then adds the text entered by the user to the DOM
+ * and reset the textbox to be able to enter new text
+ */
   sendButton.addEventListener("click", () => {
-    //Obtener el texto del text area
     const newMessage = document.getElementById("user-text");
-    //crear el contenedor
     const chatContainer = document.getElementById("chat-container");
     const newMessageContainer = document.createElement("div");
     newMessageContainer.className = "user-message";
     chatContainer.appendChild(newMessageContainer);
-    //crear un elemento p
+
     const userName = document.createElement("p");
     newMessageContainer.appendChild(userName);
     userName.className = "name";
@@ -78,18 +83,16 @@ export default function IndividualChat() {
     const viewNewMessage = document.createElement("p");
     newMessageContainer.appendChild(viewNewMessage);
     viewNewMessage.className = "message";
-    //agregarle todas sus propiedades incluido el contenido
-    //agregarlo a la colección de mensajes hacienco click
+
     viewNewMessage.innerHTML = newMessage.value;
-    //resetear text area
+
     newMessage.value = ``;
-    //darle funcion al enter
   });
 
-  const butonsContainer = document.createElement("div");
-  butonsContainer.className = "butons-area";
-  viewIndividualChat.appendChild(butonsContainer);
-  butonsContainer.append(HomeIconButton(), GroupIconButton());
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.className = "buttons-area";
+  viewIndividualChat.appendChild(buttonsContainer);
+  buttonsContainer.append(HomeIconButton(), GroupIconButton());
 
   return viewIndividualChat;
 }
