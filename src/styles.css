@@ -664,7 +664,7 @@ div.not-found button {
 
 /* -------------- Apikay error modals styles -------------- */
 
-dialog.modal {
+/* dialog.modal {
   margin: auto;
   background-color: #153119;
   border: 6px solid #ebd0bf;
@@ -732,7 +732,7 @@ dialog.modal img {
 
 /* Valid key */
 
-dialog.valid-key.modal {
+/* dialog.valid-key.modal {
   background-color: #ebd0bf;
   border: 6px solid #af4401;
 }
@@ -765,5 +765,5 @@ dialog.valid-key.modal::before {
 
 img.close-icon1, img.close-icon2  {
   position: relative;
-  margin: 5px 0 0 90px
-}
+  
+} */

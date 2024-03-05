@@ -91,7 +91,7 @@ export default function IndividualChat() {
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
-  viewIndividualChat.appendChild(butonsContainer);
+  viewIndividualChat.appendChild(buttonsContainer);
   buttonsContainer.append(HomeIconButton(), GroupIconButton());
 
   return viewIndividualChat;
