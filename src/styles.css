@@ -35,23 +35,13 @@ div.welcome-container {
   border-radius: 20px;
   width: 95%;
   height: 90%;
-  padding: 50px 200px;
-  &::before {
-    content: "";
-    background-image: url(./Resources/DV\ Chat/welcome-background.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    padding: 100%;
-    left: 700px;
-    top: 200px;
-  }
+  padding: 100px 300px;
+  background-image: url(./Resources/DV\ Chat/welcome-background.png);
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position:
+    850px 80px;
 }
-
-/* div.welcome-background img {
-  width: 200%;
-  height: 200%;
-  margin-left: -220px;
-} */
 
 .greeting-area {
 
@@ -123,6 +113,11 @@ div.form-area label {
 
 p.create-apikey {
   margin: 5px 0;
+}
+
+.create-apikey a {
+  font-weight: bolder;
+  color:#af4401;
 }
 
 .enter-button {
