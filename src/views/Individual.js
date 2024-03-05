@@ -89,10 +89,10 @@ export default function IndividualChat() {
     newMessage.value = ``;
   });
 
-  const butonsContainer = document.createElement("div");
-  butonsContainer.className = "butons-area";
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.className = "buttons-area";
   viewIndividualChat.appendChild(butonsContainer);
-  butonsContainer.append(HomeIconButton(), GroupIconButton());
+  buttonsContainer.append(HomeIconButton(), GroupIconButton());
 
   return viewIndividualChat;
 }
