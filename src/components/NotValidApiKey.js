@@ -9,8 +9,8 @@ export default function NotValidApiKey() {
         Tu llave no abre esta zona del jardín. <br/>
         Ingresa una llave válida
       </p>
-      <input type="text" required placeholder="Ingresa Api Key válida..." /><br />
-      <button id="send-key-button2">Enviar</button>
+      <input type="text" id="text" class="text" required placeholder="Ingresa Api Key válida..." /><br />
+      <button id="send-key-button2" class="send-key-button2">Enviar</button>
       <p>
         Si no tienes una llave solicítala <br />
         haciendo click <a href="https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt" target="_blank">aquí</a>

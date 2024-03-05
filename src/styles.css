@@ -44,7 +44,6 @@ div.welcome-container {
 }
 
 .greeting-area {
-
   display: flex;
   align-items: center;
   margin: 30px 0;
@@ -57,14 +56,12 @@ div.welcome-container {
 }
 
 .greeting-area h1 {
-  position: relative;
   font-family: "Marcellus", serif;
   text-transform: uppercase;
   font-size: 40px;
 }
 
 .welcome-container h2 {
-  position: relative;
   color: #AF4401;
   font-size: 100px;
   font-weight: bolder;
@@ -99,8 +96,24 @@ div.form-area {
   margin: 5px 0 0 0;
 }
 
+.form-area .input {
+  width: 400px;
+  padding: 10px;
+  height: 40px;
+  font-size: large;
+  font-weight: normal;
+  font-family: "Lato", sans-serif;
+  border-radius: 10px;
+  border: 3px solid #99a5a3;
+  margin: 5px 0 0 0;
+}
+
 .form-area .input.name {
   margin: 30px 0 50px 0;
+}
+
+.form-area .input.none {
+  border: 4px solid #AF4401;
 }
 
 div.form-area label {
@@ -222,7 +235,6 @@ aside.search-by-name.container {
   box-shadow: 1px 1px 5px gray;
   text-transform: uppercase;
   text-align: center;
-  font-weight: bold;
   font-size: 15px;
   width: 100px;
   height: 20px;
@@ -231,15 +243,11 @@ aside.search-by-name.container {
 .order-by #item-order {
   margin: 0 -90px;
   width: 100px;
-}
-
-select {
   width: 80px;
   height: 20px;
   border: #8a988c solid 1px;
   text-transform: uppercase;
-  font-size: small;
-  font-weight: bold;
+  font-size: 16px;
 }
 
 select#item-order {
@@ -656,16 +664,14 @@ div.not-found button {
 
 /* -------------- Apikay error modals styles -------------- */
 
-/* dialog.modal {
+dialog.modal {
   margin: auto;
   background-color: #153119;
   border: 6px solid #ebd0bf;
   border-radius: 30px;
   width: 550px;
   height: 250px;
-  display: flex;
-  justify-content: center;
-  color: whitesmoke;
+  color: white;
   &::before {
     content: "";
     background-image: url(./Resources/DV\ Chat/apikey-background.png);
@@ -722,9 +728,25 @@ dialog.modal img {
   margin: -37px -232px 35px 232px;
 }
 
+img.close-icon1, img.close-icon2  {
+  position: relative;
+}
+
+form input.text {
+  margin: 10px 0 0 140px;
+}
+
+form button.send-key-button1 {
+  margin: 30px 0 10px 220px;
+}
+
+form img.close-icon1, form.not-valid img.close-icon2 {
+  margin: -35px 0 35px 500px;
+}
+
 /* Valid key */
 
-/* dialog.valid-key.modal {
+dialog.valid-key.modal {
   background-color: #ebd0bf;
   border: 6px solid #af4401;
 }
@@ -755,7 +777,6 @@ dialog.valid-key.modal::before {
   opacity: 0.25;
 }
 
-img.close-icon1, img.close-icon2  {
-  position: relative;
-  
-} */
+form.not-valid button.send-key-button2 {
+  margin: 30px 0 10px 220px;
+}

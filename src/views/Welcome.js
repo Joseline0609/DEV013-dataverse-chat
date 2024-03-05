@@ -13,7 +13,7 @@ export const Welcome = () => {
       <h2 id="greeting">Bienvenida</h2>
       <p class="continue">a nuestro jardín</p>
       <div class="form-area">
-        <input class="input name" type=text placeholder="Por favor ingresa tu nombre..."><br/>
+        <input id="input-name" class="input name" type=text placeholder="Por favor ingresa tu nombre..."><br/>
         <label for="apikey">Para acceder a todas las funcionalidades:</label><br/>
         <input class="input" type=text name="apikey" id="apikey" required placeholder="Ingresa tu llave... (opcional)"><br/>
         <p class="create-apikey">Si no tienes una apikey<br/>solicítala haciendo click
@@ -24,11 +24,19 @@ export const Welcome = () => {
     </div>
   `;
 
-  const enterButton = viewWelcome.querySelector("#enter-button");
-  // viewWelcome.appendChild(enterButton)
+  let user = viewWelcome.querySelector("#input-name");
 
-  enterButton.addEventListener("click", () =>
-    navigateTo("/Home", { name: "Bienvenida" })
+  const enterButton = viewWelcome.querySelector("#enter-button");
+
+  enterButton.addEventListener("click", () => {
+    if (user.value.length == 0) {
+      viewWelcome.querySelector("#input-name").className = "input none";
+    } else {
+      navigateTo("/Home", { name: "Bienvenida" });
+    }
+
+  }
+    // navigateTo("/Home", { name: "Bienvenida" })
   );
 
   return viewWelcome;
