@@ -3,7 +3,7 @@ export function SearchByName() {
   viewSearchByName.className = "search-by-name container";
   viewSearchByName.innerHTML += `
     <form class="search-container" action="data/dataset.js">
-        <input type="text" id="input-name" placeholder="Buscar..." name="search">
+        <input type="text" id="input-name-home" placeholder="Buscar..." name="search">
     </form>
   `;
 

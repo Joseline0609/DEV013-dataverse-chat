@@ -87,7 +87,7 @@ export const computeStats = (data) => {
       },
       factsByPlants: [],
     },
-    arbol: {
+    arboles: {
       average: {
         waterAverage: 0,
         lightAverage: 0,
