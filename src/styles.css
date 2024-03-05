@@ -15,9 +15,6 @@ html, body {
 .root {
   width: 100%;
   height: 100%;
-  display: flex;
-  margin: auto;
-  justify-content: center;
 }
 
 /* -------------- Welcome styles -------------- */
@@ -354,7 +351,7 @@ h3 {
   margin: 4px 0;
 }
 
-#front-card .amounts img.inactiva {
+#front-card .amounts img.inactive {
   opacity: 0.5;
 }
 
