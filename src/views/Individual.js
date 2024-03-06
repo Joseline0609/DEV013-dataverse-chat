@@ -69,25 +69,36 @@ export default function IndividualChat() {
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-  sendButton.addEventListener("click", () => {
+
+sendButton.addEventListener("click", () => {
+  sendingUserMessage();
+  });
+
+function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
-    const newMessageContainer = document.createElement("div");
-    newMessageContainer.className = "user-message";
-    chatContainer.appendChild(newMessageContainer);
+    const newMessageText = newMessage.value;
 
-    const userName = document.createElement("p");
-    newMessageContainer.appendChild(userName);
-    userName.className = "name";
-    userName.innerHTML = "User Name";
-    const viewNewMessage = document.createElement("p");
-    newMessageContainer.appendChild(viewNewMessage);
-    viewNewMessage.className = "message";
+     if (newMessageText.length !== 0) {
 
-    viewNewMessage.innerHTML = newMessage.value;
+      const newMessageContainer = document.createElement("div");
+      newMessageContainer.className = "user-message";
+      chatContainer.appendChild(newMessageContainer);
 
-    newMessage.value = ``;
-  });
+      const userName = document.createElement("p");
+      newMessageContainer.appendChild(userName);
+      userName.className = "name";
+      userName.innerHTML = "User Name";
+
+      const viewNewMessage = document.createElement("p");
+      newMessageContainer.appendChild(viewNewMessage);
+      viewNewMessage.className = "message";
+
+      viewNewMessage.innerHTML = newMessageText;
+
+      newMessage.value = ``;
+    }
+}
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
