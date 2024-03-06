@@ -72,7 +72,14 @@ export default function IndividualChat() {
 
 sendButton.addEventListener("click", () => {
   sendingUserMessage();
-  });
+});
+
+  const inputBox = viewIndividualChat.querySelector("#user-text");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+    }
+});
 
 function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
