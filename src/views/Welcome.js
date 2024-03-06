@@ -17,7 +17,7 @@ export const Welcome = () => {
         <label for="apikey">Para acceder a todas las funcionalidades:</label><br/>
         <input class="input" type=text name="apikey" id="apikey" required placeholder="Ingresa tu llave... (opcional)"><br/>
         <p class="create-apikey">Si no tienes una apikey<br/>solicítala haciendo click
-          <a href="https://platform.openai.com/docs/overview">aquí</a>
+          <a href="https://platform.openai.com/docs/overview" target="_blank">aquí</a>
         </p>
         <button id="enter-button" class="enter-button">Iniciar</button>
       </div>

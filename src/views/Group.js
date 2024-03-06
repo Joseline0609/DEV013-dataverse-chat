@@ -1,3 +1,4 @@
+// import { data } from "../data/data.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export const GroupChat = () => {
@@ -84,28 +85,68 @@ export const GroupChat = () => {
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-  sendButton.addEventListener("click", () => {
+
+sendButton.addEventListener("click", () => {
+  sendingUserMessage();
+});
+
+  const inputBox = viewGroupChat.querySelector("#user-text");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+    }
+});
+
+function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
-    const newMessageContainer = document.createElement("div");
-    newMessageContainer.className = "user-group-message";
-    chatContainer.appendChild(newMessageContainer);
+    const newMessageText = newMessage.value;
 
-    const userName = document.createElement("p");
-    newMessageContainer.appendChild(userName);
-    userName.className = "name";
-    userName.innerHTML = "User Name";
-    const viewNewMessage = document.createElement("p");
-    newMessageContainer.appendChild(viewNewMessage);
-    viewNewMessage.className = "message";
 
-    viewNewMessage.innerHTML = newMessage.value;
+    let expresion = /[^\W\d]/g;
+     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
 
-    newMessage.value = ``;
-  });
+      const newMessageContainer = document.createElement("div");
+      newMessageContainer.className = "user-message";
+      chatContainer.appendChild(newMessageContainer);
+
+      const userName = document.createElement("p");
+      newMessageContainer.appendChild(userName);
+      userName.className = "name";
+      userName.innerHTML = "User Name";
+
+      const viewNewMessage = document.createElement("p");
+      newMessageContainer.appendChild(viewNewMessage);
+      viewNewMessage.className = "message";
+
+      viewNewMessage.innerHTML = newMessageText;
+
+      newMessage.value = ``;
+    }
+  }
+
+  // sendButton.addEventListener("click", () => {
+  //   const newMessage = document.getElementById("user-text");
+  //   const chatContainer = document.getElementById("chat-container");
+  //   const newMessageContainer = document.createElement("div");
+  //   newMessageContainer.className = "user-group-message";
+  //   chatContainer.appendChild(newMessageContainer);
+
+  //   const userName = document.createElement("p");
+  //   newMessageContainer.appendChild(userName);
+  //   userName.className = "name";
+  //   userName.innerHTML = "User Name";
+  //   const viewNewMessage = document.createElement("p");
+  //   newMessageContainer.appendChild(viewNewMessage);
+  //   viewNewMessage.className = "message";
+
+  //   viewNewMessage.innerHTML = newMessage.value;
+
+  //   newMessage.value = ``;
+  // });
 
   const butonsContainer = document.createElement("div");
-  butonsContainer.className = "butons-area";
+  butonsContainer.className = "buttons-area";
   viewGroupChat.appendChild(butonsContainer);
   butonsContainer.append(HomeIconButton());
 

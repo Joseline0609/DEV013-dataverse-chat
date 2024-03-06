@@ -1,6 +1,6 @@
+// import { data } from "../data/data.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
-//import { navigateTo } from "../router.js";
 
 export default function IndividualChat() {
   const viewIndividualChat = document.createElement("div");
@@ -86,7 +86,9 @@ function sendingUserMessage() {
     const chatContainer = document.getElementById("chat-container");
     const newMessageText = newMessage.value;
 
-     if (newMessageText.length !== 0) {
+
+    let expresion = /[^\W\d]/g;
+     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
 
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
