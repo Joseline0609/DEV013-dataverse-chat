@@ -4,7 +4,9 @@ import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export default function IndividualChat(props = {}) {
-  //console.log(props);
+  console.log(props);
+  // console.log(data);
+  // console.log(data.props[id]); // ok cómo accedo a begonia con el id
   // tenemos el ID... con ese necesitamos acceder a la data
   // y buscar el elemento por su ID
   // imagino que habra que recorrer la data para encontrar el elemento que coincida
