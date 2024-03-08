@@ -30,9 +30,9 @@ setRootElement(mainContainer);
  */
 document.addEventListener("DOMContentLoaded", (event) => {
   onURLChange(event.target.location.pathname);
-
+  // console.log(event.target.location.pathname);
+  
   window.addEventListener("popstate", (event) => {
-    //console.log(event);
     onURLChange(event.target.location.pathname);
   });
 });

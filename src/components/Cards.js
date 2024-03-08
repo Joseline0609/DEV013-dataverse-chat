@@ -61,7 +61,9 @@ export const Cards = () => {
     );
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", { name: "" });
+      //aqui debo insertar algun dato de la planta
+      // que le indique a Individual de qué planta se trata
+      navigateTo("/Individual", { title: element.name, searchParams: { id: element.id }} );
       })
   });
 
