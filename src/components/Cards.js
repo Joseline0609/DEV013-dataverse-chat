@@ -64,7 +64,7 @@ export const Cards = () => {
       //aqui debo insertar algun dato de la planta
       // que le indique a Individual de qué planta se trata
       navigateTo("/Individual", { title: element.name, searchParams: { id: element.id }} );
-      })
+    })
   });
 
   return cardsContainer;
