@@ -1,4 +1,4 @@
-import { data } from "../data/data.js";
+//import { data } from "../data/data.js";
 import { navigateTo } from "../router.js";
 
 const renderFactImages = (plant, cardItem) => {
@@ -121,7 +121,7 @@ const renderFactImages = (plant, cardItem) => {
 };
 
 //-------------------------------------------------------------------------------------------
-export const renderItems = () => {
+export const renderItems = (data) => {
   const cardsContainer = document.createElement("ul");
   cardsContainer.id = "ul-cards";
   //console.log(cardsContainer);

@@ -78,9 +78,9 @@ export const Home = () => {
   //----------------------
   //Clear page to don't overload the elements of the cardList
   //Must be call before changing curretData value
+
   const cardsContainer = viewHome.querySelector("#mainContainer");
   console.log(cardsContainer);
-
   function clearView() {
     cardsContainer.innerHTML = "";
   }
@@ -120,6 +120,7 @@ export const Home = () => {
   //  */
   const inputName = viewHome.querySelector("#input-name-home");
   console.log(inputName);
+  
   function filterByName() {
 
     const inputReceive = inputName.value;
@@ -163,8 +164,9 @@ export const Home = () => {
   console.log(dropdown);
   dropdown.addEventListener("change", () => {
     const i = dropdown.selectedIndex;
+    console.log(i);
     if (i === 3) {
-      clearView();
+      clearView();  
       renderItems(clonedData);
       //setListeners();
       dropdown.selectedIndex = 0;
