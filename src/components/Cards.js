@@ -62,7 +62,7 @@ export const Cards = () => {
 
     goToIndividualChat.addEventListener("click", () => {
       navigateTo("/Individual", { name: "Bienvenida al chat" });
-      })
+    })
   });
 
   return cardsContainer;
