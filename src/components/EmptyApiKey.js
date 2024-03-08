@@ -9,8 +9,8 @@ export default function EmptyApiKey() {
         No has ingresado una llave <br />
         para esta zona del jardín
       </p>
-      <input type="text" class="text" name="text" id="text" required placeholder="Ingresa una Api Key..." /><br />
-      <button id="send-key-button1">Enviar</button>
+      <input type="text" id="text" class="text" name="text" required placeholder="Ingresa una Api Key..." /><br />
+      <button id="send-key-button1" class="send-key-button1">Enviar</button>
       <p class="link">
         Si no tienes una llave solicítala <br />
         haciendo click <a href="https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt" target="_blank">aquí</a>

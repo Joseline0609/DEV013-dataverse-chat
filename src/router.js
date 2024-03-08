@@ -1,10 +1,12 @@
+import { data } from "./data/data.js";
+
 let ROUTES = {};
 
 let rootElement; // variable reference to html element uninitialized
 
 /**
  * This function initializes rootElement with the value passed to the parameter
- * @param { expects  routes{} } newRootElementValue - which comes from index.js
+ * @param { expects routes{} } newRootElementValue - which comes from index.js
  */
 export const setRootElement = (newRootElementValue) => {
   rootElement = newRootElementValue;
@@ -25,6 +27,15 @@ export const setRoutes = (newRoutesValue) => {
     }
   }
 };
+
+const queryStringToObject = (queryString) => {
+  // console.log(queryString);
+  const newURL = new URLSearchParams(queryString);
+  // console.log(newURL);
+  const urlToParam = Object.fromEntries(newURL);
+  // console.log(urlToParam);
+  return urlToParam;
+}
 
 /**
  * This function renders the viu corresponding to
@@ -55,15 +66,35 @@ const renderView = (pathname, props = {}) => {
  * @param { string } props - guiven in the event listener of buttons
  */
 export const navigateTo = (pathname, props = {}) => {
-  const URLvisited = pathname;
-  history.pushState({}, "", URLvisited); // update window history with pushState
-  //actualiza el navegador
-  renderView(pathname, props); // render the view with the pathname and props
+  // aqui debo convertir el objeto a string
+
+  //cuando el objeto esta vacio -
+  //cuando el objeto no esta vacio tengo que llamar a
+  let URLvisited = pathname;
+  if (Object.hasOwn(props, "searchParams")) {
+    const params = new URLSearchParams(props.searchParams).toString();
+    URLvisited = pathname + "?" + params;
+    history.pushState({}, "", URLvisited); // update window history with pushState
+    renderView(pathname, props.searchParams);
+    document.title = props.title;
+  } else {
+    history.pushState({}, "", URLvisited); // update window history with pushState
+    renderView(pathname);
+    document.title = props.title;
+  }
+  
+
 };
 
 export const onURLChange = (location) => {
-  // parse the location for the pathname and search params
-  // convert the search params to an object
-  // render the view with the pathname and object
+  //si este objeto vale algo pasarselo a renderview
+  //si no -
+    let searchObject = queryStringToObject(window.location.search);
+    // console.log(searchObject);
+  if (searchObject) {
+    renderView(location, searchObject);
+  }
   renderView(location);
 };
+
+//lo que sigue es acceder a la data en individual view

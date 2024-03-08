@@ -1,8 +1,14 @@
+import { data } from "../data/data.js";
+import { userNameValue } from "./Welcome.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
-//import { navigateTo } from "../router.js";
 
-export default function IndividualChat() {
+export default function IndividualChat(props = {}) {
+  //console.log(props);
+  // tenemos el ID... con ese necesitamos acceder a la data
+  // y buscar el elemento por su ID
+  // imagino que habra que recorrer la data para encontrar el elemento que coincida
+  // y de ese extraer los datos necesarios
   const viewIndividualChat = document.createElement("div");
   viewIndividualChat.className = "individual-chat-wrapper";
 
@@ -13,7 +19,7 @@ export default function IndividualChat() {
           <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true">
         </div>
         <div class="text-area">
-          <h1>Plant Name</h1>
+          <h1>${props.name}</h1>
           <p>Short description Lorem Ipsum es
             simplemente el texto de relleno de
             las imprentas y archivos de texto.
@@ -22,7 +28,7 @@ export default function IndividualChat() {
       </div>
       <div id="chat-container" class="chat-container">
         <div class="plant-message">
-          <p class="name">Plant name</p>
+          <p class="name">${props.name}</p>
           <p class="message">Hi 'user name'. I'm 'plant name'<br/>
             Would you like to ask me something?
           </p>
@@ -30,7 +36,7 @@ export default function IndividualChat() {
             alt="Avatar" style="height:20px;width:20px";>
         </div>
         <div class="user-message">
-          <p class="name">User Name</p>
+          <p class="name">${userNameValue}</p>
           <p class="message">Hi plant, I want to know how much water you need</p>
         </div>
       </div>
@@ -69,25 +75,44 @@ export default function IndividualChat() {
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-  sendButton.addEventListener("click", () => {
+
+sendButton.addEventListener("click", () => {
+  sendingUserMessage();
+});
+
+  const inputBox = viewIndividualChat.querySelector("#user-text");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+    }
+});
+
+function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
-    const newMessageContainer = document.createElement("div");
-    newMessageContainer.className = "user-message";
-    chatContainer.appendChild(newMessageContainer);
+    const newMessageText = newMessage.value;
 
-    const userName = document.createElement("p");
-    newMessageContainer.appendChild(userName);
-    userName.className = "name";
-    userName.innerHTML = "User Name";
-    const viewNewMessage = document.createElement("p");
-    newMessageContainer.appendChild(viewNewMessage);
-    viewNewMessage.className = "message";
 
-    viewNewMessage.innerHTML = newMessage.value;
+    let expresion = /[^\W\d]/g;
+     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
 
-    newMessage.value = ``;
-  });
+      const newMessageContainer = document.createElement("div");
+      newMessageContainer.className = "user-message";
+      chatContainer.appendChild(newMessageContainer);
+
+      const userName = document.createElement("p");
+      newMessageContainer.appendChild(userName);
+      userName.className = "name";
+      userName.innerHTML = userNameValue;
+
+      const viewNewMessage = document.createElement("p");
+      newMessageContainer.appendChild(viewNewMessage);
+      viewNewMessage.className = "message";
+
+      viewNewMessage.innerHTML = newMessageText;
+      newMessage.value = ``;
+    }
+}
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
