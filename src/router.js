@@ -57,8 +57,8 @@ const renderView = (pathname, props = {}) => {
 export const navigateTo = (pathname, props = {}) => {
   const URLvisited = pathname;
   history.pushState({}, "", URLvisited); // update window history with pushState
-  //actualiza el navegador
-  renderView(pathname, props); // render the view with the pathname and props
+  renderView(pathname, props);
+  document.title = pathname;
 };
 
 export const onURLChange = (location) => {

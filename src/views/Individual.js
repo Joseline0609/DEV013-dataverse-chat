@@ -1,6 +1,6 @@
+// import { data } from "../data/data.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
-//import { navigateTo } from "../router.js";
 
 export default function IndividualChat() {
   const viewIndividualChat = document.createElement("div");
@@ -69,25 +69,45 @@ export default function IndividualChat() {
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-  sendButton.addEventListener("click", () => {
+
+sendButton.addEventListener("click", () => {
+  sendingUserMessage();
+});
+
+  const inputBox = viewIndividualChat.querySelector("#user-text");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+    }
+});
+
+function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
-    const newMessageContainer = document.createElement("div");
-    newMessageContainer.className = "user-message";
-    chatContainer.appendChild(newMessageContainer);
+    const newMessageText = newMessage.value;
 
-    const userName = document.createElement("p");
-    newMessageContainer.appendChild(userName);
-    userName.className = "name";
-    userName.innerHTML = "User Name";
-    const viewNewMessage = document.createElement("p");
-    newMessageContainer.appendChild(viewNewMessage);
-    viewNewMessage.className = "message";
 
-    viewNewMessage.innerHTML = newMessage.value;
+    let expresion = /[^\W\d]/g;
+     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
 
-    newMessage.value = ``;
-  });
+      const newMessageContainer = document.createElement("div");
+      newMessageContainer.className = "user-message";
+      chatContainer.appendChild(newMessageContainer);
+
+      const userName = document.createElement("p");
+      newMessageContainer.appendChild(userName);
+      userName.className = "name";
+      userName.innerHTML = "User Name";
+
+      const viewNewMessage = document.createElement("p");
+      newMessageContainer.appendChild(viewNewMessage);
+      viewNewMessage.className = "message";
+
+      viewNewMessage.innerHTML = newMessageText;
+
+      newMessage.value = ``;
+    }
+}
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
