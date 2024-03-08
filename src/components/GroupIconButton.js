@@ -8,7 +8,7 @@ export const GroupIconButton = () => {
   const goToGroupButton = buttonContainer.querySelector("#group-button");
 
   goToGroupButton.addEventListener("click", () =>
-    navigateTo("/Group", { name: "group" })
+    navigateTo("/Group", { title: "Group" })
   );
 
   return buttonContainer;

@@ -470,7 +470,9 @@ div.chat-area {
 div.info-area {
   height: 50px;
   display: flex;
-  width: 400px;
+  width: 380px;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #EBD0BF 60%, #fff 90%) 1;
 }
  
 div.info-area img {
@@ -482,7 +484,7 @@ div.info-area h1 {
   text-transform: uppercase;
   margin-top: -55px;
   font-size: 20px;
-  width: 280px;
+  width: 270px;
   color: #af4401;
 }
 

@@ -10,7 +10,7 @@ export const HomeIconButton = () => {
   //console.log(goToHomeButton);
 
   goToHomeButton.addEventListener("click", () =>
-    navigateTo("/Home", { name: "group" })
+    navigateTo("/Home", { title: "Home" })
   );
   return buttonContainer;
 };

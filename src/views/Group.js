@@ -1,4 +1,5 @@
 // import { data } from "../data/data.js";
+import { userNameValue } from "./Welcome.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export const GroupChat = () => {
@@ -24,7 +25,7 @@ export const GroupChat = () => {
           </div>
         </div>
         <div class="user-group-message">
-          <p class="name">User Name</p>
+          <p class="name">${userNameValue}</p>
           <p class="message">Hello how are you? Could you tell me when you bloom?</p>
         </div>
         <div class="plant-group-message">
@@ -113,7 +114,7 @@ function sendingUserMessage() {
       const userName = document.createElement("p");
       newMessageContainer.appendChild(userName);
       userName.className = "name";
-      userName.innerHTML = "User Name";
+      userName.innerHTML = userNameValue;
 
       const viewNewMessage = document.createElement("p");
       newMessageContainer.appendChild(viewNewMessage);
@@ -122,28 +123,9 @@ function sendingUserMessage() {
       viewNewMessage.innerHTML = newMessageText;
 
       newMessage.value = ``;
+      console.log(userNameValue);
     }
   }
-
-  // sendButton.addEventListener("click", () => {
-  //   const newMessage = document.getElementById("user-text");
-  //   const chatContainer = document.getElementById("chat-container");
-  //   const newMessageContainer = document.createElement("div");
-  //   newMessageContainer.className = "user-group-message";
-  //   chatContainer.appendChild(newMessageContainer);
-
-  //   const userName = document.createElement("p");
-  //   newMessageContainer.appendChild(userName);
-  //   userName.className = "name";
-  //   userName.innerHTML = "User Name";
-  //   const viewNewMessage = document.createElement("p");
-  //   newMessageContainer.appendChild(viewNewMessage);
-  //   viewNewMessage.className = "message";
-
-  //   viewNewMessage.innerHTML = newMessage.value;
-
-  //   newMessage.value = ``;
-  // });
 
   const butonsContainer = document.createElement("div");
   butonsContainer.className = "buttons-area";

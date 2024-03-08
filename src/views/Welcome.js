@@ -1,5 +1,7 @@
 import { navigateTo } from "../router.js";
 
+export let userNameValue = "";
+
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
   viewWelcome.className = "welcome";
@@ -32,11 +34,10 @@ export const Welcome = () => {
     if (user.value.length == 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
+      userNameValue = user.value;
       navigateTo("/Home", { name: "Bienvenida" });
     }
-
   }
-    // navigateTo("/Home", { name: "Bienvenida" })
   );
 
   return viewWelcome;
