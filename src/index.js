@@ -5,15 +5,6 @@ import IndividualChat from "./views/Individual.js";
 import { GroupChat } from "./views/Group.js";
 import NotFound from "./views/Notfound.js";
 
-// import { computeStats } from "./dataFunctions.js";
-// import { sortData } from "./dataFunctions.js";
-// import { filterData } from "./dataFunctions.js";
-// import { data } from "./data/data.js";
-// import { renderItems } from "./components/CardsComponent.js";
-// import { SearchByName } from "./components/SearchByNameInput.js";
-// import { OrderBySelect } from "./components/OrderBySelect.js";
-// import { Header } from "./components/Header.js";
-// import { FilterByMenu } from "./components/FilterByMenu.js";
 
 //This is a dictionary *
 const routes = {

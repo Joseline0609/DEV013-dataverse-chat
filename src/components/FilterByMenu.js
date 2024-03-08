@@ -16,7 +16,7 @@ export function FilterByMenu() {
         <label for="desertica">Desérticas</label>
     </div>
     <div class="item-aside">
-        <input type="image" data-category="arbol" id="arbol" name="arbol" alt="Árboles" class="category" src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/arboles.png?raw=true">
+        <input type="image" data-category="arboles" id="arbol" name="arbol" alt="Árboles" class="category" src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/arboles.png?raw=true">
         <label for="arbol">Árboles</label>
     </div>
     <div class="item-aside">
