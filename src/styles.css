@@ -184,7 +184,7 @@ aside.search-by-name.container {
   margin-top: 37px;
 }
 
-.input-name {
+aside.search-by-name.container input {
   outline-style: none;
   width: 150px;
   border-radius: 5px;
@@ -433,6 +433,7 @@ footer h3 {
 }
 
 .home .group-button {
+  /* background-color: #ad4301; */
   display: flex;
   bottom: 47px;
   right: 40px;
