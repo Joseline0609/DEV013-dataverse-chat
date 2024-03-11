@@ -374,10 +374,12 @@ h3 {
 
 #front-card .buttons-container {
   width: 240px;
+  height: 35px;
   display: flex;
   justify-content: space-between;
-  margin: 37px 0 0 8px;
+  margin: 52px 0 -20px 8px;
   align-items: center;
+  /* background-color: #153119; */
 }
 
 .buttons-container img {
@@ -400,9 +402,11 @@ h3 {
   flex-direction: row;
   padding: 4px 8px;
   align-items: center;
+  margin-top: 20px;
 }
 
 #front-card .individual-chat-button img {
+  margin: -29px 0px 29px 115px;
   width: 25px;
   height: 25px;
 }

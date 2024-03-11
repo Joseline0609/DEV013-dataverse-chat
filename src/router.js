@@ -1,4 +1,4 @@
-import { data } from "./data/data.js";
+// import { data } from "./data/data.js";
 
 let ROUTES = {};
 
@@ -96,5 +96,3 @@ export const onURLChange = (location) => {
   }
   renderView(location);
 };
-
-//lo que sigue es acceder a la data en individual view
