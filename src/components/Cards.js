@@ -135,7 +135,7 @@ export const renderItems = () => {
 
     statisticsButton.className = "modal-statistics-button";
     statisticsButton.alt = "Estadísticas";
-    statisticsButton.src = "../Resources/DV Chat/statics.png";
+    statisticsButton.src = "../Resources/DV Chat/stats.png";
     statisticsButton.id = element.categoryPlant;
 
     // Creating stats Modal
@@ -235,7 +235,7 @@ export const renderItems = () => {
     //console.log(goToIndividualChat);
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", { name: "Bienvenida al chat" });
+      navigateTo("/Individual", { title: element.name, searchParams: { id: element.id }} );
     });
   });
 
