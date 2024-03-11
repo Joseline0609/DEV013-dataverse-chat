@@ -1,6 +1,7 @@
 export function FilterByMenu() {
   const viewFilterByMenu = document.createElement("aside");
   viewFilterByMenu.className = "category-menu container";
+  
   viewFilterByMenu.innerHTML += `
     <nav class="category-nav">
     <div class="item-aside">

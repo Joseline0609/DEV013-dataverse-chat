@@ -1,65 +1,98 @@
+// import { data } from "./data/data.js";
+
 let ROUTES = {};
 
-let rootElement; // referencia al elemento html
+let rootElement; // variable reference to html element uninitialized
 
+/**
+ * This function initializes rootElement with the value passed to the parameter
+ * @param { expects routes{} } newRootElementValue - which comes from index.js
+ */
 export const setRootElement = (newRootElementValue) => {
-  //validar si es un objeto
-  //validar si existe
   rootElement = newRootElementValue;
 };
 
-//1 obtener url actual
-//Comparar con el objeto
-//Si no se encuentra dentro del objeto se envia a notfound
-
+/**
+ * This function validates if newRoutesValue is an object
+ * If this object contains a /Notfound file
+ * ROUTES is assigned the value of newRoutesValue
+ * converting RUTES into the param guiven
+ * @param { in an object } newRoutesValue - from index.js
+ */
 export const setRoutes = (newRoutesValue) => {
-  // optional Throw errors if routes isn't an object
+  // optional Throw errors if routes isn't an object and doesnt exist /Notfound
   if (typeof newRoutesValue === "object") {
     if (newRoutesValue["/Notfound"]) {
       ROUTES = newRoutesValue;
     }
   }
-  // optional Throw errors if routes doesn't define an /error route
-  // assign ROUTES
 };
-// quien va a llamar a setRoutes(Home()); ?
 
-//const queryStringToObject = (queryString) => {
-// convert query string to URLSearchParams
-// convert URLSearchParams to an object
-// return the object
-//};
+const queryStringToObject = (queryString) => {
+  // console.log(queryString);
+  const newURL = new URLSearchParams(queryString);
+  // console.log(newURL);
+  const urlToParam = Object.fromEntries(newURL);
+  // console.log(urlToParam);
+  return urlToParam;
+}
 
+/**
+ * This function renders the viu corresponding to
+ * the route, the pathname and the props passed to the parameters
+ * but if they are not valid, render /Notfound
+ * @param { a string } pathname - the extention for url
+ * @param { a string } props - the extention to find the specific item
+ */
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
-  root.innerHTML = ""; // clear the root element
+  root.innerHTML = "";
   if (ROUTES[pathname]) {
     const template = ROUTES[pathname](props);
     root.appendChild(template);
   } else {
     root.appendChild(ROUTES["/Notfound"]());
   }
-  // find the correct view in ROUTES for the pathname
-  // in case not found render the error view
-  // render the correct view passing the value of props
-  // add the view element to the DOM root element
-  //inserta el contenido
 };
 
+/**
+ * This function adds the pathname value to the history
+ * to be able to return to that view later
+ * by clicking the forward and back arrows in the browser
+ * then call render view to render the view
+ * corresponding to the given value of pathname and props
+ *
+ * @param { string } pathname - guiven in the event listener of buttons
+ * @param { string } props - guiven in the event listener of buttons
+ */
 export const navigateTo = (pathname, props = {}) => {
-  const URLvisited = pathname;
-  // console.log(URLvisited);
-  history.pushState({}, "", URLvisited);
-  //el objeto state {objeto asociado al nuevo registro}
-  // update window history with pushState
-  // render the view with the pathname and props
-  //actualiza el navegador
-  renderView(pathname, props);
+  // aqui debo convertir el objeto a string
+
+  //cuando el objeto esta vacio -
+  //cuando el objeto no esta vacio tengo que llamar a
+  let URLvisited = pathname;
+  if (Object.hasOwn(props, "searchParams")) {
+    const params = new URLSearchParams(props.searchParams).toString();
+    URLvisited = pathname + "?" + params;
+    history.pushState({}, "", URLvisited); // update window history with pushState
+    renderView(pathname, props.searchParams);
+    document.title = props.title;
+  } else {
+    history.pushState({}, "", URLvisited); // update window history with pushState
+    renderView(pathname);
+    document.title = props.title;
+  }
+  
+
 };
 
 export const onURLChange = (location) => {
-  // parse the location for the pathname and search params
-  // convert the search params to an object
-  // render the view with the pathname and object
+  //si este objeto vale algo pasarselo a renderview
+  //si no -
+    let searchObject = queryStringToObject(window.location.search);
+    // console.log(searchObject);
+  if (searchObject) {
+    renderView(location, searchObject);
+  }
   renderView(location);
 };

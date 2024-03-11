@@ -23,27 +23,26 @@ export default function NotFound() {
 
   homeButton.addEventListener("click", () => navigateTo("/Home"));
 
-  const openModal1Button = document.createElement("button");
-  viewNotFound.appendChild(openModal1Button);
+  const openModalEmptyApiKeyButton = document.createElement("button");
+  viewNotFound.appendChild(openModalEmptyApiKeyButton);
   const textOpenButton = document.createTextNode("See empty key modal");
-  openModal1Button.appendChild(textOpenButton);
+  openModalEmptyApiKeyButton.appendChild(textOpenButton);
 
-  openModal1Button.addEventListener("click", () => {
-    const viewModal1 = EmptyApiKey();
-    openModal1Button.appendChild(viewModal1);
-    viewModal1.showModal();
+  openModalEmptyApiKeyButton.addEventListener("click", () => {
+    const emptyApiKeyViewModal = EmptyApiKey();
+    viewNotFound.appendChild(emptyApiKeyViewModal);
+    emptyApiKeyViewModal.showModal();
   });
 
-  const openModal2Button = document.createElement("button");
-  viewNotFound.appendChild(openModal2Button);
+  const openModaNotValidApiKeyButton = document.createElement("button");
+  viewNotFound.appendChild(openModaNotValidApiKeyButton);
   const textValidButton = document.createTextNode("See not valid key modal");
-  openModal2Button.appendChild(textValidButton);
+  openModaNotValidApiKeyButton.appendChild(textValidButton);
 
-  openModal2Button.addEventListener("click", () => {
-    const viewModal2 = NotValidApiKey();
-    openModal2Button.appendChild(viewModal2);
-    console.log("mostrando");
-    viewModal2.showModal();
+  openModaNotValidApiKeyButton.addEventListener("click", () => {
+    const notValidApiKeyViewModal = NotValidApiKey();
+    viewNotFound.appendChild(notValidApiKeyViewModal);
+    notValidApiKeyViewModal.showModal();
   });
 
   return viewNotFound;

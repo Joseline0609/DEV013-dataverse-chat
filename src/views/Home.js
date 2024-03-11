@@ -41,17 +41,6 @@ export const Home = () => {
 
   mainContainer.appendChild(cards);
 
-  // ----------------------
-
-  const resetPage = viewHome.querySelectorAll(".logo");
-  console.log(resetPage);
-  Array.from(resetPage).forEach((element) => {
-    element.addEventListener("click", () => {
-      clearView();
-      renderItems(clonedData);
-    });
-  });
-
   //----------------------
 
   const cardsContainer = viewHome.querySelector("#mainContainer");
