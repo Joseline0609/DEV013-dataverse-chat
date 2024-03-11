@@ -28,40 +28,17 @@ export const Home = () => {
   viewHome.appendChild(Footer());
 
   //----------------------------------------------
-  //Keeps an array object in the original state
   const clonedData = structuredClone(data);
-  console.log(clonedData);
-
-  //----------------------
-  //The data that is used and modified everywhere
+  //console.log(clonedData);
   let currentData = data;
-  console.log(currentData);
-
-  //----------------------
-  //Stores the value of orderBy button selected
+  //console.log(currentData);
   let activeSorting = 0;
-
-  //----------------------
-  //Calls computeStats function to create statistics and
-  //keps it into a variable to be use by other functions
   //const statiscis = computeStats(clonedData);
-
-  //----------------------
-  //Calls renderItems function to render plants and
-  //keps it into a variable to be use by other functions
   const cards = renderItems(currentData);
-
-  //----------------------
-  //Excecutes setListeners to activate buttons
   //setListeners();
-
-  //----------------------
-  //Gets the root element
   const mainContainer = viewHome.querySelector("#mainContainer");
-  console.log(mainContainer);
+  //console.log(mainContainer);
 
-  //----------------------
-  //Cards is declared as a child of mainContainer
   mainContainer.appendChild(cards);
 
   // ----------------------
@@ -76,30 +53,24 @@ export const Home = () => {
   });
 
   //----------------------
-  //Clear page to don't overload the elements of the cardList
-  //Must be call before changing curretData value
 
   const cardsContainer = viewHome.querySelector("#mainContainer");
-  console.log(cardsContainer);
+  //console.log(cardsContainer);
   function clearView() {
     cardsContainer.innerHTML = "";
   }
 
-  // Filter by category flow ----------------------
-  /**
-   * Gets the category buttons, iterates them to add listeners to excecutes filterData
-   * executes sort data if some option is active
-   * @returns: new currentData
-   */
+  // Filter by category flow 
   const categoryButtons = viewHome.querySelectorAll(".category");
-  console.log(categoryButtons);
+  //console.log(categoryButtons);
   
   categoryButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const category = e.target.getAttribute("data-category");
-      console.log(category);
+      //console.log(category);
       currentData = filterData(data, "categoryPlant", category);
-      console.log(currentData);
+      //console.log(currentData);
+      
       if (activeSorting === 1) {
         sortData(currentData, "id", 1);
       } else if (activeSorting === 2) {
@@ -107,48 +78,38 @@ export const Home = () => {
       }
 
       clearView();
-      renderItems(currentData); /* algo esta fallando con renderItems*/
+      mainContainer.appendChild(renderItems(currentData));
       //setListeners();
       return currentData;
     });
   });
 
-  // // Filter by name flow ----------------------
-  // /**
-  //  * Gets the text box, sets the writen value, turns the firsf caracter to upper case
-  //  * filteredName keeps filterData with the arguments to be use
-  //  */
+  // Filter by name flow 
   const inputName = viewHome.querySelector("#input-name-home");
-  console.log(inputName);
+  //console.log(inputName);
   
   function filterByName() {
 
     const inputReceive = inputName.value;
-    console.log(inputReceive);
+    //console.log(inputReceive);
 
     const firstLetter = inputReceive[0].toUpperCase();
-    console.log(firstLetter);
+    //console.log(firstLetter);
     const inputCorrected = firstLetter + inputReceive.slice(1);
-    console.log(inputCorrected);
+    //console.log(inputCorrected);
 
     const filteredName = filterData(clonedData, "name", inputCorrected);
-    console.log(filteredName);
+    //console.log(filteredName);
     clearView();
-    renderItems(filteredName);
+    mainContainer.appendChild(renderItems(filteredName));
     //setListeners();
   }
 
-  //Gets form element, adds listener submit
-  //excecutes preventDefault to prevent going to the data file
-  //and calls fiterByName() function
   viewHome.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
     filterByName();
   });
 
-  //Adds listener when enter is press and calls fiterByName() function
-  const inputNameK = viewHome.querySelector("#input-name-home");
-  console.log(inputNameK);
   inputName.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
       filterByName();
@@ -156,15 +117,11 @@ export const Home = () => {
   });
 
   // Order by flow ----------------------
-  /**
-   * Gets the select element, adds the listener on change, gets the value of selection
-   * if 3 is selected render cloneData, else executes sortData with index guiven
-   */
   const dropdown = viewHome.querySelector("#item-order");
-  console.log(dropdown);
+  //console.log(dropdown);
   dropdown.addEventListener("change", () => {
     const i = dropdown.selectedIndex;
-    console.log(i);
+    //console.log(i);
     if (i === 3) {
       clearView();  
       renderItems(clonedData);
@@ -174,21 +131,17 @@ export const Home = () => {
       activeSorting = i;
       clearView();
       sortData(currentData, "id", i);
-      renderItems(currentData);
+      mainContainer.appendChild(renderItems(currentData));
       //setListeners();
     }
   });
 
-  // // Statistics ----------------------
-  // /**
-  //  * This function creates the words to be insert into the statistics modal
-  //  *
-  //  * @param { property } categoryPlant - From object array
-  //  * @param { id argument } statsModal - Modal box from HTML
-  //  * @param { object } statsByCategory - Created new element
-  //  */
+  // Statistics
+
   // function renderStatisticsWords(categoryPlant, statsModal, statsByCategory) {
   //   const plantCategory = statsModal.querySelector("#plant-category-modal");
+  //   console.log(plantCategory);
+
   //   plantCategory.innerHTML = categoryPlant;
 
   //   const waterAverageWord = document.createElement("h5");
@@ -233,18 +186,14 @@ export const Home = () => {
   //   }
   // }
 
-  // Listeners -----------------------------------------------------------------------------------------------------------------
-  /**
-   * This sets the listeners to execute the functions
-   * renderStatisticsWords
-   * renderDescriptions
-   * .show() and .close() methods to modasl
-   */
+  // // Listeners 
+
   // function setListeners() {
-  //   //TODO: - Ask why sometimes getElementsByClassName is not working?
   //   const statisticsButtons = document.querySelectorAll(
   //     ".modal-statistics-button"
   //   );
+  //   console.log(statisticsButtons);
+
   //   statisticsButtons.forEach((button) => {
   //     button.addEventListener("click", () => {
   //       const categoryPlant = button.id;
@@ -254,13 +203,13 @@ export const Home = () => {
   //     });
   //   });
 
-  // const closeButtonStats = document.querySelector(".close-button-stats");
-  // closeButtonStats.addEventListener("click", () => {
-  //   const statsModal = document.querySelector("#statistics-modal");
-  //   statsModal.close();
-  // });
+  //   // const closeButtonStats = document.querySelector(".close-button-stats");
+  //   // closeButtonStats.addEventListener("click", () => {
+  //   //   const statsModal = document.querySelector("#statistics-modal");
+  //   //   statsModal.close();
+  //   // });
 
-  //}
+  // }
 
   return viewHome;
 };

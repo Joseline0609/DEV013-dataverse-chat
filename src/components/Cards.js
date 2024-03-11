@@ -202,7 +202,7 @@ export const renderItems = (data) => {
 
        <div class="buttons-container">
 
-        <div class="statics-button" id="icons" class="modal-boxes">
+        <div class="statics-button" id="icons">
         </div>
 
         <div class="individual-chat-button">
@@ -221,7 +221,7 @@ export const renderItems = (data) => {
     //stats, description and reverse buttons
     const icons = cardItem.querySelector("#icons");
     //console.log(icons);
-    document.querySelector("#icons");
+    // document.querySelector("#icons");
     icons.appendChild(statisticsButton);
 
     //Adding the modals to the card
