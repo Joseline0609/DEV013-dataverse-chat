@@ -96,5 +96,3 @@ export const onURLChange = (location) => {
   }
   renderView(location);
 };
-
-//lo que sigue es acceder a la data en individual view

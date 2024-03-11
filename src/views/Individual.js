@@ -4,13 +4,12 @@ import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export default function IndividualChat(props = {}) {
-  console.log(props);
-  // console.log(data);
-  // console.log(data.props[id]); // ok cómo accedo a begonia con el id
-  // tenemos el ID... con ese necesitamos acceder a la data
-  // y buscar el elemento por su ID
-  // imagino que habra que recorrer la data para encontrar el elemento que coincida
-  // y de ese extraer los datos necesarios
+  const propsIdValue = Object.values(props);
+  function findPlant(plant) {
+    return plant.id === propsIdValue[0];
+  }
+  const currentPlant = data.find(findPlant);
+  //console.log(currentPlant.name);
   const viewIndividualChat = document.createElement("div");
   viewIndividualChat.className = "individual-chat-wrapper";
 
@@ -18,24 +17,21 @@ export default function IndividualChat(props = {}) {
     <div id="chat-area" class="chat-area">
       <div id="info-area" class="info-area">
         <div>
-          <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true">
+          <img src="${currentPlant.imageUrl}" style="height:85px;width:55px";>
         </div>
         <div class="text-area">
-          <h1>${props.name}</h1>
-          <p>Short description Lorem Ipsum es
-            simplemente el texto de relleno de
-            las imprentas y archivos de texto.
-          </p>
+          <h1>${currentPlant.name}</h1>
+          <p>${currentPlant.shortDescription}</p>
         </div>
       </div>
       <div id="chat-container" class="chat-container">
         <div class="plant-message">
-          <p class="name">${props.name}</p>
+          <p class="name">${currentPlant.name}</p>
           <p class="message">Hi 'user name'. I'm 'plant name'<br/>
             Would you like to ask me something?
           </p>
-          <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-            alt="Avatar" style="height:20px;width:20px";>
+          <img src="${currentPlant.imageUrl}";
+            alt="Avatar" style="height:25px;width:18px";>
         </div>
         <div class="user-message">
           <p class="name">${userNameValue}</p>
@@ -77,7 +73,6 @@ export default function IndividualChat(props = {}) {
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-
 sendButton.addEventListener("click", () => {
   sendingUserMessage();
 });
