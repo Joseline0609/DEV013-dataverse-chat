@@ -1,4 +1,4 @@
-//----------------------
+
 /**
  * This function gets the category from the object
  * and compares it with the value of the atribute in HTML element
@@ -39,7 +39,6 @@ export const sortData = (data, sortBy, sortOrder) => {
   });
 };
 
-// //----------------------
 // /**
 //  * This function creates the structure
 //  * stores the numbers into an array

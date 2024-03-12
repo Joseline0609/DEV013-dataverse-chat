@@ -678,6 +678,114 @@ div.not-found button {
   margin: 50px 0 50px 100px;
 }
 
+/* -------------- Stats modals styles -------------- */
+
+/* .statistics-modal, .description-modal {
+  margin: auto;
+  background-color: #fefefe;
+  border: 3px solid #E5B655;
+  border-radius: 10px;
+  width: 500px;
+  height: 300px;
+  justify-content: center;
+  padding: 10px; 
+}
+
+.statistics-modal h3:first-letter {
+  text-transform: uppercase;
+}
+
+.statistics-modal h3 {
+  font-family: 'Marcellus SC', serif;
+  color: #4F6F1D;
+  font-size: 30px;
+  text-align: center;
+  font-weight: lighter;
+  margin: 10px 0 25px 0;
+}
+
+.statistics {
+  display: flex;
+  margin: 28px 0 00 0;
+}
+
+
+div.statistics-totals h5 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 25px;
+  text-align: center;
+  margin: 0 0 20px 80px;
+  text-shadow: .5px .5px .5px gray;
+}
+
+div.statistics .legend {
+  margin-top: 5px;
+  display: flex;
+}
+
+div.statistics .square {
+  height: 20px;
+  width: 30px;
+  margin: 0 10px 25px 3px;
+  border-radius: 5px;
+}
+
+div.statistics .square.water {
+  background-color: #D7A180;
+}
+
+div.statistics .square.light {
+  background-color: #F2DBAA;
+}
+
+div.statistics .square.care {
+  background-color: #E7E4A7;
+}
+
+h5.water {
+  color: #D7A180;
+}
+
+h5.light {
+  color: #E5B655;
+}
+
+h5.care {
+  color: #D0C950;
+}
+
+.statistics-modal h4 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 21px;
+  text-align: center;
+  font-weight: lighter;
+  color: #4F6F1D;
+  margin: 15px 55px 0 0;
+  
+}
+
+img.close-button, img.close-button-stats {
+  width: 30px;
+  height: 30px;
+  margin: -28px 0 25px 442px;
+}
+
+.description-modal {
+  border: 3px solid #D0C950;
+}
+
+.description-modal h3 {
+  font-family: 'Marcellus', serif;
+  margin: 10px 0 20px 0;
+  color: #AF4401;
+  font-size: 23px;
+  text-align: center;
+}
+
+.description-modal p {
+  height: 214px;
+} */
+
 /* -------------- Apikay error modals styles -------------- */
 
 dialog.modal {

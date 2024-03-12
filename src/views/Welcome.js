@@ -35,7 +35,7 @@ export const Welcome = () => {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
       userNameValue = user.value;
-      navigateTo("/Home", { name: "Bienvenida" });
+      navigateTo("/Home", { title: "Home" });
     }
   }
   );
