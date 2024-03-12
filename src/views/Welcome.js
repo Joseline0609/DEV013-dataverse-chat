@@ -26,12 +26,14 @@ export const Welcome = () => {
     </div>
   `;
 
-  let user = viewWelcome.querySelector("#input-name");
+  //--------------------------------------
+
+  const user = viewWelcome.querySelector("#input-name");
 
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   enterButton.addEventListener("click", () => {
-    if (user.value.length == 0) {
+    if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
       userNameValue = user.value;

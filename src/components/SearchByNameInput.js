@@ -1,4 +1,5 @@
 export function SearchByName() {
+  
   const viewSearchByName = document.createElement("aside");
   viewSearchByName.className = "search-by-name container";
   viewSearchByName.innerHTML += `

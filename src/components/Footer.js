@@ -5,6 +5,5 @@ export function Footer() {
     <p class="footer">Etelbina Cañedo &amp; Joseline García</p>
     <p class="footer">Bootcamp Laboratoria</p>
   `;
-
   return viewFooter;
 }
