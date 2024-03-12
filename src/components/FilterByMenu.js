@@ -26,6 +26,5 @@ export function FilterByMenu() {
     </div>
     </nav>
   `;
-
   return viewFilterByMenu;
 }

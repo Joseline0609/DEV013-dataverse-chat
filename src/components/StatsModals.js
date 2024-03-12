@@ -3,9 +3,7 @@ import { data } from "../data/data.js";
 
 export function StatsModals(category) {
   const statsComputed = computeStats(data);
-  console.log(statsComputed); 
-//   const statsByCategory = statsComputed[category];
-//   console.log(statsByCategory);  
+  //console.log(statsComputed);  
 
   const viewStatsModal = document.createElement("dialog");
   viewStatsModal.id = "statistics-modal";
@@ -44,52 +42,52 @@ export function StatsModals(category) {
   return viewStatsModal;
 }
 
-  // Statistics
+// Statistics
 
-  function renderStatisticsWords(categoryPlant, statsModal, statsByCategory) {
-    const plantCategory = statsModal.querySelector("#plant-category-modal");
-    console.log(plantCategory);
+function renderStatisticsWords(categoryPlant, statsModal, statsByCategory) {
+  const plantCategory = statsModal.querySelector("#plant-category-modal");
+  //console.log(plantCategory);
 
-    plantCategory.innerHTML = categoryPlant;
+  plantCategory.innerHTML = categoryPlant;
 
-    const waterAverageWord = document.createElement("h5");
-    waterAverageWord.className = "water";
+  const waterAverageWord = document.createElement("h5");
+  waterAverageWord.className = "water";
 
-    const statisticsContainer = statsModal.querySelector(".statistics-totals");
-    statisticsContainer.innerHTML = "";
-    statisticsContainer.appendChild(waterAverageWord);
+  const statisticsContainer = statsModal.querySelector(".statistics-totals");
+  statisticsContainer.innerHTML = "";
+  statisticsContainer.appendChild(waterAverageWord);
 
-    if (statsByCategory[categoryPlant].average.waterAverage === 1) {
-      waterAverageWord.innerHTML += "Poca";
-    } else if (statsByCategory[categoryPlant].average.waterAverage === 2) {
-      waterAverageWord.innerHTML += "Regular";
-    } else if (statsByCategory[categoryPlant].average.waterAverage === 3) {
-      waterAverageWord.innerHTML += "Mucha";
-    }
-
-    const lightAverageWord = document.createElement("h5");
-    lightAverageWord.className = "light";
-
-    statisticsContainer.appendChild(lightAverageWord);
-
-    if (statsByCategory[categoryPlant].average.lightAverage === 1) {
-      lightAverageWord.innerHTML += "Poca";
-    } else if (statsByCategory[categoryPlant].average.lightAverage === 2) {
-      lightAverageWord.innerHTML += "Regular";
-    } else if (statsByCategory[categoryPlant].average.lightAverage === 3) {
-      lightAverageWord.innerHTML += "Mucha";
-    }
-
-    const careAverageWord = document.createElement("h5");
-    careAverageWord.className = "care";
-
-    statisticsContainer.appendChild(careAverageWord);
-
-    if (statsByCategory[categoryPlant].average.careAverage === 1) {
-      careAverageWord.innerHTML += "Poca";
-    } else if (statsByCategory[categoryPlant].average.careAverage === 2) {
-      careAverageWord.innerHTML += "Regular";
-    } else if (statsByCategory[categoryPlant].average.careAverage === 3) {
-      careAverageWord.innerHTML += "Mucha";
-    }
+  if (statsByCategory[categoryPlant].average.waterAverage === 1) {
+    waterAverageWord.innerHTML += "Poca";
+  } else if (statsByCategory[categoryPlant].average.waterAverage === 2) {
+    waterAverageWord.innerHTML += "Regular";
+  } else if (statsByCategory[categoryPlant].average.waterAverage === 3) {
+    waterAverageWord.innerHTML += "Mucha";
   }
+
+  const lightAverageWord = document.createElement("h5");
+  lightAverageWord.className = "light";
+
+  statisticsContainer.appendChild(lightAverageWord);
+
+  if (statsByCategory[categoryPlant].average.lightAverage === 1) {
+    lightAverageWord.innerHTML += "Poca";
+  } else if (statsByCategory[categoryPlant].average.lightAverage === 2) {
+    lightAverageWord.innerHTML += "Regular";
+  } else if (statsByCategory[categoryPlant].average.lightAverage === 3) {
+    lightAverageWord.innerHTML += "Mucha";
+  }
+
+  const careAverageWord = document.createElement("h5");
+  careAverageWord.className = "care";
+
+  statisticsContainer.appendChild(careAverageWord);
+
+  if (statsByCategory[categoryPlant].average.careAverage === 1) {
+    careAverageWord.innerHTML += "Poca";
+  } else if (statsByCategory[categoryPlant].average.careAverage === 2) {
+    careAverageWord.innerHTML += "Regular";
+  } else if (statsByCategory[categoryPlant].average.careAverage === 3) {
+    careAverageWord.innerHTML += "Mucha";
+  }
+}

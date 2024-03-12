@@ -38,7 +38,7 @@ const renderFactImages = (plant, cardItem) => {
   careActiveImage3.alt = "Semaforo";
   careActiveImage3.src = "../Resources/DV Chat/Cuidado activa.png";
 
-  // 1 - Iterar en data forEach
+  // 1 - Iterate through data with forEach
   // 2 - Get facts by type
   const waterAmount = plant.facts.waterAmount;
   //console.log(waterAmount);
@@ -51,30 +51,27 @@ const renderFactImages = (plant, cardItem) => {
   //console.log(waterArea);
   document.querySelector("#water");
 
-  // 3 - condicionales
-  // 3.1 repetir por fact
-  // 3.2 water facts
+  // 3 - conditionals
+
   if (waterAmount === 1) {
-    //4 dibujar 1 activa 2 inactivas
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2); //anadir clase
     waterActiveImage2.className = "inactive";
     waterArea.appendChild(waterActiveImage3); //anadir clase
     waterActiveImage3.className = "inactive";
   } else if (waterAmount === 2) {
-    //4 dibujar 2 activas 1 inactiva
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2);
     waterArea.appendChild(waterActiveImage3); //anadir clase
     waterActiveImage3.className = "inactive";
   } else if (waterAmount === 3) {
-    //4 dibujar 3 activas
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2);
     waterArea.appendChild(waterActiveImage3);
   }
 
-  //Repeat for Light amount
+  // --------------------
+
   const lightArea = cardItem.querySelector(".light-icons");
   //console.log(lightArea);
   document.querySelector("#light");
@@ -96,7 +93,8 @@ const renderFactImages = (plant, cardItem) => {
     lightArea.appendChild(lightActiveImage3);
   }
 
-  //Repeat for Care amount
+  // --------------------
+
   const careArea = cardItem.querySelector(".care-icons");
   //console.log(careArea);
   document.querySelector("#care");
@@ -119,12 +117,14 @@ const renderFactImages = (plant, cardItem) => {
   }
 };
 
-//-------------------------------------------------------------------------------------------
+//---------------------------------------------
+
 export const renderItems = (data) => {
   const cardsContainer = document.createElement("ul");
   cardsContainer.id = "ul-cards";
   //console.log(cardsContainer);
   //console.log(data);
+
   // Modal containers creation
   const modalsContainer = document.createElement("div");
   modalsContainer.className = "modal-boxes";
@@ -150,37 +150,29 @@ export const renderItems = (data) => {
       <h2>${element.name}</h2>
       <h3>${element.scientificName}</h3>
       <h4>${element.categoryPlant}</h4>
-
       <div class="top-card">
         <img alt="Plant Name" src="${element.imageUrl}">
         <dl itemscope itemtype="https://schema.org" class="facts">
-
             <div class="amounts" id="water">
                     <dt class="amount" id="water-amounts">Agua</dt>
                     <dd class="water-icons">
-                      
                     </dd>
                   </div>
                   <div class="amounts" id="light">
                     <dt class="amount" id="water-amounts">Luz</dt>
-                    <dd class="light-icons">
-                      
+                    <dd class="light-icons"> 
                     </dd>
                   </div>
                   <div class="amounts" id="care">
                     <dt class="amount" id="water-amounts">Cuidado</dt>
                     <dd class="care-icons">
-                      
                     </dd>
                   </div>
                 </dl>
             </div>
-
        <div class="buttons-container">
-
         <div class="statics-button" id="icons">
         </div>
-
         <div class="individual-chat-button">
           <button id="individual-chat" class="individual-chat">
           <p class="text">CHATEAR </p>
@@ -198,7 +190,7 @@ export const renderItems = (data) => {
 
     icons.appendChild(statisticsButton);
 
-    //-----------------------------------------------------------------------------
+    //----------------------------------------------------
 
     const goToIndividualChat = cardItem.querySelector(
       ".individual-chat-button"

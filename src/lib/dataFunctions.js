@@ -1,8 +1,6 @@
 
 /**
- * This function gets the category from the object
- * and compares it with the value of the atribute in HTML element
- * is call by categoryButtons function when a button is cliked
+ * This function is call by categoryButtons function when a button is cliked
  *
  * @param { every plant } data - From dataset
  * @param { property } filterBy - Category of every element of the array object
@@ -15,18 +13,14 @@ export const filterData = (data, filterBy, value) => {
 };
 
 //----------------------
-// /**
-//  * This function decides with a condition
-//  * wich order needs to be used
-//  * a-z / z-a
-//  * is call by dropdown function when an option is clicked
-//  *
-//  * @param { data } data - currentData
-//  * @param { property } sortBy - id of every element of the array object
-//  * @param { option } sortOrder - selectedIndex from dropdown
-//  *
-//  *
-//  */
+/**
+ * This function is call by dropdown function when an option is clicked
+ *
+ * @param { Object } data - currentData
+ * @param { property } sortBy - id of every element of the array object
+ * @param { number } sortOrder - selectedIndex from dropdown
+ *
+ */
 export const sortData = (data, sortBy, sortOrder) => {
   data.sort(function (a, b) {
     if (sortOrder === 1) {
@@ -39,18 +33,14 @@ export const sortData = (data, sortBy, sortOrder) => {
   });
 };
 
-// /**
-//  * This function creates the structure
-//  * stores the numbers into an array
-//  * calculate the sum of every type of fact
-//  * calculates the average of every type of fact
-//  * and stores them into the structure
-//  * in call by statiscis variable to be use in ststisticsButton
-//  *
-//  * @param { every plant } data - From clonedData
-//  *
-//  * @returns the new populated object
-//  */
+/**
+ * This function is call by statiscis variable to be use in ststisticsButton
+ *
+ * @param { every plant } data - From clonedData
+ *
+ * @returns the new populated object
+ */
+
 export const computeStats = (data) => {
   //1 - Create empty structure to host categories in arrays
   const statsByCategory = {
@@ -100,6 +90,7 @@ export const computeStats = (data) => {
     //3 - Identify category
     const category = plant.categoryPlant;
     //console.log(category);
+    
     //4 - Extracts facts
     //5 - Store facts in array corresponding category
     statsByCategory[category].factsByPlants.push(plant.facts);
