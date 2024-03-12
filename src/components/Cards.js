@@ -42,7 +42,7 @@ const renderFactImages = (plant, cardItem) => {
   // 2 - Get facts by type
   const waterAmount = plant.facts.waterAmount;
   //console.log(waterAmount);
-  const sunLight = plant.facts.sunLigth;
+  const sunLight = plant.facts.sunLight;
   //console.log(sunLight);
   const careDifficulty = plant.facts.careDifficulty;
   //console.log(careDifficulty);
