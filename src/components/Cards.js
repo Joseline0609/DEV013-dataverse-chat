@@ -1,8 +1,7 @@
-//import { data } from "../data/data.js";
 import { navigateTo } from "../router.js";
+import { StatsModals } from "./StatsModals.js";
 
 const renderFactImages = (plant, cardItem) => {
-  // Create static elements
   const waterActiveImage = document.createElement("img");
   waterActiveImage.alt = "Gota";
   waterActiveImage.src = "../Resources/DV Chat/Agua activa.png";
@@ -138,36 +137,13 @@ export const renderItems = (data) => {
     statisticsButton.src = "../Resources/DV Chat/stats.png";
     statisticsButton.id = element.categoryPlant;
 
-    // Creating stats Modal
-    const statsModal = document.createElement("dialog");
-
-    statsModal.id = "statistics-modal";
-    statsModal.className = "statistics-modal";
-    statsModal.innerHTML += `
-            <h3 id="plant-category-modal">Plant Category</h3>
-            <div class="statistics">
-              <div class="graph-legend">
-                <div class="legend">
-                  <div class="square water"></div>
-                  <p>Agua</p>
-                </div>
-                <div class="legend">
-                  <div class="square light"></div>
-                  <p>Luz</p>
-                </div>
-                <div class="legend">
-                  <div class="square care"></div>
-                  <p>Cuidado</p>
-                </div>
-              </div>
-              <div class="statistics-totals">
-              </div>
-            </div>
-            <h4>Qué cuidados necesita este tipo de plantas?</h4>
-            <img class="close-button-stats" alt="Cerrar" src="../Resources/DV Chat/Close.png">`;
+    statisticsButton.addEventListener("click", () => {
+      const statsViewModal = StatsModals(element.categoryPlant);
+      cardsContainer.appendChild(statsViewModal);
+      statsViewModal.showModal();
+    });
 
     const cardItem = document.createElement("li");
-    //console.log(cardItem);
     cardItem.innerHTML = `
   <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
     <article id="front-card" class="front-card">
@@ -218,29 +194,20 @@ export const renderItems = (data) => {
 
     renderFactImages(element, cardItem);
 
-    //stats, description and reverse buttons
     const icons = cardItem.querySelector("#icons");
-    //console.log(icons);
-    // document.querySelector("#icons");
-    icons.appendChild(statisticsButton);
 
-    //Adding the modals to the card
-    modalsContainer.appendChild(statsModal);
+    icons.appendChild(statisticsButton);
 
     //-----------------------------------------------------------------------------
 
     const goToIndividualChat = cardItem.querySelector(
       ".individual-chat-button"
     );
-    //console.log(goToIndividualChat);
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", { title: element.name, searchParams: { id: element.id }} );
+      navigateTo("/Individual", { title: "Individual", searchParams: { id: element.id }} );
     });
   });
-
-  //Modals are added outside the UI card representation
-  cardsContainer.insertAdjacentElement("afterend", modalsContainer);
 
   return cardsContainer;
 };
