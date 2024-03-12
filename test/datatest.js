@@ -1,4 +1,4 @@
-export const datatest = [
+export const data = [
   {
     id: "begonia",
     categoryPlant: "ornamental",

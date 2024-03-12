@@ -1,6 +1,7 @@
-import { filterData, sortData, computeStats } from "../src/dataFunctions.js";
+import { filterData, sortData, computeStats } from "../src/lib/dataFunctions.js";
 import { data as fakeData } from "./datatest.js";
 
+// ------- Filtering Tests -------- 
 describe("filterData", () => {
   it("returns an array with filtered data by category", () => {
     const result = filterData(fakeData, "categoryPlant", "ornamental");
@@ -62,6 +63,7 @@ describe("filterData", () => {
   });
 });
 
+// ------- Ordering Tests --------
 describe("sortData", () => {
   it("returns the array in ascendant sorting", () => {
     sortData(fakeData, "id", 1);
@@ -323,7 +325,10 @@ describe("sortData", () => {
   });
 });
 
+//--------- Statistics Tests ------------
+
 describe("computeStats", () => {
+
   it("returns the average", () => {
     const result = computeStats(fakeData);
     expect(result).toEqual({
@@ -384,7 +389,7 @@ describe("computeStats", () => {
           },
         ],
       },
-      arbol: {
+      arboles: {
         average: {
           waterAverage: 2,
           lightAverage: 3,

@@ -1,5 +1,3 @@
-import { data } from "./data/data.js";
-
 let ROUTES = {};
 
 let rootElement; // variable reference to html element uninitialized
@@ -44,6 +42,7 @@ const queryStringToObject = (queryString) => {
  * @param { a string } pathname - the extention for url
  * @param { a string } props - the extention to find the specific item
  */
+
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
   root.innerHTML = "";
@@ -62,14 +61,13 @@ const renderView = (pathname, props = {}) => {
  * then call render view to render the view
  * corresponding to the given value of pathname and props
  *
- * @param { string } pathname - guiven in the event listener of buttons
- * @param { string } props - guiven in the event listener of buttons
+ * @param { string } pathname - given in the event listener of buttons
+ * @param { string } props - given in the event listener of buttons
  */
-export const navigateTo = (pathname, props = {}) => {
-  // aqui debo convertir el objeto a string
 
-  //cuando el objeto esta vacio -
-  //cuando el objeto no esta vacio tengo que llamar a
+export const navigateTo = (pathname, props = {}) => {
+  // convert the object to a string
+  // when the object is not empty, call to
   let URLvisited = pathname;
   if (Object.hasOwn(props, "searchParams")) {
     const params = new URLSearchParams(props.searchParams).toString();
@@ -82,15 +80,13 @@ export const navigateTo = (pathname, props = {}) => {
     renderView(pathname);
     document.title = props.title;
   }
-  
-
 };
 
+// ----------------------------------------- 
+
 export const onURLChange = (location) => {
-  //si este objeto vale algo pasarselo a renderview
-  //si no -
-    let searchObject = queryStringToObject(window.location.search);
-    // console.log(searchObject);
+  const searchObject = queryStringToObject(window.location.search);
+  // console.log(searchObject);
   if (searchObject) {
     renderView(location, searchObject);
   }

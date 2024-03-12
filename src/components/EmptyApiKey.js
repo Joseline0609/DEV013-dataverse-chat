@@ -19,17 +19,17 @@ export default function EmptyApiKey() {
   `;
 
   const sendKeyButon1 = viewEmptyModal
-    .querySelector("#send-key-button1")
-    .addEventListener("click", () => {
-      navigateTo("/Individual");
-    });
+  viewEmptyModal.querySelector("#send-key-button1")
+  sendKeyButon1.addEventListener("click", () => {
+    navigateTo("/Individual");
+  });
     
-    const form = viewEmptyModal.querySelector(".epmty-apikey");
-    const closeButton = document.createElement("img");
-    form.appendChild(closeButton);
-    closeButton.className = "close-icon1";
-    closeButton.src = "Resources/DV Chat/Close.png";
-    closeButton.addEventListener("click", () => { viewEmptyModal.close()});
+  const form = viewEmptyModal.querySelector(".epmty-apikey");
+  const closeButton = document.createElement("img");
+  form.appendChild(closeButton);
+  closeButton.className = "close-icon1";
+  closeButton.src = "Resources/DV Chat/Close.png";
+  closeButton.addEventListener("click", () => { viewEmptyModal.close()});
 
   return viewEmptyModal;
 }

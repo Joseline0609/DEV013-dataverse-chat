@@ -4,10 +4,12 @@ import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
 export default function IndividualChat(props = {}) {
+
   const propsIdValue = Object.values(props);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
   }
+
   const currentPlant = data.find(findPlant);
   //console.log(currentPlant.name);
   const viewIndividualChat = document.createElement("div");
@@ -54,8 +56,8 @@ export default function IndividualChat(props = {}) {
         <li>Usos</li>
       </ul>
     </div>
-        <div class="individual-view-buttons">
-        </div>
+    <div class="individual-view-buttons">
+  </div>
   `;
 
   const textBox = viewIndividualChat.querySelector(".text-box");
@@ -67,31 +69,32 @@ export default function IndividualChat(props = {}) {
   sendButton.appendChild(sendIcon);
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
-/**
+  /**
  * This function adds the event to the submit button
  * creates the elements, adding all their properties
  * and then adds the text entered by the user to the DOM
  * and reset the textbox to be able to enter new text
  */
-sendButton.addEventListener("click", () => {
-  sendingUserMessage();
-});
+  sendButton.addEventListener("click", () => {
+    sendingUserMessage();
+  });
 
   const inputBox = viewIndividualChat.querySelector("#user-text");
   inputBox.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendingUserMessage();
     }
-});
+  });
 
-function sendingUserMessage() {
+  function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
     const newMessageText = newMessage.value;
 
-
-    let expresion = /[^\W\d]/g;
-     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
+    //-------------------------- 
+    
+    const expresion = /[^\W\d]/g;
+    if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
 
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
@@ -109,7 +112,7 @@ function sendingUserMessage() {
       viewNewMessage.innerHTML = newMessageText;
       newMessage.value = ``;
     }
-}
+  }
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
