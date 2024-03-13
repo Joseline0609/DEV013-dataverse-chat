@@ -45,7 +45,7 @@ describe("filterData", () => {
     expect(result).toEqual([
       {
         id: "roble",
-        categoryPlant: "arbol",
+        categoryPlant: "arboles",
         name: "Roble",
         maintenanceNeeds:
           "Requiere espacio para crecer, poco mantenimiento una vez establecido.",
@@ -175,7 +175,7 @@ describe("sortData", () => {
       },
       {
         id: "roble",
-        categoryPlant: "arbol",
+        categoryPlant: "arboles",
         name: "Roble",
         maintenanceNeeds:
           "Requiere espacio para crecer, poco mantenimiento una vez establecido.",
@@ -195,7 +195,7 @@ describe("sortData", () => {
     expect(fakeData).toEqual([
       {
         id: "roble",
-        categoryPlant: "arbol",
+        categoryPlant: "arboles",
         name: "Roble",
         maintenanceNeeds:
           "Requiere espacio para crecer, poco mantenimiento una vez establecido.",

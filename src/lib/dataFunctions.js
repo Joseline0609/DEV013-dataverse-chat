@@ -85,12 +85,11 @@ export const computeStats = (data) => {
       factsByPlants: [],
     },
   };
+
   //2 - Iterate in data
   data.forEach((plant) => {
     //3 - Identify category
     const category = plant.categoryPlant;
-    //console.log(category);
-    
     //4 - Extracts facts
     //5 - Store facts in array corresponding category
     statsByCategory[category].factsByPlants.push(plant.facts);
@@ -125,5 +124,6 @@ export const computeStats = (data) => {
     statsByCategory[category].average.careAverage = averageCare;
   });
 
+  console.log(statsByCategory);
   return statsByCategory;
 };
