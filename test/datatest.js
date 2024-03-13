@@ -88,7 +88,7 @@ export const data = [
   },
   {
     id: "roble",
-    categoryPlant: "arbol",
+    categoryPlant: "arboles",
     name: "Roble",
     maintenanceNeeds:
       "Requiere espacio para crecer, poco mantenimiento una vez establecido.",
