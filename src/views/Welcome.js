@@ -32,6 +32,8 @@ export const Welcome = () => {
 
   const enterButton = viewWelcome.querySelector("#enter-button");
 
+  // This feature prevents the user from logging in without entering their name
+
   enterButton.addEventListener("click", () => {
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
@@ -39,8 +41,7 @@ export const Welcome = () => {
       userNameValue = user.value;
       navigateTo("/Home", { title: "Home" });
     }
-  }
-  );
+  });
 
   return viewWelcome;
 };

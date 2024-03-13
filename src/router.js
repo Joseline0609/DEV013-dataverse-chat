@@ -6,6 +6,7 @@ let rootElement; // variable reference to html element uninitialized
  * This function initializes rootElement with the value passed to the parameter
  * @param { expects routes{} } newRootElementValue - which comes from index.js
  */
+
 export const setRootElement = (newRootElementValue) => {
   rootElement = newRootElementValue;
 };
@@ -17,6 +18,7 @@ export const setRootElement = (newRootElementValue) => {
  * converting RUTES into the param guiven
  * @param { in an object } newRoutesValue - from index.js
  */
+
 export const setRoutes = (newRoutesValue) => {
   // optional Throw errors if routes isn't an object and doesnt exist /Notfound
   if (typeof newRoutesValue === "object") {
@@ -26,12 +28,11 @@ export const setRoutes = (newRoutesValue) => {
   }
 };
 
+// This function recieves the url and convert it to an object
+
 const queryStringToObject = (queryString) => {
-  // console.log(queryString);
   const newURL = new URLSearchParams(queryString);
-  // console.log(newURL);
   const urlToParam = Object.fromEntries(newURL);
-  // console.log(urlToParam);
   return urlToParam;
 }
 
@@ -41,7 +42,7 @@ const queryStringToObject = (queryString) => {
  * but if they are not valid, render /Notfound
  * @param { a string } pathname - the extention for url
  * @param { a string } props - the extention to find the specific item
- */
+ */ 
 
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
@@ -86,7 +87,6 @@ export const navigateTo = (pathname, props = {}) => {
 
 export const onURLChange = (location) => {
   const searchObject = queryStringToObject(window.location.search);
-  // console.log(searchObject);
   if (searchObject) {
     renderView(location, searchObject);
   }
