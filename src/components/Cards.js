@@ -41,28 +41,25 @@ const renderFactImages = (plant, cardItem) => {
   // 1 - Iterate through data with forEach
   // 2 - Get facts by type
   const waterAmount = plant.facts.waterAmount;
-  //console.log(waterAmount);
   const sunLight = plant.facts.sunLight;
-  //console.log(sunLight);
   const careDifficulty = plant.facts.careDifficulty;
-  //console.log(careDifficulty);
-
-  const waterArea = cardItem.querySelector(".water-icons");
-  //console.log(waterArea);
-  document.querySelector("#water");
 
   // 3 - conditionals
+  // The ‘inactive’ class will be used to decrease the image opacity
+
+  const waterArea = cardItem.querySelector(".water-icons");
+  document.querySelector("#water");
 
   if (waterAmount === 1) {
     waterArea.appendChild(waterActiveImage);
-    waterArea.appendChild(waterActiveImage2); //anadir clase
+    waterArea.appendChild(waterActiveImage2);
     waterActiveImage2.className = "inactive";
-    waterArea.appendChild(waterActiveImage3); //anadir clase
+    waterArea.appendChild(waterActiveImage3);
     waterActiveImage3.className = "inactive";
   } else if (waterAmount === 2) {
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2);
-    waterArea.appendChild(waterActiveImage3); //anadir clase
+    waterArea.appendChild(waterActiveImage3);
     waterActiveImage3.className = "inactive";
   } else if (waterAmount === 3) {
     waterArea.appendChild(waterActiveImage);
@@ -73,7 +70,6 @@ const renderFactImages = (plant, cardItem) => {
   // --------------------
 
   const lightArea = cardItem.querySelector(".light-icons");
-  //console.log(lightArea);
   document.querySelector("#light");
 
   if (sunLight === 1) {
@@ -96,7 +92,6 @@ const renderFactImages = (plant, cardItem) => {
   // --------------------
 
   const careArea = cardItem.querySelector(".care-icons");
-  //console.log(careArea);
   document.querySelector("#care");
 
   if (careDifficulty === 1) {
@@ -117,15 +112,14 @@ const renderFactImages = (plant, cardItem) => {
   }
 };
 
-//---------------------------------------------
+//-------------------------
 
 export const renderItems = (data) => {
   const cardsContainer = document.createElement("ul");
   cardsContainer.id = "ul-cards";
-  //console.log(cardsContainer);
-  //console.log(data);
 
-  // Modal containers creation
+  // Modal containers creation-----------------
+
   const modalsContainer = document.createElement("div");
   modalsContainer.className = "modal-boxes";
 
@@ -143,6 +137,8 @@ export const renderItems = (data) => {
       statsViewModal.showModal();
     });
 
+    // Cards containers creation-----------------
+    
     const cardItem = document.createElement("li");
     cardItem.innerHTML = `
   <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
@@ -190,14 +186,17 @@ export const renderItems = (data) => {
 
     icons.appendChild(statisticsButton);
 
-    //----------------------------------------------------
+    //-------------------------
 
     const goToIndividualChat = cardItem.querySelector(
       ".individual-chat-button"
     );
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", { title: "Individual", searchParams: { id: element.id }} );
+      navigateTo("/Individual", {
+        title: "Individual",
+        searchParams: { id: element.id },
+      });
     });
   });
 

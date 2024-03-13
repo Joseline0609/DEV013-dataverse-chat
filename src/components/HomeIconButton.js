@@ -5,7 +5,6 @@ export const HomeIconButton = () => {
   buttonContainer.className = "homeButtonContainer";
   buttonContainer.innerHTML = `<button class="homeButton" id="homeButton"><img src="../Resources/DV Chat/homeIcon.png"/> </button>`;
   const goToHomeButton = buttonContainer.querySelector("#homeButton");
-  //console.log(goToHomeButton);
 
   goToHomeButton.addEventListener("click", () =>
     navigateTo("/Home", { title: "Home" })

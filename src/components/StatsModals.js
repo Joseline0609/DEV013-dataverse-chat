@@ -2,8 +2,7 @@ import { computeStats } from "../lib/dataFunctions.js";
 import { data } from "../data/data.js";
 
 export function StatsModals(category) {
-  const statsComputed = computeStats(data);
-  //console.log(statsComputed);  
+  const statsComputed = computeStats(data); 
 
   const viewStatsModal = document.createElement("dialog");
   viewStatsModal.id = "statistics-modal";
@@ -44,9 +43,10 @@ export function StatsModals(category) {
 
 // Statistics
 
+// This function receives the results from computeStats and validates them to render the words
+
 function renderStatisticsWords(categoryPlant, statsModal, statsByCategory) {
   const plantCategory = statsModal.querySelector("#plant-category-modal");
-  //console.log(plantCategory);
 
   plantCategory.innerHTML = categoryPlant;
 
