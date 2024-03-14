@@ -1,6 +1,6 @@
 
 /**
- * This function is call by categoryButtons function when a button is cliked
+ * This function is call by categoryButtons function when a button is clicked
  *
  * @param { every plant } data - From dataset
  * @param { property } filterBy - Category of every element of the array object

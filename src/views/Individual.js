@@ -11,7 +11,6 @@ export default function IndividualChat(props = {}) {
   }
 
   const currentPlant = data.find(findPlant);
-  //console.log(currentPlant.name);
   const viewIndividualChat = document.createElement("div");
   viewIndividualChat.className = "individual-chat-wrapper";
 
@@ -91,11 +90,11 @@ export default function IndividualChat(props = {}) {
     const chatContainer = document.getElementById("chat-container");
     const newMessageText = newMessage.value;
 
-    //-------------------------- 
-    
+    //--------------------------
+
+    // This function handles the sending of messages
     const expresion = /[^\W\d]/g;
     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
-
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
       chatContainer.appendChild(newMessageContainer);
