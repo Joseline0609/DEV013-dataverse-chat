@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
 
 export default function NotValidApiKey() {
+
   const viewValidModal = document.createElement("dialog");
   viewValidModal.className = "valid-key modal";
   viewValidModal.innerHTML += `
@@ -20,17 +21,17 @@ export default function NotValidApiKey() {
   `;
 
   const sendKeyButon2 = viewValidModal
-    .querySelector("#send-key-button2")
-    .addEventListener("click", () => {
-      navigateTo("/Group");
-    });
+  viewValidModal.querySelector("#send-key-button2");
+  sendKeyButon2.addEventListener("click", () => {
+    navigateTo("/Group");
+  });
 
-    const form = viewValidModal.querySelector(".not-valid");
-    const closeButton = document.createElement("img");
-    form.appendChild(closeButton);
-    closeButton.className = "close-icon2";
-    closeButton.src = "Resources/DV Chat/closered.png";
-    closeButton.addEventListener("click", () => { viewValidModal.close()});
+  const form = viewValidModal.querySelector(".not-valid");
+  const closeButton = document.createElement("img");
+  form.appendChild(closeButton);
+  closeButton.className = "close-icon2";
+  closeButton.src = "Resources/DV Chat/closered.png";
+  closeButton.addEventListener("click", () => { viewValidModal.close()});
 
   return viewValidModal;
 }

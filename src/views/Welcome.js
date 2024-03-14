@@ -26,19 +26,22 @@ export const Welcome = () => {
     </div>
   `;
 
-  let user = viewWelcome.querySelector("#input-name");
+  //--------------------------------------
+
+  const user = viewWelcome.querySelector("#input-name");
 
   const enterButton = viewWelcome.querySelector("#enter-button");
 
+  // This feature prevents the user from logging in without entering their name
+
   enterButton.addEventListener("click", () => {
-    if (user.value.length == 0) {
+    if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
       userNameValue = user.value;
-      navigateTo("/Home", { name: "Bienvenida" });
+      navigateTo("/Home", { title: "Home" });
     }
-  }
-  );
+  });
 
   return viewWelcome;
 };

@@ -1,4 +1,3 @@
-// import { data } from "../data/data.js";
 import { userNameValue } from "./Welcome.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
 
@@ -72,6 +71,7 @@ export const GroupChat = () => {
   `;
 
   const textBox = viewGroupChat.querySelector(".text-box");
+  // Create the button with all it's attributes
   const sendButton = document.createElement("button");
   textBox.appendChild(sendButton);
   sendButton.id = "send-button";
@@ -80,33 +80,33 @@ export const GroupChat = () => {
   sendButton.appendChild(sendIcon);
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
-/**
- * This function adds the event to the submit button
- * creates the elements, adding all their properties
- * and then adds the text entered by the user to the DOM
- * and reset the textbox to be able to enter new text
- */
+  /**
+   * This function adds the event to the submit button
+   * creates the elements, adding all their properties
+   * and then adds the text entered by the user to the DOM
+   * and reset the textbox to be able to enter new text
+   */
 
-sendButton.addEventListener("click", () => {
-  sendingUserMessage();
-});
+  sendButton.addEventListener("click", () => {
+    sendingUserMessage();
+  });
 
   const inputBox = viewGroupChat.querySelector("#user-text");
   inputBox.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendingUserMessage();
     }
-});
+  });
 
-function sendingUserMessage() {
+  // This function handles the sending of messages
+
+  function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
     const chatContainer = document.getElementById("chat-container");
     const newMessageText = newMessage.value;
 
-
-    let expresion = /[^\W\d]/g;
-     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
-
+    const expresion = /[^\W\d]/g;
+    if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
       chatContainer.appendChild(newMessageContainer);
@@ -123,7 +123,6 @@ function sendingUserMessage() {
       viewNewMessage.innerHTML = newMessageText;
 
       newMessage.value = ``;
-      console.log(userNameValue);
     }
   }
 

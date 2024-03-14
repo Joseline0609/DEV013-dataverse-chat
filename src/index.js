@@ -20,6 +20,7 @@ const routes = {
 
 const mainContainer = document.getElementById("root");
 
+// Assigning values to setRoutes and setRootElement initialized in router.js
 setRoutes(routes);
 setRootElement(mainContainer);
 
@@ -27,10 +28,11 @@ setRootElement(mainContainer);
  * When HTML is loaded excecutes
  * onURLChange to change the url
  * and popstate to change the views acording this url
+ * Step1
  */
 document.addEventListener("DOMContentLoaded", (event) => {
+  
   onURLChange(event.target.location.pathname);
-  // console.log(event.target.location.pathname);
   
   window.addEventListener("popstate", (event) => {
     onURLChange(event.target.location.pathname);

@@ -1,8 +1,7 @@
-import { data } from "../data/data.js";
 import { navigateTo } from "../router.js";
+import { StatsModals } from "./StatsModals.js";
 
 const renderFactImages = (plant, cardItem) => {
-  // Create static elements
   const waterActiveImage = document.createElement("img");
   waterActiveImage.alt = "Gota";
   waterActiveImage.src = "../Resources/DV Chat/Agua activa.png";
@@ -39,45 +38,38 @@ const renderFactImages = (plant, cardItem) => {
   careActiveImage3.alt = "Semaforo";
   careActiveImage3.src = "../Resources/DV Chat/Cuidado activa.png";
 
-  // 1 - Iterar en data forEach
+  // 1 - Iterate through data with forEach
   // 2 - Get facts by type
   const waterAmount = plant.facts.waterAmount;
-  //console.log(waterAmount);
-  const sunLight = plant.facts.sunLigth;
-  //console.log(sunLight);
+  const sunLight = plant.facts.sunLight;
   const careDifficulty = plant.facts.careDifficulty;
-  //console.log(careDifficulty);
+
+  // 3 - conditionals
+  // The ‘inactive’ class will be used to decrease the image opacity
 
   const waterArea = cardItem.querySelector(".water-icons");
-  //console.log(waterArea);
   document.querySelector("#water");
 
-  // 3 - condicionales
-  // 3.1 repetir por fact
-  // 3.2 water facts
   if (waterAmount === 1) {
-    //4 dibujar 1 activa 2 inactivas
-    waterArea.appendChild(waterActiveImage);
-    waterArea.appendChild(waterActiveImage2); //anadir clase
-    waterActiveImage2.className = "inactive";
-    waterArea.appendChild(waterActiveImage3); //anadir clase
-    waterActiveImage3.className = "inactive";
-  } else if (waterAmount === 2) {
-    //4 dibujar 2 activas 1 inactiva
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2);
-    waterArea.appendChild(waterActiveImage3); //anadir clase
+    waterActiveImage2.className = "inactive";
+    waterArea.appendChild(waterActiveImage3);
+    waterActiveImage3.className = "inactive";
+  } else if (waterAmount === 2) {
+    waterArea.appendChild(waterActiveImage);
+    waterArea.appendChild(waterActiveImage2);
+    waterArea.appendChild(waterActiveImage3);
     waterActiveImage3.className = "inactive";
   } else if (waterAmount === 3) {
-    //4 dibujar 3 activas
     waterArea.appendChild(waterActiveImage);
     waterArea.appendChild(waterActiveImage2);
     waterArea.appendChild(waterActiveImage3);
   }
 
-  //Repeat for Light amount
+  // --------------------
+
   const lightArea = cardItem.querySelector(".light-icons");
-  //console.log(lightArea);
   document.querySelector("#light");
 
   if (sunLight === 1) {
@@ -97,9 +89,9 @@ const renderFactImages = (plant, cardItem) => {
     lightArea.appendChild(lightActiveImage3);
   }
 
-  //Repeat for Care amount
+  // --------------------
+
   const careArea = cardItem.querySelector(".care-icons");
-  //console.log(careArea);
   document.querySelector("#care");
 
   if (careDifficulty === 1) {
@@ -120,13 +112,14 @@ const renderFactImages = (plant, cardItem) => {
   }
 };
 
-//-------------------------------------------------------------------------------------------
-export const renderItems = () => {
+//-------------------------
+
+export const renderItems = (data) => {
   const cardsContainer = document.createElement("ul");
   cardsContainer.id = "ul-cards";
-  //console.log(cardsContainer);
-  //console.log(data);
-  // Modal containers creation
+
+  // Modal containers creation-----------------
+
   const modalsContainer = document.createElement("div");
   modalsContainer.className = "modal-boxes";
 
@@ -138,73 +131,44 @@ export const renderItems = () => {
     statisticsButton.src = "../Resources/DV Chat/stats.png";
     statisticsButton.id = element.categoryPlant;
 
-    // Creating stats Modal
-    const statsModal = document.createElement("dialog");
+    statisticsButton.addEventListener("click", () => {
+      const statsViewModal = StatsModals(element.categoryPlant);
+      cardsContainer.appendChild(statsViewModal);
+      statsViewModal.showModal();
+    });
 
-    statsModal.id = "statistics-modal";
-    statsModal.className = "statistics-modal";
-    statsModal.innerHTML += `
-            <h3 id="plant-category-modal">Plant Category</h3>
-            <div class="statistics">
-              <div class="graph-legend">
-                <div class="legend">
-                  <div class="square water"></div>
-                  <p>Agua</p>
-                </div>
-                <div class="legend">
-                  <div class="square light"></div>
-                  <p>Luz</p>
-                </div>
-                <div class="legend">
-                  <div class="square care"></div>
-                  <p>Cuidado</p>
-                </div>
-              </div>
-              <div class="statistics-totals">
-              </div>
-            </div>
-            <h4>Qué cuidados necesita este tipo de plantas?</h4>
-            <img class="close-button-stats" alt="Cerrar" src="../Resources/DV Chat/Close.png">`;
-
+    // Cards containers creation-----------------
+    
     const cardItem = document.createElement("li");
-    //console.log(cardItem);
     cardItem.innerHTML = `
   <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
     <article id="front-card" class="front-card">
       <h2>${element.name}</h2>
       <h3>${element.scientificName}</h3>
       <h4>${element.categoryPlant}</h4>
-
       <div class="top-card">
         <img alt="Plant Name" src="${element.imageUrl}">
         <dl itemscope itemtype="https://schema.org" class="facts">
-
             <div class="amounts" id="water">
                     <dt class="amount" id="water-amounts">Agua</dt>
                     <dd class="water-icons">
-                      
                     </dd>
                   </div>
                   <div class="amounts" id="light">
                     <dt class="amount" id="water-amounts">Luz</dt>
-                    <dd class="light-icons">
-                      
+                    <dd class="light-icons"> 
                     </dd>
                   </div>
                   <div class="amounts" id="care">
                     <dt class="amount" id="water-amounts">Cuidado</dt>
                     <dd class="care-icons">
-                      
                     </dd>
                   </div>
                 </dl>
             </div>
-
        <div class="buttons-container">
-
         <div class="statics-button" id="icons">
         </div>
-
         <div class="individual-chat-button">
           <button id="individual-chat" class="individual-chat">
           <p class="text">CHATEAR </p>
@@ -218,29 +182,23 @@ export const renderItems = () => {
 
     renderFactImages(element, cardItem);
 
-    //stats, description and reverse buttons
     const icons = cardItem.querySelector("#icons");
-    //console.log(icons);
-    // document.querySelector("#icons");
+
     icons.appendChild(statisticsButton);
 
-    //Adding the modals to the card
-    modalsContainer.appendChild(statsModal);
-
-    //-----------------------------------------------------------------------------
+    //-------------------------
 
     const goToIndividualChat = cardItem.querySelector(
       ".individual-chat-button"
     );
-    //console.log(goToIndividualChat);
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", { title: element.name, searchParams: { id: element.id }} );
+      navigateTo("/Individual", {
+        title: "Individual",
+        searchParams: { id: element.id },
+      });
     });
   });
-
-  //Modals are added outside the UI card representation
-  cardsContainer.insertAdjacentElement("afterend", modalsContainer);
 
   return cardsContainer;
 };
