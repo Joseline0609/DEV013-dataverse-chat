@@ -37,12 +37,12 @@ const queryStringToObject = (queryString) => {
 }
 
 /**
- * This function renders the viu corresponding to
- * the route, the pathname and the props passed to the parameters
+ * This function renders the view corresponding to
+ * the route, https://www.30secondsofcode.org/js/s/query-string-to-object/the pathname and the props passed to the parameters
  * but if they are not valid, render /Notfound
  * @param { a string } pathname - the extention for url
  * @param { a string } props - the extention to find the specific item
- */ 
+ */
 
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
@@ -69,15 +69,15 @@ const renderView = (pathname, props = {}) => {
 export const navigateTo = (pathname, props = {}) => {
   // convert the object to a string
   // when the object is not empty, call to
-  let URLvisited = pathname;
+  let urlVisited = pathname;
   if (Object.hasOwn(props, "searchParams")) {
     const params = new URLSearchParams(props.searchParams).toString();
-    URLvisited = pathname + "?" + params;
-    history.pushState({}, "", URLvisited); // update window history with pushState
+    urlVisited = pathname + "?" + params;
+    history.pushState({}, "", urlVisited); // update window history with pushState
     renderView(pathname, props.searchParams);
     document.title = props.title;
   } else {
-    history.pushState({}, "", URLvisited); // update window history with pushState
+    history.pushState({}, "", urlVisited); // update window history with pushState
     renderView(pathname);
     document.title = props.title;
   }
@@ -85,6 +85,11 @@ export const navigateTo = (pathname, props = {}) => {
 
 // ----------------------------------------- 
 
+/**
+ * 
+ * @param {*} location 
+ * Step 2
+ */
 export const onURLChange = (location) => {
   const searchObject = queryStringToObject(window.location.search);
   if (searchObject) {

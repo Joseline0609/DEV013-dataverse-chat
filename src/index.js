@@ -28,6 +28,7 @@ setRootElement(mainContainer);
  * When HTML is loaded excecutes
  * onURLChange to change the url
  * and popstate to change the views acording this url
+ * Step1
  */
 document.addEventListener("DOMContentLoaded", (event) => {
   
