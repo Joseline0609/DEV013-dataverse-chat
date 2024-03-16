@@ -1,15 +1,17 @@
-import { getApiKey, setApiKey } from "../src/lib/apikey.js";
+import { getApiKey, setApiKey, keyName } from "../src/lib/apikey.js";
 
 describe("getApiKey", () => {
   it("debería devolver el valor de la API Key", () => {
-    const fakeApikey = getApiKey("thisIsAFakeApikey123@");
-    expect(getApiKey()).toBe(fakeApikey);
+    localStorage.setItem(keyName,"thisIsAFakeApikey123@");
+    expect(getApiKey()).toBe("thisIsAFakeApikey123@");
   });
 });
 
 describe("setApiKey", () => {
   it("debería establecer correctamente la API Key", () => {
-    const set = setApiKey("thisIsAFakeApikey123@");
-    expect(localStorage.setItem("myStorage","thisIsAFakeApikey123@")).toBe(set);
+    setApiKey("thisIsAFakeApikey123@");
+    expect(localStorage.getItem(keyName)).toBe(
+      "thisIsAFakeApikey123@"
+    );
   });
 });

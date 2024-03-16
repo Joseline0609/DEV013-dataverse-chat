@@ -2,6 +2,7 @@ import { data } from "../data/data.js";
 import { userNameValue } from "./Welcome.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
+import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export default function IndividualChat(props = {}) {
 
@@ -76,6 +77,16 @@ export default function IndividualChat(props = {}) {
  */
   sendButton.addEventListener("click", () => {
     sendingUserMessage();
+    communicateWithOpenAI("Begonia", "Cuantas veces necesitas ser regada?")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+      }).catch((error) => {
+        console.log(error);
+
+      });
+
   });
 
   const inputBox = viewIndividualChat.querySelector("#user-text");

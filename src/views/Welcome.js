@@ -1,7 +1,7 @@
 import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apikey.js";
 
-//export let userNameValue = ""; , getApiKey
+export let userNameValue = ""; 
 
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
@@ -29,7 +29,7 @@ export const Welcome = () => {
 
   //--------------------------------------
 
-  //const user = viewWelcome.querySelector("#input-name");
+  const user = viewWelcome.querySelector("#input-name");
   const apiKey = viewWelcome.querySelector("#apikey");
   
 
@@ -37,13 +37,13 @@ export const Welcome = () => {
 
   // This feature prevents the user from logging in without entering their name
   enterButton.addEventListener("click", () => {
-    // if (user.value.length === 0) {
-    //   viewWelcome.querySelector("#input-name").className = "input none";
-    // } else {
-    //   userNameValue = user.value;
+    if (user.value.length === 0) {
+      viewWelcome.querySelector("#input-name").className = "input none";
+    } else {
+      userNameValue = user.value;
 
-    //   
-    // }
+      
+    }
     if (apiKey.value.length !== 0) {
       setApiKey(apiKey.value);
     }
