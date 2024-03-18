@@ -19,8 +19,10 @@ export const GroupChat = () => {
             <p class="message">Hi 'user name'. How can we<br/>
               help you today?
             </p>
-            <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+            <div class="plant-image">
+              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
               alt="Avatar" style="height:20px;width:20px";>
+            </div>
           </div>
         </div>
         <div class="user-group-message">
@@ -31,24 +33,30 @@ export const GroupChat = () => {
           <p class="name">Plant name</p>
           <div class="first-plant">
             <p class="message">Sure, I use to have flowers in January</p>
-            <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+            <div class="plant-image">
+              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
               alt="Avatar" style="height:20px;width:20px";>
+            </div>
           </div>
         </div>
         <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="second-plant">
             <p class="message">Hello, 'user name'!!! I don't have flowers, but I have beautiful leafs</p>
-            <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+            <div class="plant-image">
+              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
               alt="Avatar" style="height:20px;width:20px";>
+            </div>
           </div>
         </div>
         <div class="plant-group-message">
           <p class="name">Plant name</p>
           <div class="third-plant">
             <p class="message">In my case I boom in Autumn</p>
-            <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+            <div class="plant-image">
+              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
               alt="Avatar" style="height:20px;width:20px";>
+            </div>
           </div>
         </div>
       </div>
