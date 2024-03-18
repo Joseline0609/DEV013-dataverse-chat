@@ -17,8 +17,8 @@ export default function IndividualChat(props = {}) {
   viewIndividualChat.innerHTML += `
     <div id="chat-area" class="chat-area">
       <div id="info-area" class="info-area">
-        <div>
-          <img src="${currentPlant.imageUrl}" style="height:85px;width:55px";>
+        <div class="plant-image">
+          <img src="${currentPlant.imageUrl}"x>
         </div>
         <div class="text-area">
           <h1>${currentPlant.name}</h1>
@@ -31,8 +31,10 @@ export default function IndividualChat(props = {}) {
           <p class="message">Hi 'user name'. I'm 'plant name'<br/>
             Would you like to ask me something?
           </p>
-          <img src="${currentPlant.imageUrl}";
+          <div class="plant-image">
+            <img src="${currentPlant.imageUrl}";
             alt="Avatar" style="height:25px;width:18px";>
+            </div>
         </div>
         <div class="user-message">
           <p class="name">${userNameValue}</p>
@@ -110,6 +112,12 @@ export default function IndividualChat(props = {}) {
 
       viewNewMessage.innerHTML = newMessageText;
       newMessage.value = ``;
+
+      //llamar a la funcion de communicate
+      //(esta tiene que retornar la raspuesta de la planta)
+      //como acceder al texto de respuesta
+      // para insertarla en la siguiente funcion
+      //llamar a la funcion write plant response
     }
   }
 
