@@ -5,11 +5,34 @@ import { HomeIconButton } from "../components/HomeIconButton.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export default function IndividualChat(props = {}) {
-
   const propsIdValue = Object.values(props);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
+  } 
+
+  // variable para guardar la respuesta de la IA
+  let assistantResponse;
+
+  // funcion para evitar repetir 
+  function conectOpenIA() {
+    const newMessage = document.getElementById("user-text");
+    const userMessage = newMessage.value;
+
+    communicateWithOpenAI(currentPlant.id, userMessage)
+      .then((response) => response.json())
+      .then((data) => {
+        assistantResponse = data;
+        console.log(assistantResponse);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
+
+  /*
+      console.log(newMessage);
+      console.log(userMessage);
+  */
 
   const currentPlant = data.find(findPlant);
   const viewIndividualChat = document.createElement("div");
@@ -70,31 +93,35 @@ export default function IndividualChat(props = {}) {
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
   /**
- * This function adds the event to the submit button
- * creates the elements, adding all their properties
- * and then adds the text entered by the user to the DOM
- * and reset the textbox to be able to enter new text
- */
+   * This function adds the event to the submit button
+   * creates the elements, adding all their properties
+   * and then adds the text entered by the user to the DOM
+   * and reset the textbox to be able to enter new text
+   */
+
+  // para envio con click
   sendButton.addEventListener("click", () => {
     sendingUserMessage();
-    communicateWithOpenAI("Begonia", "Cuantas veces necesitas ser regada?")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-
-      }).catch((error) => {
-        console.log(error);
-
-      });
-
+    conectOpenIA();
+    openIAResponse();
   });
+
+  // para envio con tecla enter
 
   const inputBox = viewIndividualChat.querySelector("#user-text");
   inputBox.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendingUserMessage();
+      conectOpenIA();
+      openIAResponse();
     }
   });
+
+  //----------------------------------------------------
+
+  // guardar inputs en variables
+  //funcion que reciba el input y la respuesta
+  //condicional para identificar si es el input o response
 
   function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
@@ -102,9 +129,9 @@ export default function IndividualChat(props = {}) {
     const newMessageText = newMessage.value;
 
     //--------------------------
-
     // This function handles the sending of messages
     const expresion = /[^\W\d]/g;
+
     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
@@ -120,9 +147,48 @@ export default function IndividualChat(props = {}) {
       viewNewMessage.className = "message";
 
       viewNewMessage.innerHTML = newMessageText;
-      newMessage.value = ``;
+      // newMessage.value = ``;
     }
   }
+
+  //------------------------------------------------------
+
+  async function openIAResponse() {
+
+    // obtener la respuesta
+    const response = assistantResponse;
+    const assistantMessage = await response.choices[0].message.content;
+    console.log(assistantMessage);
+
+    const chatContainer = document.getElementById("chat-container");
+    console.log(chatContainer);
+
+    const newResponseText = assistantMessage.value;
+
+    //--------------------------
+    // This function handles the sending of messages
+    const expresion = /[^\W\d]/g;
+
+    if (newResponseText.length !== 0 && newResponseText.match(expresion)) {
+      const newResponseContainer = document.createElement("div");
+      newResponseContainer.className = "response-message";
+      chatContainer.appendChild(newResponseContainer);
+
+      const plantName = document.createElement("p");
+      newResponseContainer.appendChild(plantName);
+      plantName.className = "plant-name";
+      //traer el nombre por medio de props en vez de usernamevalue
+      plantName.innerHTML = currentPlant.name;
+
+      const viewNewResponse = document.createElement("p");
+      newResponseContainer.appendChild(viewNewResponse);
+      viewNewResponse.className = "response";
+
+      viewNewResponse.innerHTML = newResponseText;
+    }
+  }
+
+  //--------------------------------------------------------
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";

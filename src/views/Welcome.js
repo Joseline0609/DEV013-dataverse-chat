@@ -41,9 +41,8 @@ export const Welcome = () => {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
       userNameValue = user.value;
-
-      
     }
+
     if (apiKey.value.length !== 0) {
       setApiKey(apiKey.value);
     }
@@ -52,7 +51,6 @@ export const Welcome = () => {
   });
   // declarar variable que traiga el valor del api textbox
   // si el valor no es igual a cero hacer una validacion 
-  // 
 
   return viewWelcome;
 };
