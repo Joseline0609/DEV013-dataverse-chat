@@ -25,22 +25,20 @@ export default function IndividualChat(props = {}) {
           <p>${currentPlant.shortDescription}</p>
         </div>
       </div>
-      <div id="scroll-area" class="scroll-area">
-        <div id="chat-container" class="chat-container">
-          <div class="plant-message">
-            <p class="name">${currentPlant.name}</p>
-            <p class="message">Hi 'user name'. I'm 'plant name'<br/>
-              Would you like to ask me something?
-            </p>
-            <div class="plant-image">
-              <img src="${currentPlant.imageUrl}";
-              alt="Avatar" style="height:25px;width:18px";>
-              </div>
-          </div>
-          <div class="user-message">
-            <p class="name">${userNameValue}</p>
-            <p class="message">Hi plant, I want to know how much water you need</p>
-          </div>
+      <div id="chat-container" class="chat-container">
+        <div class="plant-message">
+          <p class="name">${currentPlant.name}</p>
+          <p class="message">Hi 'user name'. I'm 'plant name'<br/>
+            Would you like to ask me something?
+          </p>
+          <div class="plant-image">
+            <img src="${currentPlant.imageUrl}";
+            alt="Avatar" style="height:25px;width:18px";>
+            </div>
+        </div>
+        <div class="user-message">
+          <p class="name">${userNameValue}</p>
+          <p class="message">Hi plant, I want to know how much water you need</p>
         </div>
       </div> 
       <div id="text-box" class="text-box">
