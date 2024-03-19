@@ -8,12 +8,12 @@ export default function IndividualChat(props = {}) {
   const propsIdValue = Object.values(props);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
-  } 
+  }
 
-  // variable para guardar la respuesta de la IA
+  // Variable to save the AI response
   let assistantResponse;
 
-  // funcion para evitar repetir 
+  // Function to execute the connection with OpenIA
   function conectOpenIA() {
     const newMessage = document.getElementById("user-text");
     const userMessage = newMessage.value;
@@ -22,17 +22,33 @@ export default function IndividualChat(props = {}) {
       .then((response) => response.json())
       .then((data) => {
         assistantResponse = data;
-        console.log(assistantResponse);
+        //console.log(assistantResponse);
+        manejarRespuetaDeOpenIA();
       })
       .catch((error) => {
         console.log(error);
+        //manageError();
       });
   }
 
-  /*
-      console.log(newMessage);
-      console.log(userMessage);
-  */
+  // function manageError (error) {
+  //   const chatContainer = document.getElementById("chat-container");
+  //   const errorMessageContainer = document.createElement("div");
+  //   const errorMessage = document.createElement("p");
+  //   chatContainer.appendChild(errorMessageContainer);
+  //   errorMessageContainer.appendChild(errorMessage);
+  //   errorMessage.innerHTML = error;
+  // }
+
+  async function manejarRespuetaDeOpenIA() {
+    // Check if assistantResponse is defined and has the 'choices' property
+    if (assistantResponse && assistantResponse.choices) {
+      // Call openIAResponse() after OpenAI response is available
+      await openIAResponse();
+    } else {
+      console.error("La respuesta de OpenAI no está disponible o es inválida");
+    }
+  }
 
   const currentPlant = data.find(findPlant);
   const viewIndividualChat = document.createElement("div");
@@ -55,8 +71,10 @@ export default function IndividualChat(props = {}) {
           <p class="message">Hi 'user name'. I'm 'plant name'<br/>
             Would you like to ask me something?
           </p>
-          <img src="${currentPlant.imageUrl}";
-            alt="Avatar" style="height:25px;width:18px";>
+          <div class="plant-image">
+            <img src="${currentPlant.imageUrl}";
+              alt="Avatar" style="height:25px;width:18px";>
+          </div>
         </div>
         <div class="user-message">
           <p class="name">${userNameValue}</p>
@@ -99,14 +117,15 @@ export default function IndividualChat(props = {}) {
    * and reset the textbox to be able to enter new text
    */
 
-  // para envio con click
+  // To print the messages with click
   sendButton.addEventListener("click", () => {
     sendingUserMessage();
     conectOpenIA();
     openIAResponse();
+    clearMessage();
   });
 
-  // para envio con tecla enter
+  // To print the messages with the enter key
 
   const inputBox = viewIndividualChat.querySelector("#user-text");
   inputBox.addEventListener("keydown", (event) => {
@@ -114,14 +133,11 @@ export default function IndividualChat(props = {}) {
       sendingUserMessage();
       conectOpenIA();
       openIAResponse();
+      clearMessage();
     }
   });
 
-  //----------------------------------------------------
-
-  // guardar inputs en variables
-  //funcion que reciba el input y la respuesta
-  //condicional para identificar si es el input o response
+  //-------------------------------------------------
 
   function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
@@ -147,48 +163,55 @@ export default function IndividualChat(props = {}) {
       viewNewMessage.className = "message";
 
       viewNewMessage.innerHTML = newMessageText;
-      // newMessage.value = ``;
     }
   }
 
-  //------------------------------------------------------
+  // This function will be in charge of cleaning the textarea
 
-  async function openIAResponse() {
+  function clearMessage() {
+    const newMessage = document.getElementById("user-text");
+    //console.log(newMessage);
+    newMessage.value = ``;
+  }
 
-    // obtener la respuesta
-    const response = assistantResponse;
-    const assistantMessage = await response.choices[0].message.content;
-    console.log(assistantMessage);
+  //----------------------------------
 
-    const chatContainer = document.getElementById("chat-container");
-    console.log(chatContainer);
+  function openIAResponse() {
+    if (assistantResponse && assistantResponse.choices) {
+      // Bring the answer from the AI
+      const response = assistantResponse;
+      const assistantMessage = response.choices[0].message.content;
+      const chatContainer = document.getElementById("chat-container");
 
-    const newResponseText = assistantMessage.value;
+      const newResponseText = assistantMessage;
 
-    //--------------------------
-    // This function handles the sending of messages
-    const expresion = /[^\W\d]/g;
-
-    if (newResponseText.length !== 0 && newResponseText.match(expresion)) {
+      //--------------------------
       const newResponseContainer = document.createElement("div");
-      newResponseContainer.className = "response-message";
+      newResponseContainer.className = "plant-message";
       chatContainer.appendChild(newResponseContainer);
 
       const plantName = document.createElement("p");
       newResponseContainer.appendChild(plantName);
-      plantName.className = "plant-name";
-      //traer el nombre por medio de props en vez de usernamevalue
+      plantName.className = "name";
       plantName.innerHTML = currentPlant.name;
 
       const viewNewResponse = document.createElement("p");
       newResponseContainer.appendChild(viewNewResponse);
-      viewNewResponse.className = "response";
+      viewNewResponse.className = "message";
+
+      const plantImageContainer = document.createElement("div");
+      plantImageContainer.className = "plant-image";
+      newResponseContainer.appendChild(plantImageContainer);
+      const plantImage = document.createElement("img");
+      plantImage.src = `${currentPlant.imageUrl}`;
+      plantImage.style = "height:25px;width:18px";
+      plantImageContainer.appendChild(plantImage);
 
       viewNewResponse.innerHTML = newResponseText;
     }
   }
 
-  //--------------------------------------------------------
+  //------------------------------------------
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";
