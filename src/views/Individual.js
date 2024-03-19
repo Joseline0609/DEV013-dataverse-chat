@@ -2,12 +2,52 @@ import { data } from "../data/data.js";
 import { userNameValue } from "./Welcome.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
+import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export default function IndividualChat(props = {}) {
-
   const propsIdValue = Object.values(props);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
+  }
+
+  // Variable to save the AI response
+  let assistantResponse;
+
+  // Function to execute the connection with OpenIA
+  function conectOpenIA() {
+    const newMessage = document.getElementById("user-text");
+    const userMessage = newMessage.value;
+
+    communicateWithOpenAI(currentPlant.id, userMessage)
+      .then((response) => response.json())
+      .then((data) => {
+        assistantResponse = data;
+        //console.log(assistantResponse);
+        manejarRespuetaDeOpenIA();
+      })
+      .catch((error) => {
+        console.log(error);
+        //manageError();
+      });
+  }
+
+  // function manageError (error) {
+  //   const chatContainer = document.getElementById("chat-container");
+  //   const errorMessageContainer = document.createElement("div");
+  //   const errorMessage = document.createElement("p");
+  //   chatContainer.appendChild(errorMessageContainer);
+  //   errorMessageContainer.appendChild(errorMessage);
+  //   errorMessage.innerHTML = error;
+  // }
+
+  async function manejarRespuetaDeOpenIA() {
+    // Check if assistantResponse is defined and has the 'choices' property
+    if (assistantResponse && assistantResponse.choices) {
+      // Call openIAResponse() after OpenAI response is available
+      await openIAResponse();
+    } else {
+      console.error("La respuesta de OpenAI no está disponible o es inválida");
+    }
   }
 
   const currentPlant = data.find(findPlant);
@@ -33,7 +73,7 @@ export default function IndividualChat(props = {}) {
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
-            alt="Avatar" style="height:25px;width:18px";>
+              alt="Avatar" style="height:25px;width:18px";>
           </div>
         </div>
         <div class="user-message">
@@ -71,21 +111,33 @@ export default function IndividualChat(props = {}) {
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
   /**
- * This function adds the event to the submit button
- * creates the elements, adding all their properties
- * and then adds the text entered by the user to the DOM
- * and reset the textbox to be able to enter new text
- */
+   * This function adds the event to the submit button
+   * creates the elements, adding all their properties
+   * and then adds the text entered by the user to the DOM
+   * and reset the textbox to be able to enter new text
+   */
+
+  // To print the messages with click
   sendButton.addEventListener("click", () => {
     sendingUserMessage();
+    conectOpenIA();
+    openIAResponse();
+    clearMessage();
   });
+
+  // To print the messages with the enter key
 
   const inputBox = viewIndividualChat.querySelector("#user-text");
   inputBox.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendingUserMessage();
+      conectOpenIA();
+      openIAResponse();
+      clearMessage();
     }
   });
+
+  //-------------------------------------------------
 
   function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
@@ -93,9 +145,9 @@ export default function IndividualChat(props = {}) {
     const newMessageText = newMessage.value;
 
     //--------------------------
-
     // This function handles the sending of messages
     const expresion = /[^\W\d]/g;
+
     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
       const newMessageContainer = document.createElement("div");
       newMessageContainer.className = "user-message";
@@ -111,7 +163,15 @@ export default function IndividualChat(props = {}) {
       viewNewMessage.className = "message";
 
       viewNewMessage.innerHTML = newMessageText;
-      newMessage.value = ``;
+    }
+  }
+
+  // This function will be in charge of cleaning the textarea
+
+  function clearMessage() {
+    const newMessage = document.getElementById("user-text");
+    //console.log(newMessage);
+    newMessage.value = ``;
 
       //llamar a la funcion de communicate
       //(esta tiene que retornar la raspuesta de la planta)
@@ -120,8 +180,46 @@ export default function IndividualChat(props = {}) {
       //llamar a la funcion write plant response
 
       scrollToBottom();
+  }
+
+  //----------------------------------
+
+  function openIAResponse() {
+    if (assistantResponse && assistantResponse.choices) {
+      // Bring the answer from the AI
+      const response = assistantResponse;
+      const assistantMessage = response.choices[0].message.content;
+      const chatContainer = document.getElementById("chat-container");
+
+      const newResponseText = assistantMessage;
+
+      //--------------------------
+      const newResponseContainer = document.createElement("div");
+      newResponseContainer.className = "plant-message";
+      chatContainer.appendChild(newResponseContainer);
+
+      const plantName = document.createElement("p");
+      newResponseContainer.appendChild(plantName);
+      plantName.className = "name";
+      plantName.innerHTML = currentPlant.name;
+
+      const viewNewResponse = document.createElement("p");
+      newResponseContainer.appendChild(viewNewResponse);
+      viewNewResponse.className = "message";
+
+      const plantImageContainer = document.createElement("div");
+      plantImageContainer.className = "plant-image";
+      newResponseContainer.appendChild(plantImageContainer);
+      const plantImage = document.createElement("img");
+      plantImage.src = `${currentPlant.imageUrl}`;
+      plantImage.style = "height:25px;width:18px";
+      plantImageContainer.appendChild(plantImage);
+
+      viewNewResponse.innerHTML = newResponseText;
     }
   }
+
+  //------------------------------------------
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-area";

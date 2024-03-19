@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
+import { setApiKey } from "../lib/apikey.js";
 
-export let userNameValue = "";
+export let userNameValue = ""; 
 
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
@@ -29,19 +30,27 @@ export const Welcome = () => {
   //--------------------------------------
 
   const user = viewWelcome.querySelector("#input-name");
+  const apiKey = viewWelcome.querySelector("#apikey");
+  
 
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   // This feature prevents the user from logging in without entering their name
-
   enterButton.addEventListener("click", () => {
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else {
       userNameValue = user.value;
-      navigateTo("/Home", { title: "Home" });
     }
+
+    if (apiKey.value.length !== 0) {
+      setApiKey(apiKey.value);
+    }
+    navigateTo("/Home", { title: "Home" });
+
   });
+  // declarar variable que traiga el valor del api textbox
+  // si el valor no es igual a cero hacer una validacion 
 
   return viewWelcome;
 };

@@ -90,6 +90,7 @@ export const navigateTo = (pathname, props = {}) => {
  * @param {*} location 
  * Step 2
  */
+
 export const onURLChange = (location) => {
   const searchObject = queryStringToObject(window.location.search);
   if (searchObject) {
