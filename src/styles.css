@@ -466,7 +466,6 @@ h5.care {
   font-weight: lighter;
   color: #4F6F1D;
   margin: 15px 55px 0 0;
-  
 }
 
 img.close-button-stats {
@@ -527,25 +526,28 @@ div.individual-chat-wrapper {
 /* --- Chat Area --- */
 
 div.chat-area {
-  position: relative;
   background-color: white;
   width: 400px;
   height: 600px;
   border-radius: 0 90px;
-  padding: 0 10px;
 }
 
 div.info-area {
   height: 50px;
   display: flex;
-  width: 380px;
+  width: 90%;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, #EBD0BF 60%, #fff 90%) 1;
 }
 
+div.plant-image img {
+  width: 35px;
+  height: 65px;
+}
+
 div.plant-image {
-  width: 100px;
-  height: 78px;
+  width: 120px;
+  height: 75px;
   background-color: white;
   border: #af4401 1px solid;
   border-radius: 50px;
@@ -564,23 +566,29 @@ div.info-area h1 {
   color: #af4401;
 }
 
+/* -------- */
+
 div.chat-container {
-  height: 490px;
-  margin-top: 5px;
+  background-color: #bf8e72;
+  height: 85%;
+  margin-top: 10px;
   padding: 5px;
+  padding: 10px 10px 10px 25px;
+  border-radius: 0 30px 0 50px;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 p.name {
   background-color: white;
   font-size: 10px;
-  margin: 0 0 2px 0;
+  margin: 2px;
 }
 
 .plant-message,
 .plant-group-message {
   max-width: 80%;
-  margin: 5px 0 0 5px;
-  padding: 0px 10px;
+  padding: 10px;
 }
 
 .plant-message p.message,
@@ -588,6 +596,7 @@ p.name {
   height: 90%;
   padding: 5px 10px;
   border-radius: 10px 10px 10px 0;
+  margin: 0 5px;
 }
 
 .plant-message p.message {
@@ -597,19 +606,16 @@ p.name {
 div.plant-message .plant-image, div.plant-group-message .plant-image {
   width: 30px;
   height: 30px;
-  margin: -3px 0 0 -28px;
+  margin: -5px 0 -5px -30px;
   border: #af4401 1px solid;
 }
 
-div.plant-image img {
-  width: 35px;
-  height: 65px;
-}
+/* -------- */
 
 .user-message,
 .user-group-message {
   max-width: 80%;
-  margin: -15px 0 15px 60px;
+  margin: -15px 0 0px 60px;
   text-align: right;
 }
 
@@ -623,18 +629,21 @@ div.plant-image img {
   background-color: #d3dbc6;
 }
 
+/* -------- */
+
 textarea.user-text {
-  margin: 45px 0 0 80px;
+  margin: 14px 0 0 70px;
   height: 35px;
   width: 310px;
   padding: 10px 5px 10px 10px;
   font-family: "Lato", sans-serif;
   border-radius: 10px 10px 0 10px;
   scrollbar-width: none;
+  position: fixed;
 }
 
 button.send-button {
-  margin: -39px 0 0 331px;
+  margin: 14px 0 0 325px;
   position: fixed;
 }
 
@@ -698,8 +707,12 @@ h1#title {
   background-color: #f2dbaa;
 }
 
-.user-group-message p.message {
+div.user-group-message p.message {
   background-color: #f9edd5;
+}
+
+div.group-chat-wrapper textarea.user-text {
+  margin: 14px 0 0 85px;
 }
 
 /* -------------- 404 styles -------------- */
@@ -960,10 +973,10 @@ form.not-valid button.send-key-button2 {
 
   /* -------------- Home -------------- */
 
-.home {
-  width: 100%;
-  height: 100%;
-}
+  .home {
+    width: 100%;
+    height: 100%;
+  }
 
   /* --- Header styles --- */
 
@@ -985,20 +998,20 @@ form.not-valid button.send-key-button2 {
     margin-top: 40px;
     font-size: 23px;
   }
+
   /* Search by name styles */
 
   aside.search-by-name.container {
-      width: 80%;
-      margin-left: 20px;
-      margin-top: -40px;
-      font-size: smaller;
-    }
+    width: 80%;
+    margin-left: 20px;
+    margin-top: -40px;
+    font-size: smaller;
+  }
 
-    .search-container input {
-      font-size: small;
-      height: 25px;
-      /* width: 70%; */
-    }
+  .search-container input {
+    font-size: small;
+    height: 25px;
+  }
 
   /* Order by drop button styles */
 
@@ -1019,60 +1032,60 @@ form.not-valid button.send-key-button2 {
     justify-content: center;
   }
 
-/* Stats modals styles */
+  /* Stats modals styles */
 
-.statistics-modal {
-  width: 350px;
-  height: 280px;
-  margin: 290px 20px;
-}
+  .statistics-modal {
+    width: 350px;
+    height: 280px;
+    margin: 290px 20px;
+  }
 
-.statistics-modal h3 {
-  font-size: 25px;
-}
+  .statistics-modal h3 {
+    font-size: 25px;
+  }
 
-.statistics {
-  margin: 35px 0 0 50px;
-}
+  .statistics {
+    margin: 35px 0 0 50px;
+  }
 
-div.statistics .legend {
-  margin-top: 1px;
-  display: flex;
-  height: 40px;
-}
+  div.statistics .legend {
+    margin-top: 1px;
+    display: flex;
+    height: 40px;
+  }
 
-div.statistics .square {
-  height: 15px;
-  width: 24px;
-}
+  div.statistics .square {
+    height: 15px;
+    width: 24px;
+  }
 
-.legend p {
-  font-size: 13px;
-}
+  .legend p {
+    font-size: 13px;
+  }
 
-div.statistics-totals h5 {
-  font-size: 20px;
-  width: 90px;
-  margin-top: -6px;
-}
+  div.statistics-totals h5 {
+    font-size: 20px;
+    width: 90px;
+    margin-top: -6px;
+  }
 
-.statistics-modal h4 {
-  font-size: 18px;
-  width: 200px;
-  font-size: 15px;
-  margin: 10px 0 0 60px;
-}
+  .statistics-modal h4 {
+    font-size: 18px;
+    width: 200px;
+    font-size: 15px;
+    margin: 10px 0 0 60px;
+  }
 
-img.close-button, img.close-button-stats {
-  width: 25px;
-  height: 25px;
-  margin: 80px 0 0 310px;
-}
+  img.close-button, img.close-button-stats {
+    width: 25px;
+    height: 25px;
+    margin: 80px 0 0 310px;
+  }
 
-img.close-button-stats {
-  margin: -20px 0 5px 300px;
-  position: fixed;
-}
+  img.close-button-stats {
+    margin: -20px 0 5px 300px;
+    position: fixed;
+  }
 
   /* Categories menu styles */
 
@@ -1099,34 +1112,34 @@ img.close-button-stats {
     height: 30px;
   }
 
-/* --- Footer styles --- */
+  /* --- Footer styles --- */
 
-.home .group-button {
-  margin: 0 -47px 50px 0px;
-  position: fixed;
-}
+  .home .group-button {
+    margin: 0 -47px 50px 0px;
+    position: fixed;
+  }
 
-.home .group-button img {
-  width: 75px;
-}
+  .home .group-button img {
+    width: 75px;
+  }
 
-footer {
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  footer {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-footer h3, footer p {
-  font-size: 12px;
-  padding: 5px;
-  font-weight: normal;
-}
+  footer h3, footer p {
+    font-size: 12px;
+    padding: 5px;
+    font-weight: normal;
+  }
 
-footer p {
-  margin-top: -4px;
-  font-size: 9px;
-}
+  footer p {
+    margin-top: -4px;
+    font-size: 9px;
+  }
 
   /* Individual Chat View  */
 
@@ -1149,7 +1162,7 @@ footer p {
   div.info-area {
     margin-top: 15px;
     height: 40px;
-    width: 100%;
+    width: 95%;
     margin-left: 5px;
   }
   
@@ -1158,6 +1171,10 @@ footer p {
     height: 58px;
   }
   
+  div.chat-container {
+    margin-top: 0;
+  }
+
   div.plant-message .plant-image, div.plant-group-message .plant-image {
     width: 25px;
     height: 25px;
@@ -1171,14 +1188,14 @@ footer p {
   
   textarea.user-text {
     position: fixed;
-    margin: -150px 10px 0 73px;
+    margin: -3px 0px 0 85px;
     height: 30px;
-    width: 270px;
+    width: 265px;
     border-radius: 5px 5px 0 5px; 
   }
   
   button.send-button {
-    margin: -150px 0 0 292px;
+    margin: -4px 0 0 299px;
     position: fixed;
   }
   
@@ -1194,12 +1211,12 @@ footer p {
     margin: 0 245px 330px -265px;
   }
 
-/*---- Group chat View ----*/
+  /*---- Group chat View ----*/
 
   div.group-chat-wrapper .info-area {
     height: 20px;
-    margin-left: -8px;
-    width: 99%;
+    margin-left: -0px;
+    width: 90%;
   }
   
   h1#title {
@@ -1207,7 +1224,23 @@ footer p {
   }
 
   div.group-chat-wrapper .buttons-area img {
-    margin-bottom: 347px;
+    margin: -376px 0 0 -280px;
+    position: fixed;
+  }
+
+  div.group-chat-wrapper .chat-container {
+    margin-top: 5px;
+    border-radius: 0 50px;
+  }
+
+  div.group-chat-wrapper textarea.user-text {
+    margin: 7px 0 0 89px;
+    position: fixed;
+  }
+
+  div.group-chat-wrapper .send-button img {
+    margin: 10px 0 0 4px;
+    position: fixed;
   }
 
   /* -------------- 404 styles -------------- */

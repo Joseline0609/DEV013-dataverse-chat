@@ -59,6 +59,10 @@ export const GroupChat = () => {
             </div>
           </div>
         </div>
+        <div class="user-group-message">
+          <p class="name">${userNameValue}</p>
+          <p class="message">Hello how are you? Could you tell me when you bloom?</p>
+        </div>
       </div>
       <div id="text-box" class="text-box">
         <textarea placeholder=". . ." id="user-text" class="user-text" required></textarea>
@@ -116,7 +120,7 @@ export const GroupChat = () => {
     const expresion = /[^\W\d]/g;
     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
       const newMessageContainer = document.createElement("div");
-      newMessageContainer.className = "user-message";
+      newMessageContainer.className = "user-group-message";
       chatContainer.appendChild(newMessageContainer);
 
       const userName = document.createElement("p");
@@ -131,6 +135,8 @@ export const GroupChat = () => {
       viewNewMessage.innerHTML = newMessageText;
 
       newMessage.value = ``;
+
+      scrollToBottom();
     }
   }
 
@@ -138,6 +144,11 @@ export const GroupChat = () => {
   butonsContainer.className = "buttons-area";
   viewGroupChat.appendChild(butonsContainer);
   butonsContainer.append(HomeIconButton());
+
+  function scrollToBottom() {
+    const container = viewGroupChat.querySelector("#chat-container");
+      container.scrollTop = container.scrollHeight - container.clientHeight;
+  }
 
   return viewGroupChat;
 };

@@ -40,10 +40,10 @@ export default function IndividualChat(props = {}) {
           <p class="name">${userNameValue}</p>
           <p class="message">Hi plant, I want to know how much water you need</p>
         </div>
-      </div>
+      </div> 
       <div id="text-box" class="text-box">
         <textarea placeholder=". . ." id="user-text" class="user-text" required></textarea>
-      </div>
+      </div> 
     </div>
     <div id="question-ideas" class="question-ideas">
       <h2>Puedes iniciar tu chat preguntando </br>
@@ -118,6 +118,8 @@ export default function IndividualChat(props = {}) {
       //como acceder al texto de respuesta
       // para insertarla en la siguiente funcion
       //llamar a la funcion write plant response
+
+      scrollToBottom();
     }
   }
 
@@ -125,6 +127,11 @@ export default function IndividualChat(props = {}) {
   buttonsContainer.className = "buttons-area";
   viewIndividualChat.appendChild(buttonsContainer);
   buttonsContainer.append(HomeIconButton(), GroupIconButton());
+
+  function scrollToBottom() {
+    const container = viewIndividualChat.querySelector("#chat-container");
+      container.scrollTop = container.scrollHeight - container.clientHeight;
+  }
 
   return viewIndividualChat;
 }
