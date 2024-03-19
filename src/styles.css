@@ -527,12 +527,11 @@ div.individual-chat-wrapper {
 /* --- Chat Area --- */
 
 div.chat-area {
-  position: relative;
+  /* position: relative; */
   background-color: white;
   width: 400px;
   height: 600px;
   border-radius: 0 90px;
-  padding: 0 10px;
 }
 
 div.info-area {
@@ -541,6 +540,11 @@ div.info-area {
   width: 380px;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, #EBD0BF 60%, #fff 90%) 1;
+}
+
+div.plant-image img {
+  width: 35px;
+  height: 65px;
 }
 
 div.plant-image {
@@ -570,17 +574,37 @@ div.chat-container {
   padding: 5px;
 }
 
+/* -------- */
+
+div.scroll-area {
+  height: 85%;
+  width: 100%;
+  background-color: #bf8e72;
+  /* overflow: auto;
+  scroll-behavior: smooth;
+  scroll-snap-align: end; */
+  margin-top: 10px;
+  padding: 10px 10px 10px 15px;
+  border-radius: 0 30px 0 50px;
+}
+
+div.chat-container  {
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
 p.name {
   background-color: white;
   font-size: 10px;
-  margin: 0 0 2px 0;
+  margin: 2px;
+  /* margin: 0 0 2px 0; */
 }
 
 .plant-message,
 .plant-group-message {
   max-width: 80%;
-  margin: 5px 0 0 5px;
-  padding: 0px 10px;
+  /* margin: 5px 0 0 5px; */
+  padding: 10px;
 }
 
 .plant-message p.message,
@@ -588,6 +612,7 @@ p.name {
   height: 90%;
   padding: 5px 10px;
   border-radius: 10px 10px 10px 0;
+  margin: 0 5px;
 }
 
 .plant-message p.message {
@@ -597,19 +622,16 @@ p.name {
 div.plant-message .plant-image, div.plant-group-message .plant-image {
   width: 30px;
   height: 30px;
-  margin: -3px 0 0 -28px;
+  margin: -5px 0 -5px -30px;
   border: #af4401 1px solid;
 }
 
-div.plant-image img {
-  width: 35px;
-  height: 65px;
-}
+/* -------- */
 
 .user-message,
 .user-group-message {
   max-width: 80%;
-  margin: -15px 0 15px 60px;
+  margin: -15px 0 0px 60px;
   text-align: right;
 }
 
@@ -624,17 +646,18 @@ div.plant-image img {
 }
 
 textarea.user-text {
-  margin: 45px 0 0 80px;
+  margin: 14px 0 0 90px;
   height: 35px;
   width: 310px;
   padding: 10px 5px 10px 10px;
   font-family: "Lato", sans-serif;
   border-radius: 10px 10px 0 10px;
   scrollbar-width: none;
+  position: fixed;
 }
 
 button.send-button {
-  margin: -39px 0 0 331px;
+  margin: 14px 0 0 345px;
   position: fixed;
 }
 
@@ -698,7 +721,7 @@ h1#title {
   background-color: #f2dbaa;
 }
 
-.user-group-message p.message {
+div.user-group-message p.message {
   background-color: #f9edd5;
 }
 
@@ -985,6 +1008,7 @@ form.not-valid button.send-key-button2 {
     margin-top: 40px;
     font-size: 23px;
   }
+
   /* Search by name styles */
 
   aside.search-by-name.container {
@@ -997,7 +1021,6 @@ form.not-valid button.send-key-button2 {
     .search-container input {
       font-size: small;
       height: 25px;
-      /* width: 70%; */
     }
 
   /* Order by drop button styles */

@@ -12,51 +12,57 @@ export const GroupChat = () => {
           <h1 class="title" id="title">Chat Grupal</h1>
         </div>
       </div>
-      <div id="chat-container" class="chat-container">
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="first-plant">
-            <p class="message">Hi 'user name'. How can we<br/>
-              help you today?
-            </p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
+      <div id="scroll-area" class="scroll-area">
+        <div id="chat-container" class="chat-container">
+          <div class="plant-group-message">
+            <p class="name">Plant name</p>
+            <div class="first-plant">
+              <p class="message">Hi 'user name'. How can we<br/>
+                help you today?
+              </p>
+              <div class="plant-image">
+                <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+                alt="Avatar" style="height:20px;width:20px";>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="user-group-message">
-          <p class="name">${userNameValue}</p>
-          <p class="message">Hello how are you? Could you tell me when you bloom?</p>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="first-plant">
-            <p class="message">Sure, I use to have flowers in January</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
+          <div class="user-group-message">
+            <p class="name">${userNameValue}</p>
+            <p class="message">Hello how are you? Could you tell me when you bloom?</p>
+          </div>
+          <div class="plant-group-message">
+            <p class="name">Plant name</p>
+            <div class="first-plant">
+              <p class="message">Sure, I use to have flowers in January</p>
+              <div class="plant-image">
+                <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+                alt="Avatar" style="height:20px;width:20px";>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="second-plant">
-            <p class="message">Hello, 'user name'!!! I don't have flowers, but I have beautiful leafs</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
+          <div class="plant-group-message">
+            <p class="name">Plant name</p>
+            <div class="second-plant">
+              <p class="message">Hello, 'user name'!!! I don't have flowers, but I have beautiful leafs</p>
+              <div class="plant-image">
+                <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+                alt="Avatar" style="height:20px;width:20px";>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="third-plant">
-            <p class="message">In my case I boom in Autumn</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
+          <div class="plant-group-message">
+            <p class="name">Plant name</p>
+            <div class="third-plant">
+              <p class="message">In my case I boom in Autumn</p>
+              <div class="plant-image">
+                <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
+                alt="Avatar" style="height:20px;width:20px";>
+              </div>
             </div>
+          </div>
+          <div class="user-group-message">
+            <p class="name">${userNameValue}</p>
+            <p class="message">Hello how are you? Could you tell me when you bloom?</p>
           </div>
         </div>
       </div>
@@ -116,7 +122,7 @@ export const GroupChat = () => {
     const expresion = /[^\W\d]/g;
     if (newMessageText.length !== 0 && newMessageText.match(expresion)) {
       const newMessageContainer = document.createElement("div");
-      newMessageContainer.className = "user-message";
+      newMessageContainer.className = "user-group-message";
       chatContainer.appendChild(newMessageContainer);
 
       const userName = document.createElement("p");
@@ -131,6 +137,8 @@ export const GroupChat = () => {
       viewNewMessage.innerHTML = newMessageText;
 
       newMessage.value = ``;
+
+      scrollToBottom();
     }
   }
 
@@ -138,6 +146,11 @@ export const GroupChat = () => {
   butonsContainer.className = "buttons-area";
   viewGroupChat.appendChild(butonsContainer);
   butonsContainer.append(HomeIconButton());
+
+  function scrollToBottom() {
+    const container = viewGroupChat.querySelector("#chat-container");
+      container.scrollTop = container.scrollHeight - container.clientHeight;
+  }
 
   return viewGroupChat;
 };
