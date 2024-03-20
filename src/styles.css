@@ -680,6 +680,17 @@ div.buttons-area {
   position: fixed;
 }
 
+div.error-message {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  border-radius: 5px;
+  background-color:white;
+  box-shadow: 3px 3px 10px gray;
+  margin-top: 20px;
+  padding: 10px;
+  width: 95%;
+}
+
 /* -------------- Group Chat View -------------- */
 
 div.group-chat-wrapper {

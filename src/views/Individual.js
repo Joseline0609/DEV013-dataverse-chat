@@ -13,7 +13,7 @@ export default function IndividualChat(props = {}) {
   // Variable to save the AI response
   let assistantResponse;
 
-  // Function to execute the connection with OpenIA
+  // Function to execute the connection with OpenIA 
   function conectOpenIA() {
     const newMessage = document.getElementById("user-text");
     const userMessage = newMessage.value;
@@ -26,19 +26,21 @@ export default function IndividualChat(props = {}) {
         manejarRespuetaDeOpenIA();
       })
       .catch((error) => {
-        // console.log(error);
-        //manageError();
+        console.log(error);
       });
   }
 
-  // function manageError (error) {
-  //   const chatContainer = document.getElementById("chat-container");
-  //   const errorMessageContainer = document.createElement("div");
-  //   const errorMessage = document.createElement("p");
-  //   chatContainer.appendChild(errorMessageContainer);
-  //   errorMessageContainer.appendChild(errorMessage);
-  //   errorMessage.innerHTML = error;
-  // }
+  const link = "<a href=https://platform.openai.com/api-keys> Link <a/>"
+
+  function manageError () {
+    const chatContainer = document.getElementById("chat-container");
+    const errorMessageContainer = document.createElement("div");
+    errorMessageContainer.className="error-message";
+    const errorMessage = document.createElement("p");
+    chatContainer.appendChild(errorMessageContainer);
+    errorMessageContainer.appendChild(errorMessage);
+    errorMessage.innerHTML = `Hay un error con tu ApiKey </br> por favor verifica de que sea correcta </br> ó que aún tengas Tokens disponibles.</br> Puedes hacerlo desde este ${link}`;
+  }
 
   async function manejarRespuetaDeOpenIA() {
     // Check if assistantResponse is defined and has the 'choices' property
@@ -46,7 +48,8 @@ export default function IndividualChat(props = {}) {
       // Call openIAResponse() after OpenAI response is available
       await openIAResponse();
     } else {
-      console.error("La respuesta de OpenAI no está disponible o es inválida");
+      manageError();
+      //console.error("La respuesta de OpenAI no está disponible o es inválida");
     }
   }
 
@@ -135,6 +138,7 @@ export default function IndividualChat(props = {}) {
       conectOpenIA();
       openIAResponse();
       clearMessage();
+      scrollToBottom();
     }
   });
 
@@ -174,14 +178,6 @@ export default function IndividualChat(props = {}) {
     const newMessage = document.getElementById("user-text");
     //console.log(newMessage);
     newMessage.value = ``;
-
-      //llamar a la funcion de communicate
-      //(esta tiene que retornar la raspuesta de la planta)
-      //como acceder al texto de respuesta
-      // para insertarla en la siguiente funcion
-      //llamar a la funcion write plant response
-
-      
   }
 
   //----------------------------------
@@ -231,7 +227,7 @@ export default function IndividualChat(props = {}) {
 
   function scrollToBottom() {
     const container = viewIndividualChat.querySelector("#chat-container");
-      container.scrollTop = container.scrollHeight - container.clientHeight;
+    container.scrollTop = container.scrollHeight - container.clientHeight;
   }
 
   return viewIndividualChat;
