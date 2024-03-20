@@ -2,6 +2,7 @@ import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apikey.js";
 
 export let userNameValue = "";
+export let apiKeyNameValue = "";
 
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
@@ -44,6 +45,8 @@ export const Welcome = () => {
         userNameValue = user.value;
         navigateTo("/Home", { title: "Home" });
     } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
+        userNameValue = user.value;
+        apiKeyNameValue = true;
         setApiKey(apiKey.value);
         navigateTo("/Home", { title: "Home" });
     } else {

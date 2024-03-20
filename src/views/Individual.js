@@ -73,7 +73,7 @@ export default function IndividualChat(props = {}) {
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
-              alt="Avatar" style="height:25px;width:18px";>
+              alt="Avatar">
           </div>
         </div>
         <div class="user-message">
