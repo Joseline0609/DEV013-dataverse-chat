@@ -26,7 +26,7 @@ export default function IndividualChat(props = {}) {
         manejarRespuetaDeOpenIA();
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         //manageError();
       });
   }
@@ -57,8 +57,8 @@ export default function IndividualChat(props = {}) {
   viewIndividualChat.innerHTML += `
     <div id="chat-area" class="chat-area">
       <div id="info-area" class="info-area">
-        <div>
-          <img src="${currentPlant.imageUrl}" style="height:85px;width:55px";>
+        <div class="plant-image">
+          <img src="${currentPlant.imageUrl}"x>
         </div>
         <div class="text-area">
           <h1>${currentPlant.name}</h1>
@@ -73,17 +73,17 @@ export default function IndividualChat(props = {}) {
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
-              alt="Avatar" style="height:25px;width:18px";>
+              alt="Avatar">
           </div>
         </div>
         <div class="user-message">
           <p class="name">${userNameValue}</p>
           <p class="message">Hi plant, I want to know how much water you need</p>
         </div>
-      </div>
+      </div> 
       <div id="text-box" class="text-box">
         <textarea placeholder=". . ." id="user-text" class="user-text" required></textarea>
-      </div>
+      </div> 
     </div>
     <div id="question-ideas" class="question-ideas">
       <h2>Puedes iniciar tu chat preguntando </br>
@@ -123,6 +123,7 @@ export default function IndividualChat(props = {}) {
     conectOpenIA();
     openIAResponse();
     clearMessage();
+    scrollToBottom();
   });
 
   // To print the messages with the enter key
@@ -164,6 +165,7 @@ export default function IndividualChat(props = {}) {
 
       viewNewMessage.innerHTML = newMessageText;
     }
+    scrollToBottom();
   }
 
   // This function will be in charge of cleaning the textarea
@@ -172,6 +174,14 @@ export default function IndividualChat(props = {}) {
     const newMessage = document.getElementById("user-text");
     //console.log(newMessage);
     newMessage.value = ``;
+
+      //llamar a la funcion de communicate
+      //(esta tiene que retornar la raspuesta de la planta)
+      //como acceder al texto de respuesta
+      // para insertarla en la siguiente funcion
+      //llamar a la funcion write plant response
+
+      
   }
 
   //----------------------------------
@@ -209,6 +219,7 @@ export default function IndividualChat(props = {}) {
 
       viewNewResponse.innerHTML = newResponseText;
     }
+    scrollToBottom();
   }
 
   //------------------------------------------
@@ -217,6 +228,11 @@ export default function IndividualChat(props = {}) {
   buttonsContainer.className = "buttons-area";
   viewIndividualChat.appendChild(buttonsContainer);
   buttonsContainer.append(HomeIconButton(), GroupIconButton());
+
+  function scrollToBottom() {
+    const container = viewIndividualChat.querySelector("#chat-container");
+      container.scrollTop = container.scrollHeight - container.clientHeight;
+  }
 
   return viewIndividualChat;
 }

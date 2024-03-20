@@ -12,11 +12,10 @@ export default function NotValidApiKey() {
       </p>
       <input type="text" id="text" class="text" required placeholder="Ingresa Api Key válida..." /><br />
       <button id="send-key-button2" class="send-key-button2">Enviar</button>
-      <p>
+      <p class="link">
         Si no tienes una llave solicítala <br />
         haciendo click <a href="https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt" target="_blank">aquí</a>
       </p>
-      <!--<img id="close-icon2" class="close-icon2" alt="Cerrar" src="Resources/DV Chat/closered.png">-->
     </form>
   `;
 
@@ -27,11 +26,11 @@ export default function NotValidApiKey() {
   });
 
   const form = viewValidModal.querySelector(".not-valid");
-  const closeButton = document.createElement("img");
-  form.appendChild(closeButton);
-  closeButton.className = "close-icon2";
-  closeButton.src = "Resources/DV Chat/closered.png";
-  closeButton.addEventListener("click", () => { viewValidModal.close()});
+  const closeButton2 = document.createElement("img");
+  form.appendChild(closeButton2);
+  closeButton2.className = "close-icon2";
+  closeButton2.src = "Resources/DV Chat/closered.png";
+  closeButton2.addEventListener("click", () => { viewValidModal.close()});
 
   return viewValidModal;
 }
