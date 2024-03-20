@@ -2,7 +2,7 @@ import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apikey.js";
 
 export let userNameValue = "";
-export let apiKeyNameValue = "";
+export let apiKeyValue = "";
 
 export const Welcome = () => {
   const viewWelcome = document.createElement("section");
@@ -20,7 +20,7 @@ export const Welcome = () => {
         <input id="input-name" class="input name" type=text placeholder="Por favor ingresa tu nombre..."><br/>
         <label for="apikey">Para acceder a todas las funcionalidades:</label><br/>
         <input class="input" type=text name="apikey" id="apikey" required placeholder="Ingresa tu llave... (opcional)"><br/>
-        <p class="create-apikey">Si no tienes una apikey solicítala haciendo click
+        <p class="create-apikey">Obtén información sobre las apikey haciendo click
           <a href="https://platform.openai.com/docs/overview" target="_blank">aquí</a>
         </p>
         <button id="enter-button" class="enter-button">Iniciar</button>
@@ -46,7 +46,7 @@ export const Welcome = () => {
         navigateTo("/Home", { title: "Home" });
     } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
         userNameValue = user.value;
-        apiKeyNameValue = true;
+        apiKeyValue = apiKey.value;
         setApiKey(apiKey.value);
         navigateTo("/Home", { title: "Home" });
     } else {

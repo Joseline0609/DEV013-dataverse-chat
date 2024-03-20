@@ -34,12 +34,12 @@ export default function NotFound() {
     emptyApiKeyViewModal.showModal();
   });
 
-  const openModaNotValidApiKeyButton = document.createElement("button");
-  viewNotFound.appendChild(openModaNotValidApiKeyButton);
+  const openModalNotValidApiKeyButton = document.createElement("button");
+  viewNotFound.appendChild(openModalNotValidApiKeyButton);
   const textValidButton = document.createTextNode("See not valid key modal");
-  openModaNotValidApiKeyButton.appendChild(textValidButton);
+  openModalNotValidApiKeyButton.appendChild(textValidButton);
 
-  openModaNotValidApiKeyButton.addEventListener("click", () => {
+  openModalNotValidApiKeyButton.addEventListener("click", () => {
     const notValidApiKeyViewModal = NotValidApiKey();
     viewNotFound.appendChild(notValidApiKeyViewModal);
     notValidApiKeyViewModal.showModal();

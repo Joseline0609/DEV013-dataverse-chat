@@ -68,17 +68,13 @@ export default function IndividualChat(props = {}) {
       <div id="chat-container" class="chat-container">
         <div class="plant-message">
           <p class="name">${currentPlant.name}</p>
-          <p class="message">Hi 'user name'. I'm 'plant name'<br/>
-            Would you like to ask me something?
+          <p class="message">Hola ${userNameValue}. Soy ${currentPlant.name}.<br/>
+            Qué te gustaría saber sobre mí?
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
               alt="Avatar">
           </div>
-        </div>
-        <div class="user-message">
-          <p class="name">${userNameValue}</p>
-          <p class="message">Hi plant, I want to know how much water you need</p>
         </div>
       </div> 
       <div id="text-box" class="text-box">
@@ -174,14 +170,6 @@ export default function IndividualChat(props = {}) {
     const newMessage = document.getElementById("user-text");
     //console.log(newMessage);
     newMessage.value = ``;
-
-      //llamar a la funcion de communicate
-      //(esta tiene que retornar la raspuesta de la planta)
-      //como acceder al texto de respuesta
-      // para insertarla en la siguiente funcion
-      //llamar a la funcion write plant response
-
-      
   }
 
   //----------------------------------

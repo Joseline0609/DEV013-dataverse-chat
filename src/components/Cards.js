@@ -1,5 +1,7 @@
 import { navigateTo } from "../router.js";
 import { StatsModals } from "./StatsModals.js";
+import { apiKeyValue } from "../views/Welcome.js";
+import EmptyApiKey from "../components/EmptyApiKey.js";
 
 const renderFactImages = (plant, cardItem) => {
   const waterActiveImage = document.createElement("img");
@@ -193,12 +195,26 @@ export const renderItems = (data) => {
     );
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", {
-        title: "Individual",
-        searchParams: { id: element.id },
+      //if apikey value is 0 then open modal
+      //if apikey value is not 0 then navigate to
+      if (apiKeyValue.length !== 0 ) {
+        console.log ( )
+        navigateTo("/Individual", {
+          title: element.name,
+          searchParams: { id: element.id }});
+        } else {
+          const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
+          console.log(infoToNavigate);
+          const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+          cardItem.appendChild(emptyApiKeyViewModal);
+          emptyApiKeyViewModal.showModal();
+        }
+        // const notValidApiKeyViewModal = NotValidApiKey();
+        // cardItem.appendChild(notValidApiKeyViewModal);
+        // notValidApiKeyViewModal.showModal();
       });
+      
     });
-  });
 
   return cardsContainer;
 };
