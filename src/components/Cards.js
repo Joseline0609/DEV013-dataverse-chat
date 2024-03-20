@@ -195,7 +195,7 @@ export const renderItems = (data) => {
     );
 
     goToIndividualChat.addEventListener("click", () => {
-      if (apiKeyValue.length !== 0 ) {
+      if (apiKeyValue.length !== 0) {
         navigateTo("/Individual", {
           title: element.name,
           searchParams: { id: element.id }});

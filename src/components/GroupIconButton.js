@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
 import { apiKeyValue } from "../views/Welcome.js";
 import EmptyApiKey from "../components/EmptyApiKey.js";
+// import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export const GroupIconButton = () => {
   const buttonContainer = document.createElement("div");
@@ -8,17 +9,14 @@ export const GroupIconButton = () => {
   const goToGroupButton = buttonContainer.querySelector("#group-button");
 
   goToGroupButton.addEventListener("click", () => {
-      // if apikey value is 0 then open modal
-      // if apikey value is not 0 then navigate to
       if (apiKeyValue.length !== 0 ) {
         navigateTo("/Group", { title: "Group" });
       } else {
-          const infoToNavigate = ["/Group", { title: "Group" }];
-          console.log("from button");
-          console.log(infoToNavigate);
-          //no estoy pasando el objeto de manera correcta 
+          const infoToNavigate = ["/Group", { title: "Group" }]; 
           const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+          // const notValidApiKeyViewModal = NotValidApiKey(infoToNavigate);
           buttonContainer.appendChild(emptyApiKeyViewModal);
+          // buttonContainer.appendChild(notValidApiKeyViewModal);
           emptyApiKeyViewModal.showModal(); 
       }
     });

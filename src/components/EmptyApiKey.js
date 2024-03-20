@@ -1,4 +1,7 @@
 import { navigateTo } from "../router.js";
+// import { GroupIconButton } from "../components/GroupIconButton.js";
+// import { renderItems } from "../components/Cards.js";
+// import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export default function EmptyApiKey(infoToNavigate) {
   const viewEmptyModal = document.createElement("dialog");
@@ -18,14 +21,32 @@ export default function EmptyApiKey(infoToNavigate) {
     </form>
   `;
 
-  const sendKeyButon1 = viewEmptyModal
-  viewEmptyModal.querySelector("#send-key-button1")
+  const newApiKeyValue = viewEmptyModal.querySelector("#text");
+  const sendKeyButon1 = viewEmptyModal.querySelector("#send-key-button1");
   sendKeyButon1.addEventListener("click", () => {
-    if (infoToNavigate[0] == "/Group") {
-      navigateTo(infoToNavigate[0], infoToNavigate[1]);
-    } else {
-      navigateTo(infoToNavigate[0], infoToNavigate[1]);
+
+    //ahora debo validar si el valor de la apikay es valido
+    // si es valido entrar a la siguiente validacion
+    //si no 
+    if ( newApiKeyValue.value !== 0 && newApiKeyValue.value.length > 40 && newApiKeyValue[0]+newApiKeyValue[1]+newApiKeyValue[2] == "sk-" ) {
+      console.log(newApiKeyValue.value);
+
+      if (infoToNavigate[0] == "/Group") {
+        navigateTo(infoToNavigate[0], infoToNavigate[1]);
+      } else {
+        navigateTo(infoToNavigate[0], infoToNavigate[1]);
+      }
+
+    } else { // cambiar el coso a rojo
+
+      newApiKeyValue.className = "text none";
+      newApiKeyValue.value = "";
+      newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
+
     }
+
+
+
   });
     
   const closeButton = document.createElement("img");

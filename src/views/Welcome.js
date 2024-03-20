@@ -55,25 +55,7 @@ export const Welcome = () => {
         viewWelcome.querySelector("#apikey").setAttribute("placeholder", "Inserta una llave correcta...")
     }
 
-      // navigateTo("/Home", { title: "Home" });
   });
-
-    // también validar que tenga un largo mayor a 40
-    // y que comience en sk-
-    // if (apiKey.value.length !== 0) {
-    //   if (key.length < 40 || key[0]+key[1]+key[2] !== "sk-") { 
-    //     viewWelcome.querySelector("#apikey").className = "input none";
-    //     viewWelcome.querySelector("#apikey").ariaPlaceholder = "Inserta una llave correcta...";
-    //   } else {
-    //     setApiKey(apiKey.value);
-    //   } 
-    // }
-
-    // navigateTo("/Home", { title: "Home" });
-
-  // });
-  // declarar variable que traiga el valor del api textbox
-  // si el valor no es igual a cero hacer una validacion 
 
   return viewWelcome;
 };
