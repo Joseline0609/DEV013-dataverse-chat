@@ -13,7 +13,7 @@ export default function IndividualChat(props = {}) {
   // Variable to save the AI response
   let assistantResponse;
 
-  // Function to execute the connection with OpenIA 
+  // Function to execute the connection with OpenIA
   function conectOpenIA() {
     const newMessage = document.getElementById("user-text");
     const userMessage = newMessage.value;
@@ -30,27 +30,29 @@ export default function IndividualChat(props = {}) {
       });
   }
 
-  const link = "<a href=https://platform.openai.com/api-keys> Link <a/>"
-
-  function manageError () {
-    const chatContainer = document.getElementById("chat-container");
-    const errorMessageContainer = document.createElement("div");
-    errorMessageContainer.className="error-message";
-    const errorMessage = document.createElement("p");
-    chatContainer.appendChild(errorMessageContainer);
-    errorMessageContainer.appendChild(errorMessage);
-    errorMessage.innerHTML = `Hay un error con tu ApiKey </br> por favor verifica de que sea correcta </br> ó que aún tengas Tokens disponibles.</br> Puedes hacerlo desde este ${link}`;
-  }
+  //-------------------------------
 
   async function manejarRespuetaDeOpenIA() {
     // Check if assistantResponse is defined and has the 'choices' property
-    if (assistantResponse && assistantResponse.choices) {
+    if (assistantResponse) {
       // Call openIAResponse() after OpenAI response is available
       await openIAResponse();
     } else {
       manageError();
-      //console.error("La respuesta de OpenAI no está disponible o es inválida");
     }
+  }
+
+  // This function will insert an alert in the chat when there is an error with the api key
+  const link = "<a href=https://platform.openai.com/api-keys> Link <a/>";
+
+  function manageError() {
+    const chatContainer = document.getElementById("chat-container");
+    const errorMessageContainer = document.createElement("div");
+    errorMessageContainer.className = "error-message";
+    const errorMessage = document.createElement("p");
+    chatContainer.appendChild(errorMessageContainer);
+    errorMessageContainer.appendChild(errorMessage);
+    errorMessage.innerHTML = `Hay un error con tu ApiKey </br> por favor verifica de que sea correcta </br> ó que aún tengas Tokens disponibles.</br> Puedes hacerlo desde este ${link}`;
   }
 
   const currentPlant = data.find(findPlant);
@@ -113,18 +115,12 @@ export default function IndividualChat(props = {}) {
   sendButton.appendChild(sendIcon);
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
-  /**
-   * This function adds the event to the submit button
-   * creates the elements, adding all their properties
-   * and then adds the text entered by the user to the DOM
-   * and reset the textbox to be able to enter new text
-   */
+  //---------------------------------------------------
 
   // To print the messages with click
   sendButton.addEventListener("click", () => {
     sendingUserMessage();
     conectOpenIA();
-    openIAResponse();
     clearMessage();
     scrollToBottom();
   });
@@ -136,13 +132,17 @@ export default function IndividualChat(props = {}) {
     if (event.key === "Enter") {
       sendingUserMessage();
       conectOpenIA();
-      openIAResponse();
       clearMessage();
       scrollToBottom();
     }
   });
 
-  //-------------------------------------------------
+  //---------------------------------------------
+  /**
+   * This function adds the event to the submit button
+   * creates the elements, adding all their properties
+   * and then adds the text entered by the user to the DOM
+   */
 
   function sendingUserMessage() {
     const newMessage = document.getElementById("user-text");
@@ -176,20 +176,16 @@ export default function IndividualChat(props = {}) {
 
   function clearMessage() {
     const newMessage = document.getElementById("user-text");
-    //console.log(newMessage);
     newMessage.value = ``;
   }
 
   //----------------------------------
 
   function openIAResponse() {
-    if (assistantResponse && assistantResponse.choices) {
+    if (assistantResponse) {
       // Bring the answer from the AI
-      const response = assistantResponse;
-      const assistantMessage = response.choices[0].message.content;
+      const assistantMessage = assistantResponse.choices[0].message.content;
       const chatContainer = document.getElementById("chat-container");
-
-      const newResponseText = assistantMessage;
 
       //--------------------------
       const newResponseContainer = document.createElement("div");
@@ -213,7 +209,7 @@ export default function IndividualChat(props = {}) {
       plantImage.style = "height:25px;width:18px";
       plantImageContainer.appendChild(plantImage);
 
-      viewNewResponse.innerHTML = newResponseText;
+      viewNewResponse.innerHTML = assistantMessage;
     }
     scrollToBottom();
   }
