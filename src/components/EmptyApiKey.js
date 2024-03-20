@@ -21,24 +21,13 @@ export default function EmptyApiKey(infoToNavigate) {
   const sendKeyButon1 = viewEmptyModal
   viewEmptyModal.querySelector("#send-key-button1")
   sendKeyButon1.addEventListener("click", () => {
-    // obtener valor del textbox
-    // validarlo
-    // si es valido acceder
-    // si no es valido cambiar el estilo
-    console.log("info " + infoToNavigate);
-    console.log("pathname " + infoToNavigate[0]);
-    console.log("title " + infoToNavigate[1]);
-    //no esta llegando la info de manera correcta
     if (infoToNavigate[0] == "/Group") {
-      navigateTo("/Group", { title: "Group" });
+      navigateTo(infoToNavigate[0], infoToNavigate[1]);
     } else {
-      navigateTo("/Group", { title: "Group" });
+      navigateTo(infoToNavigate[0], infoToNavigate[1]);
     }
-    //si es "/Individual que pasa?"
-    // por que no se cierra y se queda en home?
   });
     
-  // const form = viewEmptyModal.querySelector("#epmty-apikey");
   const closeButton = document.createElement("img");
   viewEmptyModal.appendChild(closeButton);
   closeButton.className = "close-icon1";

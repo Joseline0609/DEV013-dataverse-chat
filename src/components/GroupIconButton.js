@@ -14,6 +14,8 @@ export const GroupIconButton = () => {
         navigateTo("/Group", { title: "Group" });
       } else {
           const infoToNavigate = ["/Group", { title: "Group" }];
+          console.log("from button");
+          console.log(infoToNavigate);
           //no estoy pasando el objeto de manera correcta 
           const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
           buttonContainer.appendChild(emptyApiKeyViewModal);
