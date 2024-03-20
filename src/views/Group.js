@@ -136,7 +136,7 @@ export const GroupChat = () => {
 
       newMessage.value = ``;
 
-      scrollToBottom();
+      scroll();
     }
   }
 
@@ -145,9 +145,9 @@ export const GroupChat = () => {
   viewGroupChat.appendChild(butonsContainer);
   butonsContainer.append(HomeIconButton());
 
-  function scrollToBottom() {
-    const container = viewGroupChat.querySelector("#chat-container");
-      container.scrollTop = container.scrollHeight - container.clientHeight;
+  function scroll() {
+    const chatcontainer = viewGroupChat.querySelector("#chat-container");
+    chatcontainer.scrollTop = chatcontainer.scrollHeight - chatcontainer.clientHeight;
   }
 
   return viewGroupChat;

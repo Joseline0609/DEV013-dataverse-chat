@@ -582,13 +582,13 @@ div.chat-container {
 p.name {
   background-color: white;
   font-size: 10px;
-  margin: 2px;
+  margin: 15px 0 2px 0;
 }
 
 .plant-message,
 .plant-group-message {
   max-width: 80%;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .plant-message p.message,

@@ -26,7 +26,7 @@ export default function IndividualChat(props = {}) {
         manejarRespuetaDeOpenIA();
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         //manageError();
       });
   }
@@ -123,6 +123,7 @@ export default function IndividualChat(props = {}) {
     conectOpenIA();
     openIAResponse();
     clearMessage();
+    scrollToBottom();
   });
 
   // To print the messages with the enter key
@@ -164,6 +165,7 @@ export default function IndividualChat(props = {}) {
 
       viewNewMessage.innerHTML = newMessageText;
     }
+    scrollToBottom();
   }
 
   // This function will be in charge of cleaning the textarea
@@ -179,7 +181,7 @@ export default function IndividualChat(props = {}) {
       // para insertarla en la siguiente funcion
       //llamar a la funcion write plant response
 
-      scrollToBottom();
+      
   }
 
   //----------------------------------
@@ -217,6 +219,7 @@ export default function IndividualChat(props = {}) {
 
       viewNewResponse.innerHTML = newResponseText;
     }
+    scrollToBottom();
   }
 
   //------------------------------------------
