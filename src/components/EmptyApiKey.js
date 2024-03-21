@@ -28,24 +28,17 @@ export default function EmptyApiKey(infoToNavigate) {
     //ahora debo validar si el valor de la apikay es valido
     // si es valido entrar a la siguiente validacion
     //si no 
-    if ( newApiKeyValue.value !== 0 && newApiKeyValue.value.length > 40 && newApiKeyValue[0]+newApiKeyValue[1]+newApiKeyValue[2] == "sk-" ) {
-      console.log(newApiKeyValue.value);
-
+    if ( newApiKeyValue.value.length > 40 || newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] == "sk-" ) {    
       if (infoToNavigate[0] == "/Group") {
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
       } else {
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
       }
-
-    } else { // cambiar el coso a rojo
-
+    } else {
       newApiKeyValue.className = "text none";
       newApiKeyValue.value = "";
       newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
-
     }
-
-
 
   });
     

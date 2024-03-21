@@ -97,7 +97,7 @@ div.form-area {
 .form-area .input.none {
   width: 415px;
   height: 50px;
-  margin: 30px 0 50px 0;
+  margin: 20px 0 20px 0;
   border: 6px solid #AF4401;
   font-weight: bold;
 }
@@ -569,7 +569,6 @@ div.info-area h1 {
 /* -------- */
 
 div.chat-container {
-  /* background-color: #bf8e72; */
   height: 85%;
   margin-top: 10px;
   padding: 5px;
@@ -638,7 +637,8 @@ div.plant-message .plant-image img, div.plant-group-message .plant-image img {
 /* -------- */
 
 textarea.user-text {
-  margin: 14px 0 0 70px;
+
+  margin: 14px 0 0 90px;
   height: 35px;
   width: 310px;
   padding: 10px 5px 10px 10px;
@@ -649,13 +649,23 @@ textarea.user-text {
 }
 
 button.send-button {
-  margin: 14px 0 0 325px;
+  margin: 14px 0 0 345px;
   position: fixed;
 }
 
 .send-button img {
   height: 35px;
   width: 35px;
+}
+
+div.group-chat-wrapper .text-box {
+  margin: 0 5px;
+  position: fixed;
+}
+
+div.group-chat-wrapper button.send-button {
+  margin: 14px 0 0 340px;
+  position: fixed;
 }
 
 div.question-ideas {
@@ -821,7 +831,7 @@ dialog.modal input {
 
 input.text.none {
   font-size: 20px;
-  border: 6px solid #ad4301;
+  border: 5px solid #ad4301;
   height: 40px;
   width: 350px;
   box-shadow: 1px 1px 5px white;
@@ -831,10 +841,15 @@ input.text.none {
 dialog.modal button {
   background-color: #ebd0bf;
   width: 100px;
+  height: 25px;
   margin: 32px 0 0px 0;
   color: #153119;
   font-weight: bold;
   margin-left: 80px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
 }
 
 dialog.modal p.link {
@@ -850,7 +865,7 @@ dialog.modal a {
 dialog.modal img {
   height: 30px;
   width: 30px;
-  margin: -37px -232px 35px 232px;
+  margin: -35px 0px 0px 495px;
   position: fixed;
 }
 
@@ -867,12 +882,13 @@ form button.send-key-button1 {
 }
 
 form img.close-icon1, form.not-valid img.close-icon2 {
-  margin: -35px 0 35px 500px;
+  margin: -35px 0 35px 800px;
+  position: fixed;
 }
 
 /* Valid key */
 
-dialog.valid-key.modal {
+/* dialog.valid-key.modal {
   background-color: #ebd0bf;
   border: 6px solid #af4401;
 }
@@ -910,7 +926,7 @@ img.close-icon2 {
 
 form.not-valid button.send-key-button2 {
   margin: 30px 0 10px 220px;
-}
+} */
 
 /* ---------------------------- Media Queries ---------------------------- */
 
