@@ -33,6 +33,7 @@ div.welcome-container {
   height: 90%;
   padding: 50px 200px;
   background-image: url(./Resources/DV\ Chat/welcome-background.png);
+  /* background-color: 0.3; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto;
@@ -472,7 +473,6 @@ img.close-button-stats {
   width: 30px;
   height: 30px;
   margin: -28px 0 25px 442px;
-  position: fixed;
 }
 
 /* --- Footer styles --- */
@@ -687,7 +687,14 @@ div.buttons-area {
   display: flex;
   bottom: 27px;
   right: 45px;
+  top: 430px;
+  right: 80px;
   position: fixed;
+}
+
+div.individual-chat-wrapper .buttons-area .homeButtonContainer .homeButton img {
+  margin-left: -285px
+  /* position: fixed; */
 }
 
 /* -------------- Group Chat View -------------- */
@@ -1240,6 +1247,7 @@ form.not-valid button.send-key-button2 {
     width: 40px;
     height: 40px;
     margin: 0 245px 330px -265px;
+    position: fixed;
   }
 
   /*---- Group chat View ----*/
@@ -1255,7 +1263,7 @@ form.not-valid button.send-key-button2 {
   }
 
   div.group-chat-wrapper .buttons-area img {
-    margin: -376px 0 0 -280px;
+    margin: -10px 0px 0 -240px;
     position: fixed;
   }
 
