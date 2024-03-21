@@ -44,7 +44,7 @@ export const Welcome = () => {
     } else if (apiKey.value.length === 0) {
       userNameValue = user.value;
       navigateTo("/Home", { title: "Home" });
-    } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
+    } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] === "sk-") {
       userNameValue = user.value;
       apiKeyNameValue = true;
       setApiKey(apiKey.value);

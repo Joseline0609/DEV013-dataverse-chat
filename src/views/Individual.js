@@ -5,56 +5,13 @@ import { HomeIconButton } from "../components/HomeIconButton.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export default function IndividualChat(props = {}) {
+  // Function to identify and extract the data to render the corresponding view
   const propsIdValue = Object.values(props);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
   }
 
-  // Variable to save the AI response
-  let assistantResponse;
-
-  // Function to execute the connection with OpenIA
-  function conectOpenIA() {
-    const newMessage = document.getElementById("user-text");
-    const userMessage = newMessage.value;
-
-    communicateWithOpenAI(currentPlant.id, userMessage)
-      .then((response) => response.json())
-      .then((data) => {
-        assistantResponse = data;
-        //console.log(assistantResponse);
-        manejarRespuetaDeOpenIA();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  //-------------------------------
-
-  async function manejarRespuetaDeOpenIA() {
-    // Check if assistantResponse is defined and has the 'choices' property
-    if (assistantResponse) {
-      // Call openIAResponse() after OpenAI response is available
-      await openIAResponse();
-    } else {
-      manageError();
-    }
-  }
-
-  // This function will insert an alert in the chat when there is an error with the api key
-  const link = "<a href=https://platform.openai.com/api-keys> Link <a/>";
-
-  function manageError() {
-    const chatContainer = document.getElementById("chat-container");
-    const errorMessageContainer = document.createElement("div");
-    errorMessageContainer.className = "error-message";
-    const errorMessage = document.createElement("p");
-    chatContainer.appendChild(errorMessageContainer);
-    errorMessageContainer.appendChild(errorMessage);
-    errorMessage.innerHTML = `Hay un error con tu ApiKey </br> por favor verifica de que sea correcta </br> ó que aún tengas Tokens disponibles.</br> Puedes hacerlo desde este ${link}`;
-  }
-
+  // Template creation
   const currentPlant = data.find(findPlant);
   const viewIndividualChat = document.createElement("div");
   viewIndividualChat.className = "individual-chat-wrapper";
@@ -115,33 +72,62 @@ export default function IndividualChat(props = {}) {
   sendButton.appendChild(sendIcon);
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
-  //---------------------------------------------------
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.className = "buttons-area";
+  viewIndividualChat.appendChild(buttonsContainer);
+  buttonsContainer.append(HomeIconButton(), GroupIconButton());
 
-  // To print the messages with click
-  sendButton.addEventListener("click", () => {
-    sendingUserMessage();
-    conectOpenIA();
-    clearMessage();
-    scrollToBottom();
-  });
+  // Variable to save the AI response
+  let assistantResponse;
+  // Is inserted into manageError()
+  const link = "<a href='https://platform.openai.com/api-keys'> Link </a>";
 
-  // To print the messages with the enter key
+  //--------------------------------------------
 
-  const inputBox = viewIndividualChat.querySelector("#user-text");
-  inputBox.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      sendingUserMessage();
-      conectOpenIA();
-      clearMessage();
-      scrollToBottom();
+  // Function to execute the connection with OpenIA
+  function conectOpenIA() {
+    const newMessage = document.getElementById("user-text");
+    const userMessage = newMessage.value;
+
+    communicateWithOpenAI(currentPlant.id, userMessage)
+      .then((response) => response.json())
+      .then((data) => {
+        assistantResponse = data;
+        //console.log(assistantResponse);
+        manejarRespuestaDeOpenIA();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  async function manejarRespuestaDeOpenIA() {
+    if (!assistantResponse.error) {
+      // Call openIAResponse() after OpenAI response is available
+      openIAResponse();
+    } else if (assistantResponse.error) {
+      manageError();
     }
-  });
+  }
 
-  //---------------------------------------------
+  // This function will insert an alert in the chat when there is an error with the api key
+  function manageError() {
+    const chatContainer = document.getElementById("chat-container");
+    const errorMessageContainer = document.createElement("div");
+    errorMessageContainer.className = "error-message";
+    const errorMessage = document.createElement("p");
+    chatContainer.appendChild(errorMessageContainer);
+    errorMessageContainer.appendChild(errorMessage);
+    errorMessage.innerHTML = `Hay un error con tu ApiKey </br> por favor verifica de que sea correcta </br> ó que aún tengas Tokens disponibles.</br> Puedes hacerlo desde este ${link}`;
+  }
+
+  //-------------------------------------------
+
+  // Functions to manage the reception and insertion of messages in the DOM.
+
   /**
-   * This function adds the event to the submit button
-   * creates the elements, adding all their properties
-   * and then adds the text entered by the user to the DOM
+   * Functions to creates the elements, adding all their properties
+   * and then adds the text entered by the user and the response to the DOM
    */
 
   function sendingUserMessage() {
@@ -172,17 +158,12 @@ export default function IndividualChat(props = {}) {
     scrollToBottom();
   }
 
-  // This function will be in charge of cleaning the textarea
-
-  function clearMessage() {
-    const newMessage = document.getElementById("user-text");
-    newMessage.value = ``;
-  }
-
-  //----------------------------------
-
   function openIAResponse() {
-    if (assistantResponse) {
+    if (
+      assistantResponse &&
+      assistantResponse.choices &&
+      assistantResponse.choices.length > 0
+    ) {
       // Bring the answer from the AI
       const assistantMessage = assistantResponse.choices[0].message.content;
       const chatContainer = document.getElementById("chat-container");
@@ -211,20 +192,42 @@ export default function IndividualChat(props = {}) {
 
       viewNewResponse.innerHTML = assistantMessage;
     }
+
     scrollToBottom();
   }
 
-  //------------------------------------------
+  // This function will be in charge of cleaning the textarea
+  function clearMessage() {
+    const newMessage = document.getElementById("user-text");
+    newMessage.value = ``;
+  }
 
-  const buttonsContainer = document.createElement("div");
-  buttonsContainer.className = "buttons-area";
-  viewIndividualChat.appendChild(buttonsContainer);
-  buttonsContainer.append(HomeIconButton(), GroupIconButton());
-
+  // Function to add scroll
   function scrollToBottom() {
     const container = viewIndividualChat.querySelector("#chat-container");
     container.scrollTop = container.scrollHeight - container.clientHeight;
   }
+
+  //--------------------------------------
+
+  // To print the messages with click
+  sendButton.addEventListener("click", () => {
+    sendingUserMessage();
+    conectOpenIA();
+    clearMessage();
+    scrollToBottom();
+  });
+
+  // To print the messages with the enter key
+  const inputBox = viewIndividualChat.querySelector("#user-text");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+      conectOpenIA();
+      clearMessage();
+      scrollToBottom();
+    }
+  });
 
   return viewIndividualChat;
 }

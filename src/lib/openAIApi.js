@@ -1,10 +1,7 @@
 import { getApiKey } from "./apikey.js";
 
-
 export const communicateWithOpenAI = async (plant, userMessage) => {
-
   const sesionApiKey = getApiKey();
-
   const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
     method: "POST",
     headers: {
@@ -16,7 +13,7 @@ export const communicateWithOpenAI = async (plant, userMessage) => {
       messages: [
         {
           role: "system",
-          content: `Tu eres: ${plant}, responde de manera corta o breve`,
+          content: `Soy ${plant}, responderé en primera persona con mi personalidad basada en mi categoria que es ${plant.categoryPlant} y mi especie que es ${plant.name}, siguiendo el hilo de la conversacion y evitando redundar con datos ya mencionados`,
         },
         {
           role: "user",
