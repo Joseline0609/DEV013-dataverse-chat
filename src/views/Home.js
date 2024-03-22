@@ -5,8 +5,7 @@ import { OrderBySelect } from "../components/OrderBySelect.js";
 import { renderItems } from "../components/Cards.js";
 import { GroupIconButton } from "../components/GroupIconButton.js";
 import { Footer } from "../components/Footer.js";
-import { sortData } from "../lib/dataFunctions.js";
-import { filterData } from "../lib/dataFunctions.js";
+import { sortData, filterData } from "../lib/dataFunctions.js";
 import { data } from "../data/data.js";
 
 //--------------------------------

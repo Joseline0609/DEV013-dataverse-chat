@@ -23,27 +23,27 @@ export default function NotFound() {
 
   homeButton.addEventListener("click", () => navigateTo("/Home"));
 
-  const openModalEmptyApiKeyButton = document.createElement("button");
-  viewNotFound.appendChild(openModalEmptyApiKeyButton);
-  const textOpenButton = document.createTextNode("See empty key modal");
-  openModalEmptyApiKeyButton.appendChild(textOpenButton);
+  // const openModalEmptyApiKeyButton = document.createElement("button");
+  // viewNotFound.appendChild(openModalEmptyApiKeyButton);
+  // const textOpenButton = document.createTextNode("See empty key modal");
+  // openModalEmptyApiKeyButton.appendChild(textOpenButton);
 
-  openModalEmptyApiKeyButton.addEventListener("click", () => {
-    const emptyApiKeyViewModal = EmptyApiKey();
-    viewNotFound.appendChild(emptyApiKeyViewModal);
-    emptyApiKeyViewModal.showModal();
-  });
+  // openModalEmptyApiKeyButton.addEventListener("click", () => {
+  //   const emptyApiKeyViewModal = EmptyApiKey();
+  //   viewNotFound.appendChild(emptyApiKeyViewModal);
+  //   emptyApiKeyViewModal.showModal();
+  // });
 
-  const openModaNotValidApiKeyButton = document.createElement("button");
-  viewNotFound.appendChild(openModaNotValidApiKeyButton);
-  const textValidButton = document.createTextNode("See not valid key modal");
-  openModaNotValidApiKeyButton.appendChild(textValidButton);
+  // const openModalNotValidApiKeyButton = document.createElement("button");
+  // viewNotFound.appendChild(openModalNotValidApiKeyButton);
+  // const textValidButton = document.createTextNode("See not valid key modal");
+  // openModalNotValidApiKeyButton.appendChild(textValidButton);
 
-  openModaNotValidApiKeyButton.addEventListener("click", () => {
-    const notValidApiKeyViewModal = NotValidApiKey();
-    viewNotFound.appendChild(notValidApiKeyViewModal);
-    notValidApiKeyViewModal.showModal();
-  });
+  // openModalNotValidApiKeyButton.addEventListener("click", () => {
+  //   const notValidApiKeyViewModal = NotValidApiKey();
+  //   viewNotFound.appendChild(notValidApiKeyViewModal);
+  //   notValidApiKeyViewModal.showModal();
+  // });
 
   return viewNotFound;
 }
