@@ -1,7 +1,9 @@
 import { navigateTo } from "../router.js";
 import { apiKeyValue } from "../views/Welcome.js";
+import { keyValueFromModal } from "../components/EmptyApiKey.js"
 import EmptyApiKey from "../components/EmptyApiKey.js";
-// import NotValidApiKey from "../components/NotValidApiKey.js";
+
+//const sesionApiKey = getApiKey();
 
 export const GroupIconButton = () => {
   const buttonContainer = document.createElement("div");
@@ -9,16 +11,15 @@ export const GroupIconButton = () => {
   const goToGroupButton = buttonContainer.querySelector("#group-button");
 
   goToGroupButton.addEventListener("click", () => {
-      if (apiKeyValue.length !== 0 ) {
+      if (apiKeyValue.length !== 0 || keyValueFromModal.length !== 0) { //add ||localstorage is not empty
         navigateTo("/Group", { title: "Group" });
       } else {
           const infoToNavigate = ["/Group", { title: "Group" }]; 
           const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
-          // const notValidApiKeyViewModal = NotValidApiKey(infoToNavigate);
           buttonContainer.appendChild(emptyApiKeyViewModal);
-          // buttonContainer.appendChild(notValidApiKeyViewModal);
           emptyApiKeyViewModal.showModal(); 
       }
     });
+    
   return buttonContainer;
 };

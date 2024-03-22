@@ -1,7 +1,8 @@
 import { navigateTo } from "../router.js";
-// import { GroupIconButton } from "../components/GroupIconButton.js";
-// import { renderItems } from "../components/Cards.js";
-// import NotValidApiKey from "../components/NotValidApiKey.js";
+import { apiKeyValue } from "../views/Welcome.js";
+import { setApiKey } from "../lib/apikey.js";
+
+export let keyValueFromModal = "";
 
 export default function EmptyApiKey(infoToNavigate) {
   const viewEmptyModal = document.createElement("dialog");
@@ -21,25 +22,25 @@ export default function EmptyApiKey(infoToNavigate) {
     </form>
   `;
 
-  const newApiKeyValue = viewEmptyModal.querySelector("#text");
+  let newApiKeyValue = viewEmptyModal.querySelector("#text");
   const sendKeyButon1 = viewEmptyModal.querySelector("#send-key-button1");
+  
   sendKeyButon1.addEventListener("click", () => {
-
-    //ahora debo validar si el valor de la apikay es valido
-    // si es valido entrar a la siguiente validacion
-    //si no 
-    if ( newApiKeyValue.value.length > 40 || newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] == "sk-" ) {    
-      if (infoToNavigate[0] == "/Group") {
+      if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] == "sk-" ) {    
+        
+        keyValueFromModal = newApiKeyValue.value;
+        if (infoToNavigate[0] == "/Group") {
+        setApiKey(apiKeyValue.value);
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
+        } else {
+          navigateTo(infoToNavigate[0], infoToNavigate[1]);
+        }
+        
       } else {
-        navigateTo(infoToNavigate[0], infoToNavigate[1]);
+        newApiKeyValue.className = "text none";
+        newApiKeyValue.value = "";
+        newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
       }
-    } else {
-      newApiKeyValue.className = "text none";
-      newApiKeyValue.value = "";
-      newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
-    }
-
   });
     
   const closeButton = document.createElement("img");

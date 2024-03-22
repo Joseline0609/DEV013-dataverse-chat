@@ -31,16 +31,16 @@ export const Welcome = () => {
   //--------------------------------------
 
   const user = viewWelcome.querySelector("#input-name");
-  const apiKey = viewWelcome.querySelector("#apikey");
+  let apiKey = viewWelcome.querySelector("#apikey");
   
 
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   // This feature prevents the user from logging in without entering their name
   enterButton.addEventListener("click", () => {
+    
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
-      console.log("1 " + apiKey.value.length);
     } else if (apiKey.value.length === 0) {
         userNameValue = user.value;
         navigateTo("/Home", { title: "Home" });
@@ -54,7 +54,6 @@ export const Welcome = () => {
         apiKey.value = "";
         viewWelcome.querySelector("#apikey").setAttribute("placeholder", "Inserta una llave correcta...")
     }
-
   });
 
   return viewWelcome;
