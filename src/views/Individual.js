@@ -122,7 +122,7 @@ export default function IndividualChat(props = {}) {
   // Functions to manage the reception and insertion of messages in the DOM.
 
   /**
-   * Functions to creates the elements, adding all their properties
+   * Functions to create the elements, adding all their properties
    * and then adds the text entered by the user and the response to the DOM
    */
 
@@ -202,11 +202,6 @@ export default function IndividualChat(props = {}) {
     scrollToBottom();
   }
 
-  // This function will be in charge of cleaning the textarea
-  function clearMessage() {
-    const newMessage = document.getElementById("user-text");
-    newMessage.value = ``;
-  }
 
   // Function to add scroll
   function scrollToBottom() {

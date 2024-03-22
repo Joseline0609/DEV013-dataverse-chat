@@ -9,15 +9,15 @@ export const GroupIconButton = () => {
   const goToGroupButton = buttonContainer.querySelector("#group-button");
 
   goToGroupButton.addEventListener("click", () => {
-      if (window.localStorage["keyName"].length !== 0 || apiKeyValue.length !== 0 || keyValueFromModal.length !== 0) { //add ||localstorage is not empty
-        navigateTo("/Group", { title: "Group" });
-      } else {
-          const infoToNavigate = ["/Group", { title: "Group" }]; 
-          const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
-          buttonContainer.appendChild(emptyApiKeyViewModal);
-          emptyApiKeyViewModal.showModal(); 
-      }
-    });
+    if (window.localStorage["keyName"].length !== 0 || apiKeyValue.length !== 0 || keyValueFromModal.length !== 0) { //add ||localstorage is not empty
+      navigateTo("/Group", { title: "Group" });
+    } else {
+      const infoToNavigate = ["/Group", { title: "Group" }]; 
+      const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+      buttonContainer.appendChild(emptyApiKeyViewModal);
+      emptyApiKeyViewModal.showModal(); 
+    }
+  });
     
   return buttonContainer;
 };

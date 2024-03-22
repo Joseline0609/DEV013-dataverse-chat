@@ -26,21 +26,21 @@ export default function EmptyApiKey(infoToNavigate) {
   const sendKeyButon1 = viewEmptyModal.querySelector("#send-key-button1");
   
   sendKeyButon1.addEventListener("click", () => {
-      if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] == "sk-" ) {    
-        
-        keyValueFromModal = newApiKeyValue.value;
-        if (infoToNavigate[0] == "/Group") {
+    if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] === "sk-" ) {    
+      
+      keyValueFromModal = newApiKeyValue.value;
+      if (infoToNavigate[0] === "/Group") {
         setApiKey(apiKeyValue.value);
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
-        } else {
-          navigateTo(infoToNavigate[0], infoToNavigate[1]);
-        }
-        
       } else {
-        newApiKeyValue.className = "text none";
-        newApiKeyValue.value = "";
-        newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
+        navigateTo(infoToNavigate[0], infoToNavigate[1]);
       }
+      
+    } else {
+      newApiKeyValue.className = "text none";
+      newApiKeyValue.value = "";
+      newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
+    }
   });
     
   const closeButton = document.createElement("img");

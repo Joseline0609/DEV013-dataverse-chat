@@ -201,15 +201,15 @@ export const renderItems = (data) => {
         navigateTo("/Individual", {
           title: element.name,
           searchParams: { id: element.id }});
-        } else {
-          const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
-          const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
-          cardItem.appendChild(emptyApiKeyViewModal);
-          emptyApiKeyViewModal.showModal();
-        }
-      });
-      
+      } else {
+        const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
+        const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+        cardItem.appendChild(emptyApiKeyViewModal);
+        emptyApiKeyViewModal.showModal();
+      }
     });
+    
+  });
 
   return cardsContainer;
 };
