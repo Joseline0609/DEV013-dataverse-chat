@@ -38,7 +38,7 @@ export const Welcome = () => {
 
   // This feature prevents the user from logging in without entering their name
   enterButton.addEventListener("click", () => {
-    
+
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else if (apiKey.value.length === 0) {
@@ -50,9 +50,9 @@ export const Welcome = () => {
         setApiKey(apiKey.value);
         navigateTo("/Home", { title: "Home" });
     } else {
-        viewWelcome.querySelector("#apikey").className = "input none";
-        apiKey.value = "";
-        viewWelcome.querySelector("#apikey").setAttribute("placeholder", "Inserta una llave correcta...")
+      viewWelcome.querySelector("#apikey").className = "input none";
+      apiKey.value = "";
+      viewWelcome.querySelector("#apikey").setAttribute("placeholder", "Inserta una llave correcta...")
     }
   });
 
