@@ -45,7 +45,6 @@ export const Welcome = () => {
         userNameValue = user.value;
         navigateTo("/Home", { title: "Home" });
     } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
-
       userNameValue = user.value;
         userNameValue = user.value;
         apiKeyValue = apiKey.value;
