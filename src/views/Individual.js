@@ -89,7 +89,6 @@ export default function IndividualChat(props = {}) {
       .then((response) => response.json())
       .then((data) => {
         assistantResponse = data;
-        //console.log(assistantResponse);
         manejarRespuestaDeOpenIA();
       })
       .catch((error) => {
@@ -158,7 +157,6 @@ export default function IndividualChat(props = {}) {
 
   function clearMessage() {
     const newMessage = document.getElementById("user-text");
-    //console.log(newMessage);
     newMessage.value = ``;
   }
 
@@ -203,10 +201,10 @@ export default function IndividualChat(props = {}) {
   }
 
   // This function will be in charge of cleaning the textarea
-  function clearMessage() {
-    const newMessage = document.getElementById("user-text");
-    newMessage.value = ``;
-  }
+  // function clearMessage() {
+  //   const newMessage = document.getElementById("user-text");
+  //   newMessage.value = ``;
+  // }
 
   // Function to add scroll
   function scrollToBottom() {

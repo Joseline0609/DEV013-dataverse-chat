@@ -124,6 +124,5 @@ export const computeStats = (data) => {
     statsByCategory[category].average.careAverage = averageCare;
   });
 
-  // console.log(statsByCategory);
   return statsByCategory;
 };
