@@ -1,8 +1,6 @@
 import { getApiKey } from "./apikey.js";
 import { userNameValue } from "../views/Welcome.js";
 
-
-
 export const communicateWithOpenAI = async (plant, userMessage) => {
   const sesionApiKey = getApiKey();
   const response = await fetch(`https://api.openai.com/v1/chat/completions`, {

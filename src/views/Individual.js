@@ -97,6 +97,7 @@ export default function IndividualChat(props = {}) {
       });
   }
 
+  // Function to wait for the response of the request or show error message to the user
   async function manejarRespuestaDeOpenIA() {
     if (!assistantResponse.error) {
       // Call openIAResponse() after OpenAI response is available
@@ -154,16 +155,6 @@ export default function IndividualChat(props = {}) {
     scrollToBottom();
   }
 
-  // This function will be in charge of cleaning the textarea
-
-  function clearMessage() {
-    const newMessage = document.getElementById("user-text");
-    //console.log(newMessage);
-    newMessage.value = ``;
-  }
-
-  //----------------------------------
-
   function openIAResponse() {
     if (
       assistantResponse &&
@@ -205,6 +196,7 @@ export default function IndividualChat(props = {}) {
   // This function will be in charge of cleaning the textarea
   function clearMessage() {
     const newMessage = document.getElementById("user-text");
+    //console.log(newMessage);
     newMessage.value = ``;
   }
 

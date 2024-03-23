@@ -8,7 +8,6 @@ import { Footer } from "../components/Footer.js";
 import { sortData, filterData } from "../lib/dataFunctions.js";
 import { data } from "../data/data.js";
 
-//--------------------------------
 
 export const Home = () => {
   const viewHome = document.createElement("section");
