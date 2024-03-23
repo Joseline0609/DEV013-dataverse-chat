@@ -43,6 +43,7 @@ const queryStringToObject = (queryString) => {
  * @param { a string } pathname - the extention for url
  * @param { a string } props - the extention to find the specific item
  */
+
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
   root.innerHTML = "";
@@ -89,6 +90,7 @@ export const navigateTo = (pathname, props = {}) => {
  * @param {*} location 
  * Step 2
  */
+
 export const onURLChange = (location) => {
   const searchObject = queryStringToObject(window.location.search);
   if (searchObject) {

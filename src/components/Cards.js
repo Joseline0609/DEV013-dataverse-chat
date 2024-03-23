@@ -1,5 +1,6 @@
 import { navigateTo } from "../router.js";
 import { StatsModals } from "./StatsModals.js";
+import EmptyApiKey from "../components/EmptyApiKey.js";
 
 const renderFactImages = (plant, cardItem) => {
   const waterActiveImage = document.createElement("img");
@@ -193,11 +194,19 @@ export const renderItems = (data) => {
     );
 
     goToIndividualChat.addEventListener("click", () => {
-      navigateTo("/Individual", {
-        title: "Individual",
-        searchParams: { id: element.id },
-      });
+      
+      if (window.localStorage.length !== 0) { 
+        navigateTo("/Individual", {
+          title: element.name,
+          searchParams: { id: element.id }});
+      } else {
+        const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
+        const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+        cardItem.appendChild(emptyApiKeyViewModal);
+        emptyApiKeyViewModal.showModal();
+      }
     });
+    
   });
 
   return cardsContainer;
