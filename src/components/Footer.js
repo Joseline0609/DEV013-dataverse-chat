@@ -1,4 +1,5 @@
 export function Footer() {
+  
   const viewFooter = document.createElement("footer");
   viewFooter.innerHTML += `
     <h3 class="footer">My Beauty Plants</h3>

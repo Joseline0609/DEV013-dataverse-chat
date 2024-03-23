@@ -60,51 +60,41 @@ export const GroupChat = () => {
   viewGroupChat.appendChild(butonsContainer);
   butonsContainer.append(HomeIconButton());
 
-  //-------------------------------------------
-
   // Is inserted into manageError()
   const link = "<a href='https://platform.openai.com/api-keys'> Link </a>";
 
   //--------------------------------------------
 
-    //aqui se debe hacer el random
-    // primero elegir de manera randonm la cantidad de plantas entre 2 y 8.
-    // con ese numero elegir de manera random
-    //la planta que va a contestar sin que se repita el numero
-    let randomNumberOfPlants = getRandomNumberOfPlants(2, 5);
-    function getRandomNumberOfPlants(min, max) {
-      return Math.random() * (max - min) + min;
-    }
+  //Functions to generate a random number of participants for the chat and manage their choice within the data
+  const randomNumberOfPlants = getRandomNumberOfPlants(2, 5);
+  function getRandomNumberOfPlants(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
-      let plantArray = [];
-      for (let i = 0; i < randomNumberOfPlants; i++) {
-        plantArray.push(data[Math.floor(Math.random()*data.length)]);
-        //asegurarse que no se repitan
-      }
+  const plantArray = [];
+  for (let i = 0; i < randomNumberOfPlants; i++) {
+    plantArray.push(data[Math.floor(Math.random() * data.length)]);
+  }
+  //----------------------------------------------
 
   // Function to execute the connection with OpenIA
   function conectOpenIA() {
     const newMessage = viewGroupChat.querySelector("#user-text-group");
-    console.log(newMessage);
-    console.log(newMessage.value);
     const userMessage = newMessage.value;
-    console.log(userMessage);
 
     plantArray.forEach((plant) => {
-
       communicateWithOpenAI(plant.id, userMessage)
-      .then((response) => response.json())
-      .then((plantResponse) => {
-        manejarRespuestaDeOpenIA(plantResponse, plant);
-      })
-      .catch((error) => {
-        // console.log(error);
-      });
-
+        .then((response) => response.json())
+        .then((plantResponse) => {
+          manejarRespuestaDeOpenIA(plantResponse, plant);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
-    
   }
 
+  // Function to wait for the response of the request or show error message to the user
   async function manejarRespuestaDeOpenIA(plantResponse, plant) {
     if (!plantResponse.error) {
       // Call openIAResponse() after OpenAI response is available
@@ -126,9 +116,13 @@ export const GroupChat = () => {
   }
 
   //-------------------------------------------
-
-
-  // This function handles the sending of messages
+  // This functions handles the sending of messages
+  /**
+   * This functions adds the event to the submit button
+   * creates the elements, adding all their properties
+   * and then adds the text entered by the user to the DOM
+   * and reset the textbox to be able to enter new text
+   */
 
   function sendingUserMessage() {
     const newMessage = document.getElementById("user-text-group");
@@ -158,44 +152,42 @@ export const GroupChat = () => {
     }
   }
 
-  //----------------------------------
-
   function openIAResponse(plantResponse, plant) {
-  if (
-    plantResponse &&
-    plantResponse.choices &&
-    plantResponse.choices.length > 0
-  ) {
-    // Bring the answer from the AI
-    const assistantMessage = plantResponse.choices[0].message.content;
-    const chatContainer = document.getElementById("chat-container");
+    if (
+      plantResponse &&
+      plantResponse.choices &&
+      plantResponse.choices.length > 0
+    ) {
+      // Bring the answer from the AI
+      const assistantMessage = plantResponse.choices[0].message.content;
+      const chatContainer = document.getElementById("chat-container");
 
-    //--------------------------
-    const newResponseContainer = document.createElement("div");
-    newResponseContainer.className = "plant-message";
-    chatContainer.appendChild(newResponseContainer);
+      //--------------------------
+      const newResponseContainer = document.createElement("div");
+      newResponseContainer.className = "plant-message";
+      chatContainer.appendChild(newResponseContainer);
 
-    const plantName = document.createElement("p");
-    newResponseContainer.appendChild(plantName);
-    plantName.className = "name";
-    plantName.innerHTML = plant.name;
+      const plantName = document.createElement("p");
+      newResponseContainer.appendChild(plantName);
+      plantName.className = "name";
+      plantName.innerHTML = plant.name;
 
-    const viewNewResponse = document.createElement("p");
-    newResponseContainer.appendChild(viewNewResponse);
-    viewNewResponse.className = "message";
+      const viewNewResponse = document.createElement("p");
+      newResponseContainer.appendChild(viewNewResponse);
+      viewNewResponse.className = "message";
 
-    const plantImageContainer = document.createElement("div");
-    plantImageContainer.className = "plant-image";
-    newResponseContainer.appendChild(plantImageContainer);
-    const plantImage = document.createElement("img");
-    plantImage.src = `${plant.imageUrl}`;
-    plantImage.style = "height:25px;width:18px";
-    plantImageContainer.appendChild(plantImage);
+      const plantImageContainer = document.createElement("div");
+      plantImageContainer.className = "plant-image";
+      newResponseContainer.appendChild(plantImageContainer);
+      const plantImage = document.createElement("img");
+      plantImage.src = `${plant.imageUrl}`;
+      plantImage.style = "height:25px;width:18px";
+      plantImageContainer.appendChild(plantImage);
 
-    viewNewResponse.innerHTML = assistantMessage;
-  }
+      viewNewResponse.innerHTML = assistantMessage;
+    }
 
-  scroll();
+    scroll();
   }
 
   // This function will be in charge of cleaning the textarea
@@ -203,19 +195,14 @@ export const GroupChat = () => {
     const newMessage = document.getElementById("user-text-group");
     newMessage.value = ``;
   }
-
-
+  // To add scroll
   function scroll() {
     const chatcontainer = viewGroupChat.querySelector("#chat-container");
-    chatcontainer.scrollTop = chatcontainer.scrollHeight - chatcontainer.clientHeight;
+    chatcontainer.scrollTop =
+      chatcontainer.scrollHeight - chatcontainer.clientHeight;
   }
 
-  /**
-   * This function adds the event to the submit button
-   * creates the elements, adding all their properties
-   * and then adds the text entered by the user to the DOM
-   * and reset the textbox to be able to enter new text
-   */
+  //------------------------------------------
 
   sendButton.addEventListener("click", () => {
     sendingUserMessage();

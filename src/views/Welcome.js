@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apikey.js";
 
+// To save the inputs value
 export let userNameValue = "";
 export let apiKeyValue = "";
 
@@ -27,13 +28,11 @@ export const Welcome = () => {
       </div>
     </div>
   `;
-
+  
   //--------------------------------------
 
   const user = viewWelcome.querySelector("#input-name");
-  let apiKey = viewWelcome.querySelector("#apikey");
-  
-
+  const apiKey = viewWelcome.querySelector("#apikey");
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   // This feature prevents the user from logging in without entering their name
@@ -42,15 +41,15 @@ export const Welcome = () => {
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else if (apiKey.value.length === 0) {
-        userNameValue = user.value;
-        navigateTo("/Home", { title: "Home" });
-    } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
+      userNameValue = user.value;
+      navigateTo("/Home", { title: "Home" });
+    } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] === "sk-") {
 
       userNameValue = user.value;
-        userNameValue = user.value;
-        apiKeyValue = apiKey.value;
-        setApiKey(apiKey.value);
-        navigateTo("/Home", { title: "Home" });
+      userNameValue = user.value;
+      apiKeyValue = apiKey.value;
+      setApiKey(apiKey.value);
+      navigateTo("/Home", { title: "Home" });
     } else {
       viewWelcome.querySelector("#apikey").className = "input none";
       apiKey.value = "";
