@@ -1,6 +1,4 @@
 import { navigateTo } from "../router.js";
-//import EmptyApiKey from "../components/EmptyApiKey.js";
-//import NotValidApiKey from "../components/NotValidApiKey.js";
 
 export default function NotFound() {
   const viewNotFound = document.createElement("div");
@@ -22,28 +20,6 @@ export default function NotFound() {
   homeButton.appendChild(textButton);
 
   homeButton.addEventListener("click", () => navigateTo("/Home"));
-
-  // const openModalEmptyApiKeyButton = document.createElement("button");
-  // viewNotFound.appendChild(openModalEmptyApiKeyButton);
-  // const textOpenButton = document.createTextNode("See empty key modal");
-  // openModalEmptyApiKeyButton.appendChild(textOpenButton);
-
-  // openModalEmptyApiKeyButton.addEventListener("click", () => {
-  //   const emptyApiKeyViewModal = EmptyApiKey();
-  //   viewNotFound.appendChild(emptyApiKeyViewModal);
-  //   emptyApiKeyViewModal.showModal();
-  // });
-
-  // const openModalNotValidApiKeyButton = document.createElement("button");
-  // viewNotFound.appendChild(openModalNotValidApiKeyButton);
-  // const textValidButton = document.createTextNode("See not valid key modal");
-  // openModalNotValidApiKeyButton.appendChild(textValidButton);
-
-  // openModalNotValidApiKeyButton.addEventListener("click", () => {
-  //   const notValidApiKeyViewModal = NotValidApiKey();
-  //   viewNotFound.appendChild(notValidApiKeyViewModal);
-  //   notValidApiKeyViewModal.showModal();
-  // });
 
   return viewNotFound;
 }

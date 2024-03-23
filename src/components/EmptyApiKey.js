@@ -1,5 +1,4 @@
 import { navigateTo } from "../router.js";
-import { apiKeyValue } from "../views/Welcome.js";
 import { setApiKey } from "../lib/apikey.js";
 
 export let keyValueFromModal = "";
@@ -22,20 +21,21 @@ export default function EmptyApiKey(infoToNavigate) {
     </form>
   `;
 
-  let newApiKeyValue = viewEmptyModal.querySelector("#text");
+  const newApiKeyValue = viewEmptyModal.querySelector("#text");
   const sendKeyButon1 = viewEmptyModal.querySelector("#send-key-button1");
-  
+
   sendKeyButon1.addEventListener("click", () => {
-    if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] === "sk-" ) {    
-      
+
+    if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] === "sk-" ) {
+      //console.log(newApiKeyValue.value);
+      //console.log(window.localStorage);
       keyValueFromModal = newApiKeyValue.value;
+      setApiKey(newApiKeyValue.value);
       if (infoToNavigate[0] === "/Group") {
-        setApiKey(apiKeyValue.value);
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
       } else {
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
       }
-      
     } else {
       newApiKeyValue.className = "text none";
       newApiKeyValue.value = "";

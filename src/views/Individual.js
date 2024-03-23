@@ -30,8 +30,8 @@ export default function IndividualChat(props = {}) {
       <div id="chat-container" class="chat-container">
         <div class="plant-message">
           <p class="name">${currentPlant.name}</p>
-          <p class="message">Hola ${userNameValue}. Soy ${currentPlant.name}.<br/>
-            Qué te gustaría saber sobre mí?
+          <p class="message">Hola ${userNameValue}.
+            Te gustaría saber algo específico sobre una planta ${currentPlant.name} o sobre las plantas de categoría ${currentPlant.categoryPlant}?
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
@@ -97,6 +97,7 @@ export default function IndividualChat(props = {}) {
       });
   }
 
+  // Function to wait for the response of the request or show error message to the user
   async function manejarRespuestaDeOpenIA() {
     if (!assistantResponse.error) {
       // Call openIAResponse() after OpenAI response is available
@@ -154,16 +155,6 @@ export default function IndividualChat(props = {}) {
     scrollToBottom();
   }
 
-  // This function will be in charge of cleaning the textarea
-
-  function clearMessage() {
-    const newMessage = document.getElementById("user-text");
-    //console.log(newMessage);
-    newMessage.value = ``;
-  }
-
-  //----------------------------------
-
   function openIAResponse() {
     if (
       assistantResponse &&
@@ -202,6 +193,12 @@ export default function IndividualChat(props = {}) {
     scrollToBottom();
   }
 
+  // This function will be in charge of cleaning the textarea
+  function clearMessage() {
+    const newMessage = document.getElementById("user-text");
+    //console.log(newMessage);
+    newMessage.value = ``;
+  }
 
   // Function to add scroll
   function scrollToBottom() {

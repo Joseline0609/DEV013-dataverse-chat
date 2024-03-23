@@ -1,6 +1,4 @@
 import { navigateTo } from "../router.js";
-import { apiKeyValue } from "../views/Welcome.js";
-import { keyValueFromModal } from "../components/EmptyApiKey.js"
 import EmptyApiKey from "../components/EmptyApiKey.js";
 
 export const GroupIconButton = () => {
@@ -9,7 +7,7 @@ export const GroupIconButton = () => {
   const goToGroupButton = buttonContainer.querySelector("#group-button");
 
   goToGroupButton.addEventListener("click", () => {
-    if (window.localStorage["keyName"].length !== 0 || apiKeyValue.length !== 0 || keyValueFromModal.length !== 0) { //add ||localstorage is not empty
+    if (localStorage.length !== 0) {
       navigateTo("/Group", { title: "Group" });
     } else {
       const infoToNavigate = ["/Group", { title: "Group" }]; 
