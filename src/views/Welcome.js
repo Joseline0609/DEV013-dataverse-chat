@@ -38,13 +38,15 @@ export const Welcome = () => {
 
   // This feature prevents the user from logging in without entering their name
   enterButton.addEventListener("click", () => {
-
+    
     if (user.value.length === 0) {
       viewWelcome.querySelector("#input-name").className = "input none";
     } else if (apiKey.value.length === 0) {
         userNameValue = user.value;
         navigateTo("/Home", { title: "Home" });
     } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] == "sk-") {
+
+      userNameValue = user.value;
         userNameValue = user.value;
         apiKeyValue = apiKey.value;
         setApiKey(apiKey.value);

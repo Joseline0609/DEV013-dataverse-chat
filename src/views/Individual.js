@@ -30,8 +30,8 @@ export default function IndividualChat(props = {}) {
       <div id="chat-container" class="chat-container">
         <div class="plant-message">
           <p class="name">${currentPlant.name}</p>
-          <p class="message">Hola ${userNameValue}. Soy ${currentPlant.name}.<br/>
-            Qué te gustaría saber sobre mí?
+          <p class="message">Hola ${userNameValue}.
+            Te gustaría saber algo específico sobre una planta ${currentPlant.name} o sobre las plantas de categoría ${currentPlant.categoryPlant}?
           </p>
           <div class="plant-image">
             <img src="${currentPlant.imageUrl}";
