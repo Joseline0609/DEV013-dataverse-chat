@@ -1,9 +1,10 @@
 import { getApiKey } from "./apikey.js";
+import { userNameValue } from "../views/Welcome.js";
 
-export const sesionApiKey = getApiKey();
+
 
 export const communicateWithOpenAI = async (plant, userMessage) => {
-  
+  const sesionApiKey = getApiKey();
   const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
     method: "POST",
     headers: {
@@ -15,7 +16,7 @@ export const communicateWithOpenAI = async (plant, userMessage) => {
       messages: [
         {
           role: "system",
-          content: `Soy ${plant}, responderé en primera persona con mi personalidad basada en mi categoria que es ${plant.categoryPlant} y mi especie que es ${plant.name}, siguiendo el hilo de la conversacion y evitando redundar con datos ya mencionados`,
+          content: `Habla como si fueras ${plant}, con la personalidad basada en la categoria ${plant.categoryPlant} y la especie ${plant.name}, siguiendo el hilo de la conversacion, de manera breve y evitando repetir datos ya mencionados. Puedes referirte a tu interlocutora por su nombre ${userNameValue} sin necesidad de volverla a saludar. Si estás en un chat grupal interactua con todos los participantes complementando la respuesta de los otros sin repetir informacion que ya se haya mencionado`,
         },
         {
           role: "user",
