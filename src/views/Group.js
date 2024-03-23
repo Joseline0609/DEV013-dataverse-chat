@@ -1,5 +1,7 @@
 import { userNameValue } from "./Welcome.js";
 import { HomeIconButton } from "../components/HomeIconButton.js";
+import { data } from "../data/data.js";
+import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export const GroupChat = () => {
   const viewGroupChat = document.createElement("div");
@@ -14,58 +16,19 @@ export const GroupChat = () => {
       </div>
       <div id="chat-container" class="chat-container">
         <div class="plant-group-message">
-          <p class="name">Plant name</p>
+          <p class="name">Todas</p>
           <div class="first-plant">
-            <p class="message">Hi 'user name'. How can we<br/>
-              help you today?
+            <p class="message">Hola ${userNameValue}. Cuales son tus dudas sobre las plantas?
             </p>
             <div class="plant-image">
               <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
+              alt="Avatar">
             </div>
           </div>
-        </div>
-        <div class="user-group-message">
-          <p class="name">${userNameValue}</p>
-          <p class="message">Hello how are you? Could you tell me when you bloom?</p>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="first-plant">
-            <p class="message">Sure, I use to have flowers in January</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
-            </div>
-          </div>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="second-plant">
-            <p class="message">Hello, 'user name'!!! I don't have flowers, but I have beautiful leafs</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
-            </div>
-          </div>
-        </div>
-        <div class="plant-group-message">
-          <p class="name">Plant name</p>
-          <div class="third-plant">
-            <p class="message">In my case I boom in Autumn</p>
-            <div class="plant-image">
-              <img src="https://github.com/Etelbina/dataverse/blob/main/src/resources/Icons/Ornamentales.png?raw=true"
-              alt="Avatar" style="height:20px;width:20px";>
-            </div>
-          </div>
-        </div>
-        <div class="user-group-message">
-          <p class="name">${userNameValue}</p>
-          <p class="message">Hello how are you? Could you tell me when you bloom?</p>
         </div>
       </div>
       <div id="text-box" class="text-box">
-        <textarea placeholder=". . ." id="user-text" class="user-text" required></textarea>
+        <textarea placeholder=". . ." id="user-text-group" class="user-text" required></textarea>
       </div>
     </div>
     <div class="question-ideas">
@@ -92,28 +55,77 @@ export const GroupChat = () => {
   sendButton.appendChild(sendIcon);
   sendIcon.src = "Resources/DV Chat/enviar.png";
 
+  const butonsContainer = document.createElement("div");
+  butonsContainer.className = "buttons-area";
+  viewGroupChat.appendChild(butonsContainer);
+  butonsContainer.append(HomeIconButton());
+
+  // Is inserted into manageError()
+  const link = "<a href='https://platform.openai.com/api-keys'> Link </a>";
+
+  //--------------------------------------------
+
+  //Functions to generate a random number of participants for the chat and manage their choice within the data
+  const randomNumberOfPlants = getRandomNumberOfPlants(2, 5);
+  function getRandomNumberOfPlants(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const plantArray = [];
+  for (let i = 0; i < randomNumberOfPlants; i++) {
+    plantArray.push(data[Math.floor(Math.random() * data.length)]);
+  }
+  //----------------------------------------------
+
+  // Function to execute the connection with OpenIA
+  function conectOpenIA() {
+    const newMessage = viewGroupChat.querySelector("#user-text-group");
+    const userMessage = newMessage.value;
+
+    plantArray.forEach((plant) => {
+      communicateWithOpenAI(plant.id, userMessage)
+        .then((response) => response.json())
+        .then((plantResponse) => {
+          manejarRespuestaDeOpenIA(plantResponse, plant);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  }
+
+  // Function to wait for the response of the request or show error message to the user
+  async function manejarRespuestaDeOpenIA(plantResponse, plant) {
+    if (!plantResponse.error) {
+      // Call openIAResponse() after OpenAI response is available
+      openIAResponse(plantResponse, plant);
+    } else if (plantResponse.error) {
+      manageError();
+    }
+  }
+
+  // This function will insert an alert in the chat when there is an error with the api key
+  function manageError() {
+    const chatContainer = document.getElementById("chat-container");
+    const errorMessageContainer = document.createElement("div");
+    errorMessageContainer.className = "error-message";
+    const errorMessage = document.createElement("p");
+    chatContainer.appendChild(errorMessageContainer);
+    errorMessageContainer.appendChild(errorMessage);
+    errorMessage.innerHTML = `Hay un error con tu ApiKey. </br> Por favor verifica de que sea correcta </br> ó que aún tengas "tokens" disponibles.</br> Puedes hacerlo desde este ${link}`;
+  }
+
+  //-------------------------------------------
+  // This functions handles the sending of messages
   /**
-   * This function adds the event to the submit button
+   * This functions adds the event to the submit button
    * creates the elements, adding all their properties
    * and then adds the text entered by the user to the DOM
    * and reset the textbox to be able to enter new text
    */
 
-  sendButton.addEventListener("click", () => {
-    sendingUserMessage();
-  });
-
-  const inputBox = viewGroupChat.querySelector("#user-text");
-  inputBox.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      sendingUserMessage();
-    }
-  });
-
-  // This function handles the sending of messages
-
   function sendingUserMessage() {
-    const newMessage = document.getElementById("user-text");
+    const newMessage = document.getElementById("user-text-group");
     const chatContainer = document.getElementById("chat-container");
     const newMessageText = newMessage.value;
 
@@ -134,21 +146,80 @@ export const GroupChat = () => {
 
       viewNewMessage.innerHTML = newMessageText;
 
-      newMessage.value = ``;
+      // newMessage.value = ``;
 
-      scrollToBottom();
+      scroll();
     }
   }
 
-  const butonsContainer = document.createElement("div");
-  butonsContainer.className = "buttons-area";
-  viewGroupChat.appendChild(butonsContainer);
-  butonsContainer.append(HomeIconButton());
+  function openIAResponse(plantResponse, plant) {
+    if (
+      plantResponse &&
+      plantResponse.choices &&
+      plantResponse.choices.length > 0
+    ) {
+      // Bring the answer from the AI
+      const assistantMessage = plantResponse.choices[0].message.content;
+      const chatContainer = document.getElementById("chat-container");
 
-  function scrollToBottom() {
-    const container = viewGroupChat.querySelector("#chat-container");
-      container.scrollTop = container.scrollHeight - container.clientHeight;
+      //--------------------------
+      const newResponseContainer = document.createElement("div");
+      newResponseContainer.className = "plant-message";
+      chatContainer.appendChild(newResponseContainer);
+
+      const plantName = document.createElement("p");
+      newResponseContainer.appendChild(plantName);
+      plantName.className = "name";
+      plantName.innerHTML = plant.name;
+
+      const viewNewResponse = document.createElement("p");
+      newResponseContainer.appendChild(viewNewResponse);
+      viewNewResponse.className = "message";
+
+      const plantImageContainer = document.createElement("div");
+      plantImageContainer.className = "plant-image";
+      newResponseContainer.appendChild(plantImageContainer);
+      const plantImage = document.createElement("img");
+      plantImage.src = `${plant.imageUrl}`;
+      plantImage.style = "height:25px;width:18px";
+      plantImageContainer.appendChild(plantImage);
+
+      viewNewResponse.innerHTML = assistantMessage;
+    }
+
+    scroll();
   }
+
+  // This function will be in charge of cleaning the textarea
+  function clearMessage() {
+    const newMessage = document.getElementById("user-text-group");
+    newMessage.value = ``;
+  }
+  // To add scroll
+  function scroll() {
+    const chatcontainer = viewGroupChat.querySelector("#chat-container");
+    chatcontainer.scrollTop =
+      chatcontainer.scrollHeight - chatcontainer.clientHeight;
+  }
+
+  //------------------------------------------
+
+  sendButton.addEventListener("click", () => {
+    sendingUserMessage();
+    conectOpenIA();
+    clearMessage();
+    scroll();
+  });
+
+  const inputBox = viewGroupChat.querySelector("#user-text-group");
+  inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendingUserMessage();
+      conectOpenIA();
+      clearMessage();
+      scroll();
+    }
+  });
 
   return viewGroupChat;
 };

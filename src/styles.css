@@ -33,6 +33,7 @@ div.welcome-container {
   height: 90%;
   padding: 50px 200px;
   background-image: url(./Resources/DV\ Chat/welcome-background.png);
+  /* background-color: 0.3; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto;
@@ -97,7 +98,7 @@ div.form-area {
 .form-area .input.none {
   width: 415px;
   height: 50px;
-  margin: 30px 0 50px 0;
+  margin: 20px 0 20px 0;
   border: 6px solid #AF4401;
   font-weight: bold;
 }
@@ -472,7 +473,6 @@ img.close-button-stats {
   width: 30px;
   height: 30px;
   margin: -28px 0 25px 442px;
-  position: fixed;
 }
 
 /* --- Footer styles --- */
@@ -569,11 +569,10 @@ div.info-area h1 {
 /* -------- */
 
 div.chat-container {
-  background-color: #bf8e72;
   height: 85%;
   margin-top: 10px;
   padding: 5px;
-  padding: 10px 10px 10px 25px;
+  padding: 0px 15px 0px 35px;
   border-radius: 0 30px 0 50px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -582,13 +581,14 @@ div.chat-container {
 p.name {
   background-color: white;
   font-size: 10px;
-  margin: 2px;
+  margin: 20px 0 2px 0;
 }
 
 .plant-message,
 .plant-group-message {
   max-width: 80%;
-  padding: 10px;
+  padding: -5px 10px;
+  margin: -10px 0;
 }
 
 .plant-message p.message,
@@ -608,6 +608,11 @@ div.plant-message .plant-image, div.plant-group-message .plant-image {
   height: 30px;
   margin: -5px 0 -5px -30px;
   border: #af4401 1px solid;
+}
+
+div.plant-message .plant-image img, div.plant-group-message .plant-image img {
+  height: 25px;
+  width: 18px;
 }
 
 /* -------- */
@@ -632,7 +637,8 @@ div.plant-message .plant-image, div.plant-group-message .plant-image {
 /* -------- */
 
 textarea.user-text {
-  margin: 14px 0 0 70px;
+
+  margin: 14px 0 0 90px;
   height: 35px;
   width: 310px;
   padding: 10px 5px 10px 10px;
@@ -643,13 +649,23 @@ textarea.user-text {
 }
 
 button.send-button {
-  margin: 14px 0 0 325px;
+  margin: 14px 0 0 345px;
   position: fixed;
 }
 
 .send-button img {
   height: 35px;
   width: 35px;
+}
+
+div.group-chat-wrapper .text-box {
+  margin: 0 5px;
+  position: fixed;
+}
+
+div.group-chat-wrapper button.send-button {
+  margin: 14px 0 0 340px;
+  position: fixed;
 }
 
 div.question-ideas {
@@ -671,7 +687,25 @@ div.buttons-area {
   display: flex;
   bottom: 27px;
   right: 45px;
+  top: 430px;
+  right: 80px;
   position: fixed;
+}
+
+div.individual-chat-wrapper .buttons-area .homeButtonContainer .homeButton img {
+  margin-left: -285px
+  /* position: fixed; */
+}
+
+div.error-message {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  border-radius: 5px;
+  background-color:white;
+  box-shadow: 3px 3px 10px gray;
+  margin-top: 20px;
+  padding: 10px;
+  width: 95%;
 }
 
 /* -------------- Group Chat View -------------- */
@@ -813,13 +847,27 @@ dialog.modal input {
   margin: 5px;
 }
 
+input.text.none {
+  font-size: 20px;
+  border: 5px solid #ad4301;
+  height: 40px;
+  width: 350px;
+  box-shadow: 1px 1px 5px white;
+  margin: 5px 100px;
+}
+
 dialog.modal button {
   background-color: #ebd0bf;
   width: 100px;
+  height: 25px;
   margin: 32px 0 0px 0;
   color: #153119;
   font-weight: bold;
   margin-left: 80px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
 }
 
 dialog.modal p.link {
@@ -835,7 +883,7 @@ dialog.modal a {
 dialog.modal img {
   height: 30px;
   width: 30px;
-  margin: -37px -232px 35px 232px;
+  margin: -35px 0px 0px 495px;
   position: fixed;
 }
 
@@ -852,12 +900,13 @@ form button.send-key-button1 {
 }
 
 form img.close-icon1, form.not-valid img.close-icon2 {
-  margin: -35px 0 35px 500px;
+  margin: -35px 0 35px 800px;
+  position: fixed;
 }
 
 /* Valid key */
 
-dialog.valid-key.modal {
+/* dialog.valid-key.modal {
   background-color: #ebd0bf;
   border: 6px solid #af4401;
 }
@@ -895,7 +944,7 @@ img.close-icon2 {
 
 form.not-valid button.send-key-button2 {
   margin: 30px 0 10px 220px;
-}
+} */
 
 /* ---------------------------- Media Queries ---------------------------- */
 
@@ -1209,6 +1258,7 @@ form.not-valid button.send-key-button2 {
     width: 40px;
     height: 40px;
     margin: 0 245px 330px -265px;
+    position: fixed;
   }
 
   /*---- Group chat View ----*/
@@ -1224,7 +1274,7 @@ form.not-valid button.send-key-button2 {
   }
 
   div.group-chat-wrapper .buttons-area img {
-    margin: -376px 0 0 -280px;
+    margin: -10px 0px 0 -240px;
     position: fixed;
   }
 
@@ -1298,27 +1348,42 @@ form.not-valid button.send-key-button2 {
     text-align: center;
   }
   
-  dialog.modal input {
+  dialog.modal input.text {
     height: 25px;
-    width: 180px;
-    margin: 10px 0 5px 0; 
+    width: 250px;
+    margin: 10px 50px; 
+    border-radius: 5px;
+  }
+
+  dialog.modal input.text.none {
+    border: 4px solid #ad4301;
+    font-size: 16px;
+    height: 30px;
+    width: 300px;
+    margin: 10px 20px; 
   }
  
-  dialog.modal button {
-    width: 70px;
-    margin: auto;
+  dialog.modal button.send-key-button1, dialog.modal button.send-key-button2 {
+    width: 80px;
+    height: 25px;
+    margin: 10px 135px 20px 135px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    position: relative;
+
   }
    
   dialog.modal p.link {
-    margin: 50px;
+    margin: 10px 50px;
   }
   
   dialog.modal a {
     font-size: 15px;
   }
   
-  form img.close-icon1, form.not-valid img.close-icon2 {
-    margin: -73px 0 0 138px;
+  dialog.modal img.close-icon1, dialog.modal img.close-icon2 {
+    /* margin: -73px 0 0 138px; */
+    margin: -20px 0px 0px 310px;
   }
   
   dialog.valid-key.modal button {
