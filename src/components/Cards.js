@@ -1,8 +1,8 @@
 import { navigateTo } from "../router.js";
 import { StatsModals } from "./StatsModals.js";
-import { apiKeyValue } from "../views/Welcome.js";
+//import { apiKeyValue } from "../views/Welcome.js";
 import EmptyApiKey from "../components/EmptyApiKey.js";
-import { keyValueFromModal } from "../components/EmptyApiKey.js";
+//import { keyValueFromModal } from "../components/EmptyApiKey.js";
 //import { setApiKey } from "../lib/apikey.js";
 
 const renderFactImages = (plant, cardItem) => {
@@ -200,18 +200,18 @@ export const renderItems = (data) => {
       
       //silocalstorage no es 0 debe ir directo
       if (window.localStorage.length !== 0) { 
-          navigateTo("/Individual", {
+        navigateTo("/Individual", {
           title: element.name,
           searchParams: { id: element.id }});
-        } else {
-          const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
-          const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
-          cardItem.appendChild(emptyApiKeyViewModal);
-          emptyApiKeyViewModal.showModal();
-        }
-      });
-      
+      } else {
+        const infoToNavigate = ["/Individual", { title: element.name, searchParams: { id: element.id } }];
+        const emptyApiKeyViewModal = EmptyApiKey(infoToNavigate);
+        cardItem.appendChild(emptyApiKeyViewModal);
+        emptyApiKeyViewModal.showModal();
+      }
     });
+    
+  });
 
   return cardsContainer;
 };

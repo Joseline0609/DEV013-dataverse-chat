@@ -27,23 +27,19 @@ export default function EmptyApiKey(infoToNavigate) {
 
   sendKeyButon1.addEventListener("click", () => {
 
-      if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] == "sk-" ) {
-        console.log("despues de validar");
-        console.log(newApiKeyValue.value);
-        console.log(window.localStorage);
-        //necesito guardar este valor para enviarlo a los otros lugares
-        keyValueFromModal = newApiKeyValue.value;
-        setApiKey(newApiKeyValue.value);
-        if (infoToNavigate[0] == "/Group") {
+    if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] === "sk-" ) {
+      keyValueFromModal = newApiKeyValue.value;
+      setApiKey(newApiKeyValue.value);
+      if (infoToNavigate[0] === "/Group") {
         navigateTo(infoToNavigate[0], infoToNavigate[1]);
-        } else {
-        navigateTo(infoToNavigate[0], infoToNavigate[1]);
-        }
       } else {
-        newApiKeyValue.className = "text none";
-        newApiKeyValue.value = "";
-        newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
+        navigateTo(infoToNavigate[0], infoToNavigate[1]);
       }
+    } else {
+      newApiKeyValue.className = "text none";
+      newApiKeyValue.value = "";
+      newApiKeyValue.setAttribute("placeholder", "Inserta una llave correcta...")
+    }
   });
     
   const closeButton = document.createElement("img");

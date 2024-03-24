@@ -93,8 +93,6 @@ y ajusta las importaciones para que funcionen correctamente.
 import { data } from '../src/data/dataset.js';
 import { filterData } from '../src/lib/dataFunctions.js';
 
-// console.log(data);
-
 describe('filterData', () => {
 
   it('returns `filterData`', () => {
