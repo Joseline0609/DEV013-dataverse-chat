@@ -2,8 +2,9 @@
   <head>
   </head>
   <body>
-    <script src="./src/router.js">
-        navigateTo("/Notfound");
+    <script src="./src/router.js" type="module">
+      import { navigateTo } from "./router.js";
+      navigateTo("/Notfound");
     </script>
   </body>
 </html>
