@@ -173,15 +173,7 @@ export const GroupChat = () => {
       const newResponseContainer = document.createElement("div");
       newResponseContainer.className = "plant-message";
       chatContainer.appendChild(newResponseContainer);
-      //--------------------------
-      const newResponseContainer = document.createElement("div");
-      newResponseContainer.className = "plant-message";
-      chatContainer.appendChild(newResponseContainer);
 
-      const plantName = document.createElement("p");
-      newResponseContainer.appendChild(plantName);
-      plantName.className = "name";
-      plantName.innerHTML = plant.name;
       const plantName = document.createElement("p");
       newResponseContainer.appendChild(plantName);
       plantName.className = "name";
@@ -190,17 +182,7 @@ export const GroupChat = () => {
       const viewNewResponse = document.createElement("p");
       newResponseContainer.appendChild(viewNewResponse);
       viewNewResponse.className = "message";
-      const viewNewResponse = document.createElement("p");
-      newResponseContainer.appendChild(viewNewResponse);
-      viewNewResponse.className = "message";
 
-      const plantImageContainer = document.createElement("div");
-      plantImageContainer.className = "plant-image";
-      newResponseContainer.appendChild(plantImageContainer);
-      const plantImage = document.createElement("img");
-      plantImage.src = `${plant.imageUrl}`;
-      plantImage.style = "height:25px;width:18px";
-      plantImageContainer.appendChild(plantImage);
       const plantImageContainer = document.createElement("div");
       plantImageContainer.className = "plant-image";
       newResponseContainer.appendChild(plantImageContainer);
