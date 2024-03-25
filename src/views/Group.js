@@ -208,13 +208,9 @@ export const GroupChat = () => {
       plantImage.src = `${plant.imageUrl}`;
       plantImage.style = "height:25px;width:18px";
       plantImageContainer.appendChild(plantImage);
-
-      viewNewResponse.innerHTML = assistantMessage;
-    }
       viewNewResponse.innerHTML = assistantMessage;
     }
 
-    scroll();
     scroll();
   }
 
