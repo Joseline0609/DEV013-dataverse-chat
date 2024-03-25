@@ -142,7 +142,7 @@ export const renderItems = (data) => {
     
     const cardItem = document.createElement("li");
     cardItem.innerHTML = `
-  <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
+    <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
     <article id="front-card" class="front-card">
       <h2>${element.name}</h2>
       <h3>${element.scientificName}</h3>
@@ -195,7 +195,6 @@ export const renderItems = (data) => {
 
     goToIndividualChat.addEventListener("click", () => {
       
-      //silocalstorage no es 0 debe ir directo
       if (window.localStorage.length !== 0) { 
         navigateTo("/Individual", {
           title: element.name,

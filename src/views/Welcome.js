@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apikey.js";
 
+// To save the inputs value
 export let userNameValue = "";
 export let apiKeyValue = "";
 
@@ -27,13 +28,12 @@ export const Welcome = () => {
       </div>
     </div>
   `;
-
+  
   //--------------------------------------
 
   const user = viewWelcome.querySelector("#input-name");
   const apiKey = viewWelcome.querySelector("#apikey");
   
-
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   // This feature prevents the user from logging in without entering their name

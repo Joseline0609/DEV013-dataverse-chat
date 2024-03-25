@@ -15,7 +15,6 @@ export const GroupIconButton = () => {
       buttonContainer.appendChild(emptyApiKeyViewModal);
       emptyApiKeyViewModal.showModal(); 
     }
-
   });
     
   return buttonContainer;

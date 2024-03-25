@@ -1,16 +1,16 @@
 export const keyName= "keyName";
 
-//Esta funcion recibe un argumento  pero no retorna nada
+//This function receives an argument but does not return anything
 
 export const setApiKey = (key) => {
-  // Implementa el código para guardar la API KEY en Local Storage
+  // To save the ApiKey to Local Storage
   localStorage.setItem("keyName", key);
 };
 
-// Esta funcion retorna pero no recibe ningun argumento
+// This function returns but does not receive any arguments
 
 export const getApiKey = () => {
-  // Implementa el código para obtener la API KEY desde Local Storage
+  // To get the ApiKey from Local Storage
   const myStorage = window.localStorage.getItem(keyName);
   return myStorage;
 };
