@@ -3,6 +3,10 @@ import { HomeIconButton } from "../components/HomeIconButton.js";
 import { data } from "../data/data.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
+export function getRandomNumberOfPlants(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 export const GroupChat = () => {
   const viewGroupChat = document.createElement("div");
   viewGroupChat.className = "group-chat-wrapper";
@@ -72,14 +76,13 @@ export const GroupChat = () => {
   // con ese numero elegir de manera random
   //la planta que va a contestar sin que se repita el numero
   const randomNumberOfPlants = getRandomNumberOfPlants(2, 5);
-  function getRandomNumberOfPlants(min, max) {
-    return Math.random() * (max - min) + min;
-  }
 
   const plantArray = [];
   for (let i = 0; i < randomNumberOfPlants; i++) {
-    plantArray.push(data[Math.floor(Math.random()*data.length)]);
-    //asegurarse que no se repitan
+    const randomPlant = data[Math.floor(Math.random()*data.length)];
+    if(plantArray.includes(randomPlant) === false){
+      plantArray.push(randomPlant);
+    }
   }
 
   // Function to execute the connection with OpenIA
@@ -161,8 +164,8 @@ export const GroupChat = () => {
   function openIAResponse(plantResponse, plant) {
     if (
       plantResponse &&
-    plantResponse.choices &&
-    plantResponse.choices.length > 0
+      plantResponse.choices &&
+      plantResponse.choices.length > 0
     ) {
     // Bring the answer from the AI
       const assistantMessage = plantResponse.choices[0].message.content;

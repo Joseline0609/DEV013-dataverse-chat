@@ -7,6 +7,7 @@ import { communicateWithOpenAI } from "../lib/openAIApi.js";
 export default function IndividualChat(props = {}) {
   // Function to identify and extract the data to render the corresponding view
   const propsIdValue = Object.values(props);
+  console.log(propsIdValue);
   function findPlant(plant) {
     return plant.id === propsIdValue[0];
   }

@@ -1,9 +1,6 @@
 import { navigateTo } from "../router.js";
 import { StatsModals } from "./StatsModals.js";
-//import { apiKeyValue } from "../views/Welcome.js";
-import EmptyApiKey from "../components/EmptyApiKey.js";
-//import { keyValueFromModal } from "../components/EmptyApiKey.js";
-//import { setApiKey } from "../lib/apikey.js";
+import { EmptyApiKey } from "../components/EmptyApiKey.js";
 
 const renderFactImages = (plant, cardItem) => {
   const waterActiveImage = document.createElement("img");

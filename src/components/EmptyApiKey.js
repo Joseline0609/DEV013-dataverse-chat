@@ -1,10 +1,9 @@
 import { navigateTo } from "../router.js";
-//import { apiKeyValue } from "../views/Welcome.js";
 import { setApiKey } from "../lib/apikey.js";
 
 export let keyValueFromModal = "";
 
-export default function EmptyApiKey(infoToNavigate) {
+export function EmptyApiKey(infoToNavigate) {
   const viewEmptyModal = document.createElement("dialog");
   viewEmptyModal.className = "empty-key modal";
   viewEmptyModal.innerHTML += `
