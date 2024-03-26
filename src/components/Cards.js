@@ -1,6 +1,6 @@
 import { navigateTo } from "../router.js";
 import { StatsModals } from "./StatsModals.js";
-import EmptyApiKey from "../components/EmptyApiKey.js";
+import { EmptyApiKey } from "../components/EmptyApiKey.js";
 
 const renderFactImages = (plant, cardItem) => {
   const waterActiveImage = document.createElement("img");
@@ -142,7 +142,7 @@ export const renderItems = (data) => {
     
     const cardItem = document.createElement("li");
     cardItem.innerHTML = `
-  <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
+    <li class="card-container ${element.categoryPlant}" itemscope itemtype="https://schema.org">
     <article id="front-card" class="front-card">
       <h2>${element.name}</h2>
       <h3>${element.scientificName}</h3>

@@ -33,6 +33,7 @@ export const Welcome = () => {
 
   const user = viewWelcome.querySelector("#input-name");
   const apiKey = viewWelcome.querySelector("#apikey");
+  
   const enterButton = viewWelcome.querySelector("#enter-button");
 
   // This feature prevents the user from logging in without entering their name
@@ -44,7 +45,6 @@ export const Welcome = () => {
       userNameValue = user.value;
       navigateTo("/Home", { title: "Home" });
     } else if (apiKey.value.length > 40 || apiKey[0]+apiKey[1]+apiKey[2] === "sk-") {
-
       userNameValue = user.value;
       userNameValue = user.value;
       apiKeyValue = apiKey.value;

@@ -3,6 +3,10 @@ import { HomeIconButton } from "../components/HomeIconButton.js";
 import { data } from "../data/data.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
+export function getRandomNumberOfPlants(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 export const GroupChat = () => {
   const viewGroupChat = document.createElement("div");
   viewGroupChat.className = "group-chat-wrapper";
@@ -73,17 +77,21 @@ export const GroupChat = () => {
 
   const plantArray = [];
   for (let i = 0; i < randomNumberOfPlants; i++) {
-    plantArray.push(data[Math.floor(Math.random() * data.length)]);
+    const randomPlant = data[Math.floor(Math.random()*data.length)];
+    if(plantArray.includes(randomPlant) === false){
+      plantArray.push(randomPlant);
+    }
   }
-  //----------------------------------------------
 
   // Function to execute the connection with OpenIA
   function conectOpenIA() {
-    const newMessage = viewGroupChat.querySelector("#user-text-group");
-    const userMessage = newMessage.value;
+    const userNewMessage = viewGroupChat.querySelector("#user-text-group");
+    const newMessage = userNewMessage.value;
+    // console.log(newMessage);
 
     plantArray.forEach((plant) => {
-      communicateWithOpenAI(plant.id, userMessage)
+
+      communicateWithOpenAI(plant.id, newMessage)
         .then((response) => response.json())
         .then((plantResponse) => {
           manejarRespuestaDeOpenIA(plantResponse, plant);
@@ -91,6 +99,7 @@ export const GroupChat = () => {
         .catch((error) => {
           console.log(error);
         });
+
     });
   }
 
@@ -146,8 +155,6 @@ export const GroupChat = () => {
 
       viewNewMessage.innerHTML = newMessageText;
 
-      // newMessage.value = ``;
-
       scroll();
     }
   }
@@ -158,7 +165,7 @@ export const GroupChat = () => {
       plantResponse.choices &&
       plantResponse.choices.length > 0
     ) {
-      // Bring the answer from the AI
+    // Bring the answer from the AI
       const assistantMessage = plantResponse.choices[0].message.content;
       const chatContainer = document.getElementById("chat-container");
 
@@ -183,7 +190,6 @@ export const GroupChat = () => {
       plantImage.src = `${plant.imageUrl}`;
       plantImage.style = "height:25px;width:18px";
       plantImageContainer.appendChild(plantImage);
-
       viewNewResponse.innerHTML = assistantMessage;
     }
 

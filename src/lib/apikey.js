@@ -6,7 +6,6 @@ export const setApiKey = (key) => {
   // To save the ApiKey to Local Storage
   localStorage.setItem("keyName", key);
 };
-// console.log(localStorage);
 
 // This function returns but does not receive any arguments
 

@@ -1,5 +1,5 @@
 import { navigateTo } from "../router.js";
-import EmptyApiKey from "../components/EmptyApiKey.js";
+import { EmptyApiKey } from "../components/EmptyApiKey.js";
 
 export const GroupIconButton = () => {
   const buttonContainer = document.createElement("div");

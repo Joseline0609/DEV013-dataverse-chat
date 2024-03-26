@@ -3,7 +3,7 @@ import { setApiKey } from "../lib/apikey.js";
 
 export let keyValueFromModal = "";
 
-export default function EmptyApiKey(infoToNavigate) {
+export function EmptyApiKey(infoToNavigate) {
   const viewEmptyModal = document.createElement("dialog");
   viewEmptyModal.className = "empty-key modal";
   viewEmptyModal.innerHTML += `
@@ -27,8 +27,6 @@ export default function EmptyApiKey(infoToNavigate) {
   sendKeyButon1.addEventListener("click", () => {
 
     if ( newApiKeyValue.value.length > 40 && newApiKeyValue.value[0]+newApiKeyValue.value[1]+newApiKeyValue.value[2] === "sk-" ) {
-      //console.log(newApiKeyValue.value);
-      //console.log(window.localStorage);
       keyValueFromModal = newApiKeyValue.value;
       setApiKey(newApiKeyValue.value);
       if (infoToNavigate[0] === "/Group") {
