@@ -44,7 +44,7 @@ const queryStringToObject = (queryString) => {
  * @param { a string } props - the extention to find the specific item
  */
 
-const renderView = (pathname, props = {}) => {
+export const renderView = (pathname, props = {}) => {
   const root = rootElement;
   root.innerHTML = "";
   if (ROUTES[pathname]) {
